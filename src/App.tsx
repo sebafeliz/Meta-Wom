@@ -30,7 +30,11 @@ import {
   Trash2,
   LayoutDashboard,
   Star,
-  Phone
+  Phone,
+  Undo2,
+  Wifi,
+  Battery,
+  Signal
 } from 'lucide-react';
 
 import { ProductInfo, SaleRecord, PrepagoRecord, UserProfile, MonthlyHistoryRecord } from './types';
@@ -107,6 +111,7 @@ export default function App() {
   // Current active profile data
   const [metaObjective, setMetaObjective] = useState<number>(300);
   const [salesHistory, setSalesHistory] = useState<SaleRecord[]>([]);
+  const [lastAddedRecordId, setLastAddedRecordId] = useState<string | null>(null);
 
   // Prepago target & history
   const [metaPrepagoObjective, setMetaPrepagoObjective] = useState<number>(30);
@@ -120,6 +125,18 @@ export default function App() {
   };
   const [currentMonth, setCurrentMonth] = useState<string>(getInitialMonthName());
   const [monthlyHistory, setMonthlyHistory] = useState<MonthlyHistoryRecord[]>([]);
+
+  // Dynamic live clock for modern smartphone simulator UI
+  const [statusBarTime, setStatusBarTime] = useState<string>('12:00');
+  useEffect(() => {
+    const updateTime = () => {
+      const d = new Date();
+      setStatusBarTime(d.toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit', hour12: false }));
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 15000);
+    return () => clearInterval(interval);
+  }, []);
 
   // Sleek confirmation modal state that works flawlessly in sandboxed browser iframes
   const [confirmModal, setConfirmModal] = useState<{
@@ -485,6 +502,7 @@ export default function App() {
 
     const nextHistory = [newRecord, ...salesHistory];
     setSalesHistory(nextHistory);
+    setLastAddedRecordId(newRecord.id);
     saveUserData(nextHistory, metaObjective);
 
     // Clear temp states
@@ -497,6 +515,26 @@ export default function App() {
     });
   };
 
+  // Reverts the last registered entry, restoring its counts to temp state for correction
+  const handleUndoRegister = () => {
+    if (!lastAddedRecordId) return;
+    const recordToUndo = salesHistory.find((r) => r.id === lastAddedRecordId);
+    if (!recordToUndo) return;
+
+    setTempCounts({
+      postpago: recordToUndo.postpagoCount,
+      porta_pos_15990: recordToUndo.portaPos15990Count || 0,
+      porta: recordToUndo.portaCount,
+      nuevo: recordToUndo.nuevoCount,
+      renov: recordToUndo.renovCount,
+    });
+
+    const nextHistory = salesHistory.filter((r) => r.id !== lastAddedRecordId);
+    setSalesHistory(nextHistory);
+    saveUserData(nextHistory, metaObjective);
+    setLastAddedRecordId(null);
+  };
+
   // Delete dynamic record from listing
   const handleDeleteRecord = (recordId: string) => {
     triggerConfirm(
@@ -505,6 +543,9 @@ export default function App() {
       () => {
         const nextHistory = salesHistory.filter((r) => r.id !== recordId);
         setSalesHistory(nextHistory);
+        if (lastAddedRecordId === recordId) {
+          setLastAddedRecordId(null);
+        }
         saveUserData(nextHistory, metaObjective);
       },
       'Anular venta',
@@ -769,15 +810,6 @@ export default function App() {
 
                 {/* Form layout */}
                 <div className="bg-white p-6 rounded-3xl border border-purple-100 custom-card-shadow space-y-4">
-                  <div className="border-b border-purple-50 pb-3 text-center">
-                    <h3 className="text-sm font-bold text-gray-700 uppercase">
-                      Ingresar con tu Nombre
-                    </h3>
-                    <p className="text-[10px] text-gray-450 mt-1">
-                      Crea o accede a tu cuenta local para guardar transacciones
-                    </p>
-                  </div>
-
                   <form onSubmit={handleLogin} className="space-y-4">
                     <div className="space-y-1">
                       <label className="text-[10px] font-bold text-wom-purple uppercase tracking-wider block px-1">
@@ -787,7 +819,7 @@ export default function App() {
                         id="loginUsername"
                         type="text"
                         required
-                        placeholder="Ej: Sebastián"
+                        placeholder="Ej: usuario"
                         value={newUsernameInput}
                         onChange={(e) => setNewUsernameInput(e.target.value)}
                         className="w-full bg-purple-50 hover:bg-purple-100/60 focus:bg-white text-wom-purple placeholder-purple-300 font-bold text-sm rounded-2xl p-4 border border-purple-200 focus:outline-none focus:ring-2 focus:ring-wom-purple transition-all"
@@ -805,70 +837,8 @@ export default function App() {
                   </form>
                 </div>
 
-                {/* Account list switcher if profiles are logged */}
-                {savedUsersList.length > 0 && (
-                  <div className="space-y-3">
-                    <p className="text-center text-[10px] font-extrabold text-gray-400 uppercase tracking-widest">
-                      O Selecciona una Cuenta Guardada:
-                    </p>
 
-                    <div className="max-h-48 overflow-y-auto space-y-2 pr-1">
-                      {savedUsersList.map((usrKey) => {
-                        const profile = savedProfilesMap[usrKey];
-                        const displayName = profile ? profile.username : usrKey
-                          .split('_')
-                          .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-                          .join(' ');
-                        const isCloudSynced = profile ? profile.isCloud : false;
-
-                        return (
-                          <div
-                            key={usrKey}
-                            onClick={() => handleSelectSavedUser(usrKey)}
-                            className="flex items-center justify-between p-3.5 bg-white hover:bg-purple-50/50 rounded-2xl border border-gray-150/80 cursor-pointer transition-all hover:scale-[1.01] active:scale-[0.99]"
-                          >
-                            <div className="flex items-center space-x-3">
-                              <div className="w-8 h-8 rounded-xl bg-purple-100 flex items-center justify-center">
-                                <User className="w-4 h-4 text-wom-purple" />
-                              </div>
-                              <div className="flex flex-col items-start select-none">
-                                <span className="text-xs font-bold text-gray-700">
-                                  {displayName}
-                                </span>
-                                {isCloudSynced ? (
-                                  <span className="text-[8.5px] text-purple-600 font-black uppercase tracking-wider flex items-center mt-0.5">
-                                    <span className="inline-block w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse mr-1" />
-                                    <span>Nube Sincronizada</span>
-                                  </span>
-                                ) : (
-                                  <span className="text-[8.5px] text-gray-400 font-medium uppercase mt-0.5">
-                                    Local
-                                  </span>
-                                )}
-                              </div>
-                            </div>
-
-                            <button
-                              id={`delete-profile-${usrKey}`}
-                              onClick={(e) => handleDeleteProfile(usrKey, e)}
-                              className="p-1.5 hover:bg-rose-100 text-rose-400 hover:text-rose-600 rounded-lg transition-all"
-                              title="Borrar este perfil"
-                            >
-                              <RotateCcw className="w-4 h-4" />
-                            </button>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
               </div>
-
-              {/* Utility disclaimer */}
-              <p className="text-center text-[10px] text-gray-500 font-semibold max-w-xs mx-auto mt-6 flex flex-col items-center justify-center space-y-1 select-none">
-                <span className="text-purple-600 font-bold">🌐 Sincronizado en la Nube con Firestore</span>
-                <span className="text-[8.5px] text-gray-450 font-bold uppercase tracking-wide text-center">Inicia sesión con tu cuenta desde cualquier celular o PC</span>
-              </p>
             </motion.div>
           ) : (
             /* --- IN-APP ACTIVE SCREEN --- */
@@ -897,7 +867,7 @@ export default function App() {
 
                 {/* Profile Widget switcher */}
                 <div className="flex items-center space-x-1.5 bg-purple-50/70 py-1 pl-2.5 pr-1 rounded-xl border border-purple-100 max-w-[50%]">
-                  <span className="text-[11px] font-bold text-wom-purple truncate max-w-[80px]">
+                  <span className="text-[11px] font-extrabold text-wom-purple truncate max-w-[80px]">
                     {currentUser}
                   </span>
                   <button
@@ -919,7 +889,7 @@ export default function App() {
                   className={`py-3 text-[8px] sm:text-[9px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
                     activeTab === 'panel'
                       ? 'border-b-3 border-wom-purple text-wom-purple font-extrabold bg-purple-50/20'
-                      : 'text-gray-400 hover:text-gray-600'
+                      : 'text-gray-400 hover:text-gray-650'
                   }`}
                 >
                   <Smartphone className="w-3.5 h-3.5" />
@@ -931,7 +901,7 @@ export default function App() {
                   className={`py-3 text-[8px] sm:text-[9px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
                     activeTab === 'prepago'
                       ? 'border-b-3 border-wom-purple text-wom-purple font-extrabold bg-purple-50/20'
-                      : 'text-gray-400 hover:text-gray-600'
+                      : 'text-gray-400 hover:text-gray-650'
                   }`}
                 >
                   <PhoneCall className="w-3.5 h-3.5" />
@@ -943,7 +913,7 @@ export default function App() {
                   className={`py-3 text-[8px] sm:text-[9px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
                     activeTab === 'proyeccion'
                       ? 'border-b-3 border-wom-purple text-wom-purple font-extrabold bg-purple-50/20'
-                      : 'text-gray-400 hover:text-gray-600'
+                      : 'text-gray-400 hover:text-gray-650'
                   }`}
                 >
                   <TrendingUp className="w-3.5 h-3.5" />
@@ -955,7 +925,7 @@ export default function App() {
                   className={`py-3 text-[8px] sm:text-[9px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
                     activeTab === 'dashboard'
                       ? 'border-b-3 border-wom-purple text-wom-purple font-extrabold bg-purple-50/20'
-                      : 'text-gray-400 hover:text-gray-600'
+                      : 'text-gray-450 hover:text-gray-650'
                   }`}
                 >
                   <LayoutDashboard className="w-3.5 h-3.5" />
@@ -967,7 +937,7 @@ export default function App() {
                   className={`py-3 text-[8px] sm:text-[9px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
                     activeTab === 'comision'
                       ? 'border-b-3 border-wom-purple text-wom-purple font-extrabold bg-purple-50/20'
-                      : 'text-gray-400 hover:text-gray-600'
+                      : 'text-gray-400 hover:text-gray-650'
                   }`}
                 >
                   <Coins className="w-3.5 h-3.5" />
@@ -975,7 +945,7 @@ export default function App() {
                 </button>
               </nav>
 
-               {/* Scrollable Contents viewport */}
+              {/* Scrollable Contents viewport */}
               <main className="flex-1 overflow-y-auto p-4 space-y-5 pb-8">
                 
                 {/* Active Tab rendering */}
@@ -988,84 +958,6 @@ export default function App() {
                       exit={{ opacity: 0, x: 10 }}
                       className="space-y-4"
                     >
-                      {/* Sales items register panel */}
-                      <section className="bg-white p-5 rounded-[32px] border border-purple-100 custom-card-shadow space-y-4">
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <h2 className="text-sm font-black text-wom-purple uppercase tracking-wider">
-                              Registrar Ventas Nuevas
-                            </h2>
-                            <p className="text-[10px] text-gray-450">
-                              Agrega productos y presiona registrar
-                            </p>
-                          </div>
-                          <span className="text-[10px] font-bold text-wom-magenta bg-rose-50 px-2 py-0.5 rounded-md uppercase border border-rose-100">
-                            Hoy
-                          </span>
-                        </div>
-
-                        {/* Step items stack */}
-                        <div className="space-y-2.5">
-                          {PRODUCTS.map((prod) => (
-                            <div 
-                              key={prod.id} 
-                              className={`flex items-center justify-between p-3 bg-slate-50 border border-gray-150 rounded-2xl transition-all ${getProductColorBorder(prod.id)}`}
-                            >
-                              <div className="flex items-center space-x-2.5">
-                                <div className="p-2 bg-white rounded-xl border border-gray-100 flex items-center justify-center">
-                                  {getProductIcon(prod.id)}
-                                </div>
-                                <div className="space-y-0.5">
-                                  <p className="text-xs font-bold text-gray-800">
-                                    {prod.name}
-                                  </p>
-                                  <p className="text-[10px] font-bold text-wom-magenta/80">
-                                    +{prod.points} PTS
-                                  </p>
-                                  {prod.id === 'renov' && (
-                                    <p className="text-[9px] font-semibold text-amber-600">
-                                      {isRenovationBonusActive ? '🔥 Bono activo: vale 5 PTS' : 'Sube a 5 PTS al llegar al 95%'}
-                                    </p>
-                                  )}
-                                </div>
-                              </div>
-
-                              {/* Clickable controls */}
-                              <div className="flex items-center space-x-2.5">
-                                <button
-                                  id={`step-down-${prod.id}`}
-                                  onClick={() => handleStepCount(prod.id as any, -1)}
-                                  className="w-8 h-8 rounded-xl bg-white border border-gray-200 hover:border-purple-300 text-gray-600 font-bold shadow-sm flex items-center justify-center active:scale-95 transition-all text-sm"
-                                >
-                                  <Minus className="w-3.5 h-3.5" />
-                                </button>
-                                
-                                <span className="w-6 text-center text-xs font-black text-gray-800">
-                                  {tempCounts[prod.id as keyof typeof tempCounts] || 0}
-                                </span>
-
-                                <button
-                                  id={`step-up-${prod.id}`}
-                                  onClick={() => handleStepCount(prod.id as any, 1)}
-                                  className="w-8 h-8 rounded-xl bg-gradient-to-tr from-wom-purple to-purple-800 hover:opacity-95 text-white font-bold shadow-md shadow-purple-100 flex items-center justify-center active:scale-95 transition-all"
-                                >
-                                  <Plus className="w-3.5 h-3.5" />
-                                </button>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-
-                        <button
-                          id="submitRegisterSales"
-                          onClick={handleRegisterAndClear}
-                          className="w-full bg-gradient-to-r from-wom-magenta to-purple-900 hover:opacity-95 text-white font-bold py-4 rounded-2xl shadow-lg shadow-purple-100 transition-all active:scale-95 mt-4 text-xs tracking-wider uppercase flex items-center justify-center space-x-1"
-                        >
-                          <PlusCircle className="w-4 h-4 mr-1" />
-                          INGRESAR A HISTORIAL Y LIMPIAR
-                        </button>
-                      </section>
-
                       {/* Meta Goal Objective Box */}
                       <section className="bg-white p-4.5 rounded-3xl border border-purple-100 custom-card-shadow flex items-center justify-between">
                         <div className="flex items-center space-x-2.5">
@@ -1104,6 +996,99 @@ export default function App() {
                         points={totals.points} 
                         meta={metaObjective} 
                       />
+
+                      {/* Sales items register panel */}
+                      <section className="bg-white p-5 rounded-[32px] border border-purple-100 custom-card-shadow space-y-4">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <h2 className="text-sm font-black text-wom-purple uppercase tracking-wider">
+                              Registrar Ventas Nuevas
+                            </h2>
+                            <p className="text-[10px] text-gray-450">
+                              Agrega productos y presiona registrar
+                            </p>
+                          </div>
+                          <span className="text-[10px] font-bold text-wom-magenta bg-rose-50 px-2 py-0.5 rounded-md uppercase border border-rose-100">
+                            Hoy
+                          </span>
+                        </div>
+
+                        {/* Step items stack as smaller grid cards */}
+                        <div className="grid grid-cols-2 gap-2.5">
+                          {PRODUCTS.map((prod) => (
+                            <div 
+                              key={prod.id} 
+                              className={`flex flex-col justify-between p-3 bg-slate-50 border border-gray-150 rounded-[20px] transition-all hover:border-purple-200 custom-card-shadow ${getProductColorBorder(prod.id)} ${prod.id === 'renov' ? 'col-span-2' : ''}`}
+                            >
+                              {/* Product Info above buttons */}
+                              <div className="flex flex-col items-center text-center space-y-1 pb-1.5 pt-0.5">
+                                <div className="p-1.5 bg-white rounded-xl border border-gray-100 flex items-center justify-center shadow-xs">
+                                  {getProductIcon(prod.id)}
+                                </div>
+                                <div className="space-y-0.5">
+                                  <p className="text-[11px] font-black text-gray-800 leading-tight">
+                                    {prod.name}
+                                  </p>
+                                  <p className="text-[10px] font-black text-wom-magenta/95">
+                                    +{prod.points} PTS
+                                  </p>
+                                  {prod.id === 'renov' && (
+                                    <p className="text-[8.5px] font-bold text-amber-600 leading-normal mt-0.5 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-100">
+                                      {isRenovationBonusActive ? '🔥 Bono activo: vale 5 PTS' : 'Sube a 5 PTS al llegar al 95%'}
+                                    </p>
+                                  )}
+                                </div>
+                              </div>
+
+                              {/* Clickable controls below the info */}
+                              <div className="flex items-center justify-between bg-white rounded-xl p-1 border border-gray-150 shadow-xs">
+                                <button
+                                  id={`step-down-${prod.id}`}
+                                  onClick={() => handleStepCount(prod.id as any, -1)}
+                                  className="w-6 h-6 rounded-lg bg-gray-50 border border-gray-150/80 hover:bg-gray-100 hover:border-gray-300 text-gray-600 font-bold flex items-center justify-center active:scale-95 transition-all"
+                                >
+                                  <Minus className="w-3 h-3" />
+                                </button>
+                                
+                                <span className="text-xs font-black text-gray-800 select-none">
+                                  {tempCounts[prod.id as keyof typeof tempCounts] || 0}
+                                </span>
+
+                                <button
+                                  id={`step-up-${prod.id}`}
+                                  onClick={() => handleStepCount(prod.id as any, 1)}
+                                  className="w-6 h-6 rounded-lg bg-gradient-to-tr from-wom-purple to-purple-800 hover:opacity-95 text-white font-bold flex items-center justify-center active:scale-95 transition-all shadow-sm"
+                                >
+                                  <Plus className="w-3 h-3" />
+                                </button>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        <div className="flex gap-2 mt-3">
+                          <button
+                            id="submitRegisterSales"
+                            onClick={handleRegisterAndClear}
+                            className="flex-1 bg-gradient-to-r from-wom-magenta to-purple-900 hover:opacity-95 text-white font-black py-3 px-3 rounded-2xl shadow-md transition-all active:scale-95 text-xs uppercase flex items-center justify-center space-x-1"
+                          >
+                            <PlusCircle className="w-4 h-4" />
+                            <span>Ingresar Venta</span>
+                          </button>
+
+                          {lastAddedRecordId && salesHistory.some(r => r.id === lastAddedRecordId) && (
+                            <button
+                              id="undoRegisterSales"
+                              onClick={handleUndoRegister}
+                              className="bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-700 font-black py-3 px-3 rounded-2xl shadow-sm transition-all active:scale-95 text-xs uppercase flex items-center justify-center space-x-1"
+                              title="Deshacer el último ingreso"
+                            >
+                              <Undo2 className="w-4 h-4" />
+                              <span>Deshacer</span>
+                            </button>
+                          )}
+                        </div>
+                      </section>
 
                       {/* Cumulative stats tracker */}
                       <section className="bg-white p-5 rounded-3xl border border-purple-100 custom-card-shadow space-y-3">
@@ -1585,7 +1570,6 @@ export default function App() {
             </div>
           )}
         </AnimatePresence>
-        
       </div>
     </div>
   );
