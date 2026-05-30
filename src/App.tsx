@@ -779,7 +779,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-100 flex items-center justify-center p-0 md:p-4">
       {/* Outer framing centered like a high contrast native telephone workspace */}
-      <div className="w-full max-w-md bg-[#faf9fc] min-h-screen md:min-h-[850px] md:max-h-[950px] md:rounded-[40px] shadow-2xl flex flex-col overflow-x-hidden border border-purple-100 relative">
+      <div className="w-full max-w-md md:max-w-3xl lg:max-w-5xl xl:max-w-6xl bg-[#faf9fc] min-h-screen md:my-4 md:min-h-[850px] md:max-h-[950px] lg:min-h-[880px] lg:max-h-[960px] md:rounded-[40px] shadow-2xl flex flex-col overflow-x-hidden border border-purple-100 relative">
         
         <AnimatePresence mode="wait">
           {!currentUser ? (
@@ -886,61 +886,61 @@ export default function App() {
                 <button
                   id="tab-btn-panel"
                   onClick={() => setActiveTab('panel')}
-                  className={`py-3 text-[8px] sm:text-[9px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
+                  className={`py-3 sm:py-4 text-[8px] sm:text-[10px] md:text-xs lg:text-[13px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
                     activeTab === 'panel'
                       ? 'border-b-3 border-wom-purple text-wom-purple font-extrabold bg-purple-50/20'
                       : 'text-gray-400 hover:text-gray-650'
                   }`}
                 >
-                  <Smartphone className="w-3.5 h-3.5" />
+                  <Smartphone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   <span className="truncate w-full text-center px-0.5">Pospago</span>
                 </button>
                 <button
                   id="tab-btn-prepago"
                   onClick={() => setActiveTab('prepago')}
-                  className={`py-3 text-[8px] sm:text-[9px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
+                  className={`py-3 sm:py-4 text-[8px] sm:text-[10px] md:text-xs lg:text-[13px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
                     activeTab === 'prepago'
                       ? 'border-b-3 border-wom-purple text-wom-purple font-extrabold bg-purple-50/20'
                       : 'text-gray-400 hover:text-gray-650'
                   }`}
                 >
-                  <PhoneCall className="w-3.5 h-3.5" />
+                  <PhoneCall className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   <span className="truncate w-full text-center px-0.5">Prepagos</span>
                 </button>
                 <button
                   id="tab-btn-proyeccion"
                   onClick={() => setActiveTab('proyeccion')}
-                  className={`py-3 text-[8px] sm:text-[9px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
+                  className={`py-3 sm:py-4 text-[8px] sm:text-[10px] md:text-xs lg:text-[13px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
                     activeTab === 'proyeccion'
                       ? 'border-b-3 border-wom-purple text-wom-purple font-extrabold bg-purple-50/20'
                       : 'text-gray-400 hover:text-gray-650'
                   }`}
                 >
-                  <TrendingUp className="w-3.5 h-3.5" />
+                  <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   <span className="truncate w-full text-center px-0.5">Proyección</span>
                 </button>
                 <button
                   id="tab-btn-dashboard"
                   onClick={() => setActiveTab('dashboard')}
-                  className={`py-3 text-[8px] sm:text-[9px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
+                  className={`py-3 sm:py-4 text-[8px] sm:text-[10px] md:text-xs lg:text-[13px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
                     activeTab === 'dashboard'
                       ? 'border-b-3 border-wom-purple text-wom-purple font-extrabold bg-purple-50/20'
                       : 'text-gray-450 hover:text-gray-650'
                   }`}
                 >
-                  <LayoutDashboard className="w-3.5 h-3.5" />
+                  <LayoutDashboard className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   <span className="truncate w-full text-center px-0.5">Control Metas</span>
                 </button>
                 <button
                   id="tab-btn-comision"
                   onClick={() => setActiveTab('comision')}
-                  className={`py-3 text-[8px] sm:text-[9px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
+                  className={`py-3 sm:py-4 text-[8px] sm:text-[10px] md:text-xs lg:text-[13px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
                     activeTab === 'comision'
                       ? 'border-b-3 border-wom-purple text-wom-purple font-extrabold bg-purple-50/20'
                       : 'text-gray-400 hover:text-gray-650'
                   }`}
                 >
-                  <Coins className="w-3.5 h-3.5" />
+                  <Coins className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   <span className="truncate w-full text-center px-0.5">Comisión</span>
                 </button>
               </nav>
@@ -956,9 +956,11 @@ export default function App() {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 10 }}
-                      className="space-y-4"
+                      className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-start"
                     >
-                      {/* Meta Goal Objective Box */}
+                      {/* Left Column: Target selectors & Sale entries */}
+                      <div className="space-y-4">
+                        {/* Meta Goal Objective Box */}
                       <section className="bg-white p-4.5 rounded-3xl border border-purple-100 custom-card-shadow flex items-center justify-between">
                         <div className="flex items-center space-x-2.5">
                           <div className="w-8.5 h-8.5 rounded-xl bg-purple-100/60 flex items-center justify-center text-wom-purple">
@@ -1089,9 +1091,12 @@ export default function App() {
                           )}
                         </div>
                       </section>
+                      </div>
 
-                      {/* Cumulative stats tracker */}
-                      <section className="bg-white p-5 rounded-3xl border border-purple-100 custom-card-shadow space-y-3">
+                      {/* Right Column: Statistics tracker, Trend details & logs */}
+                      <div className="space-y-4">
+                        {/* Cumulative stats tracker */}
+                        <section className="bg-white p-5 rounded-3xl border border-purple-100 custom-card-shadow space-y-3">
                         <div className="flex justify-between items-center border-b border-purple-50 pb-2">
                           <h3 className="text-xs font-bold text-wom-purple uppercase tracking-wider">
                             Acumulado General del Mes
@@ -1146,6 +1151,7 @@ export default function App() {
 
                       {/* Log history list with deletion capability */}
                       <AuditTrail history={salesHistoryWithDynamicPoints} onDeleteRecord={handleDeleteRecord} />
+                      </div>
                     </motion.div>
                   )}
 
@@ -1155,9 +1161,11 @@ export default function App() {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 10 }}
-                      className="space-y-4"
+                      className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-start"
                     >
-                      {/* Close Projections summary info */}
+                      {/* Left Column: Closure Tendency & Rhythm Metrics */}
+                      <div className="space-y-4">
+                        {/* Close Projections summary info */}
                       <section className="bg-white p-6 rounded-3xl custom-card-shadow border border-purple-100 overflow-hidden relative">
                         <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-purple-100 to-transparent rounded-full" />
                         
@@ -1203,9 +1211,12 @@ export default function App() {
                           </p>
                         </div>
                       </div>
+                      </div>
 
-                      {/* Advisory of single-product totals required for 100% */}
-                      <section className="bg-white p-5 rounded-3xl custom-card-shadow border border-purple-50 space-y-3.5">
+                      {/* Right Column: Dynamic Targets Advisory, Speeds and Strategic Advice */}
+                      <div className="space-y-4">
+                        {/* Advisory of single-product totals required for 100% */}
+                        <section className="bg-white p-5 rounded-3xl custom-card-shadow border border-purple-50 space-y-3.5">
                         <div className="flex items-center space-x-2">
                           <Sparkles className="w-5 h-5 text-wom-yellow fill-wom-yellow/20" />
                           <h3 className="text-xs font-black text-wom-purple uppercase tracking-widest">
@@ -1294,6 +1305,7 @@ export default function App() {
                           )}
                         </p>
                       </section>
+                      </div>
                     </motion.div>
                   )}
 
@@ -1303,9 +1315,11 @@ export default function App() {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 10 }}
-                      className="space-y-4"
+                      className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-start"
                     >
-                      {/* Prepago Actions Card */}
+                      {/* Left Column: Register & Goals */}
+                      <div className="space-y-4">
+                        {/* Prepago Actions Card */}
                       <section className="bg-white p-5 rounded-[32px] border border-purple-100 custom-card-shadow space-y-4">
                         <div>
                           <h2 className="text-sm font-black text-purple-700 uppercase tracking-wider">
@@ -1374,9 +1388,12 @@ export default function App() {
                         points={prepagosTotals.points} 
                         meta={metaPrepagoObjective} 
                       />
+                      </div>
 
-                      {/* Accumulated Prepagos */}
-                      <section className="bg-white p-4 rounded-3xl border border-purple-100 custom-card-shadow space-y-2">
+                      {/* Right Column: Accumulated Totals & Records historical tracker */}
+                      <div className="space-y-4">
+                        {/* Accumulated Prepagos */}
+                        <section className="bg-white p-4 rounded-3xl border border-purple-100 custom-card-shadow space-y-2">
                         <div className="flex justify-between items-center border-b border-purple-50 pb-1.5">
                           <h3 className="text-xs font-bold text-wom-purple uppercase">
                             Totales Prepago
@@ -1450,6 +1467,7 @@ export default function App() {
                           </div>
                         )}
                       </section>
+                      </div>
                     </motion.div>
                   )}
 

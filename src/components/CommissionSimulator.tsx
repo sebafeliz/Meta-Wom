@@ -692,8 +692,9 @@ export default function CommissionSimulator({
         )}
       </section>
 
-      {/* 2. Interactive Commission Slider (Real-time recalculation) */}
-      <section className="bg-white p-5 rounded-[32px] border border-purple-100 custom-card-shadow space-y-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-start">
+        {/* 2. Interactive Commission Slider (Real-time recalculation) */}
+        <section className="bg-white p-5 rounded-[32px] border border-purple-100 custom-card-shadow space-y-4">
         <div className="flex items-center space-x-2.5">
           <div id="simulated-commission-icon" className="w-9 h-9 rounded-xl bg-purple-50 flex items-center justify-center text-wom-purple">
             <Sliders className="w-5 h-5 text-wom-magenta" />
@@ -991,6 +992,7 @@ export default function CommissionSimulator({
           </p>
         </div>
       </section>
+      </div>
       
     </div>
   );
