@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;850;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Poppins", system-ui, sans-serif;
+  
+  --color-wom-purple: #4f46e5; /* Lumina Indigo-600 */
+  --color-wom-purple-light: #f5f3ff; /* Lumina Indigo-50 */
+  --color-wom-dark: #1e1b4b; /* Lumina Indigo-950 */
+  --color-wom-magenta: #6366f1; /* Secondary Indigo-500 */
+  --color-wom-yellow: #f59e0b; /* Amber accent */
+}
+
+/* Custom smooth entries and scrollbar aesthetics conforming to Sleek Design HTML */
+html, body {
+  font-family: var(--font-sans);
+  background-color: #f8fafc; /* bg-slate-50 style */
+  color: #0f172a; /* text-slate-900 style */
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.4);
+}
+
+/* Disable default spinners */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.custom-card-shadow {
+  box-shadow: 0 4px 20px -2px rgba(99, 102, 241, 0.05), 0 2px 8px -1px rgba(15, 23, 42, 0.03);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,38 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "El perfil de un ejecutivo de WOM, incluyendo sus metas y el historial de ventas",
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string",
+          "description": "El nombre formateado del ejecutivo"
+        },
+        "metaObjective": {
+          "type": "integer",
+          "description": "Puntos meta objetivo para el mes"
+        },
+        "salesHistory": {
+          "type": "array",
+          "description": "Historial de registros de ventas"
+        },
+        "metaPrepagoObjective": {
+          "type": "integer",
+          "description": "Puntos meta objetivo para prepagos"
+        },
+        "prepagosHistory": {
+          "type": "array",
+          "description": "Historial de registros de prepagos"
+        }
+      },
+      "required": ["username", "metaObjective", "salesHistory"]
+    }
+  },
+  "firestore": {
+    "/userProfiles/{username}": {
+      "schema": "UserProfile",
+      "description": "Almacenamiento remoto por perfil de usuario de forma multidisciplinar"
+    }
+  }
+}

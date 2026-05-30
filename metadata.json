@@ -1,0 +1,6 @@
+{
+  "name": "Meta WOM",
+  "description": "Calculadora, proyección de metas y simulador de comisiones para ejecutivos comerciales de WOM Chile",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
