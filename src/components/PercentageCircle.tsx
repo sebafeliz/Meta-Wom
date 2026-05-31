@@ -31,57 +31,51 @@ export default function PercentageCircle({ percentage, points, meta }: Percentag
   }
 
   return (
-    <div className="bg-white p-5 rounded-3xl border border-purple-100 custom-card-shadow space-y-4">
+    <div className="bg-white p-5 rounded-2xl border border-slate-100 hover:border-slate-200/80 transition-colors space-y-4">
       {/* Percentage and Points Info */}
       <div className="flex justify-between items-end">
         <div>
-          <span className="text-3xl font-black text-gray-800 select-none">
+          <span className="text-3xl font-light text-slate-800 select-none tracking-tight">
             {percentage.toFixed(0)}%
           </span>
-          <span className="text-[10px] font-black text-gray-450 block uppercase tracking-wider mt-0.5">
+          <span className="text-[10px] font-medium text-slate-400 block uppercase tracking-wider mt-0.5">
             Cumplimiento actual
           </span>
         </div>
         <div className="text-right">
-          <span className="text-base font-black text-wom-purple">
-            {points} <span className="text-gray-400 font-semibold text-xs">/ {meta} PTS</span>
+          <span className="text-sm font-semibold text-indigo-600">
+            {points} <span className="text-slate-450 font-normal text-xs">/ {meta} PTS</span>
           </span>
-          <span className="text-[10px] font-black text-gray-450 block uppercase tracking-wider mt-0.5">
+          <span className="text-[10px] font-medium text-slate-400 block uppercase tracking-wider mt-0.5">
             Puntos acumulados
           </span>
         </div>
       </div>
 
       {/* Horizontal Bar Track */}
-      <div className="relative w-full h-5 bg-gray-100 rounded-full overflow-hidden border border-gray-150/80 p-[3px]">
+      <div className="relative w-full h-2 bg-slate-100 rounded-full overflow-hidden">
         <div
-          className={`h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end px-2 ${colorClass}`}
+          className={`h-full rounded-full transition-all duration-700 ease-out ${colorClass}`}
           style={{ width: `${Math.min(percentage, 100)}%` }}
-        >
-          {percentage >= 15 && (
-            <span className="text-[9px] font-black text-white leading-none">
-              {percentage.toFixed(0)}%
-            </span>
-          )}
-        </div>
+        />
       </div>
 
       {/* Row with Label Indicator and Details */}
-      <div className="flex justify-between items-center sm:space-x-1">
-        <span className={`px-3 py-1 rounded-full text-[10px] font-black border ${bgClass} uppercase tracking-wide`}>
+      <div className="flex flex-wrap gap-2 justify-between items-center text-[11px]">
+        <span className={`px-2.5 py-0.5 rounded-md font-medium border ${bgClass} uppercase tracking-wide text-[10px]`}>
           {label}
         </span>
         {percentage >= 100 ? (
-          <span className="text-[10px] font-bold text-emerald-600 flex items-center bg-emerald-50 px-2.5 py-1 rounded-xl">
-            🎉 ¡Superaste el objetivo exigido!
+          <span className="font-medium text-emerald-600 bg-emerald-50/50 px-2.5 py-0.5 rounded-md">
+            ¡Objetivo superado!
           </span>
         ) : percentage >= 70 ? (
-          <span className="text-[10px] font-bold text-purple-600 flex items-center bg-purple-50 px-2.5 py-1 rounded-xl">
-            🎯 Estás en zona de pago de comisión
+          <span className="font-medium text-indigo-600 bg-indigo-50/50 px-2.5 py-0.5 rounded-md">
+            Zona de pago activa
           </span>
         ) : (
-          <span className="text-[10px] font-medium text-gray-400">
-            Faltan {Math.max(0, meta - points).toFixed(0)} PTS para la meta
+          <span className="text-slate-400">
+            Faltan {Math.max(0, meta - points).toFixed(0)} PTS
           </span>
         )}
       </div>

@@ -435,15 +435,15 @@ export default function CommissionSimulator({
     <div className="space-y-6">
 
       {/* Period Selection & Historical Logger Card */}
-      <section className="bg-white rounded-2xl border border-purple-100 p-3.5 sm:p-5 shadow-sm space-y-3 sm:space-y-4">
-        <div className="flex items-center justify-between gap-1.5 border-b border-purple-50 pb-2.5">
+      <section className="bg-white rounded-2xl border border-slate-100 p-4 sm:p-5 space-y-3 sm:space-y-4">
+        <div className="flex items-center justify-between gap-1.5 border-b border-slate-100 pb-2.5">
           <div className="flex items-center space-x-2">
-            <span className="p-1.5 sm:p-2 bg-purple-50 text-purple-700 rounded-lg sm:rounded-xl">
-              <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600" />
+            <span className="p-1.5 sm:p-2 bg-slate-50 text-slate-500 rounded-lg">
+              <Calendar className="w-4 h-4 text-slate-500" />
             </span>
             <div>
-              <h3 className="font-extrabold text-xs sm:text-sm text-gray-950 uppercase tracking-tight">Periodo de Rentabilidad</h3>
-              <p className="hidden xs:block text-[9px] sm:text-[10px] text-gray-400 font-bold uppercase">Define el mes y guarda históricos</p>
+              <h3 className="font-semibold text-xs sm:text-sm text-slate-850 uppercase tracking-widest">Periodo de Rentabilidad</h3>
+              <p className="hidden xs:block text-[9px] text-slate-400 font-medium uppercase tracking-wider">Define el mes y guarda históricos</p>
             </div>
           </div>
         </div>
@@ -451,7 +451,7 @@ export default function CommissionSimulator({
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-4 pt-1">
           {/* Month selector dropdown */}
           <div className="space-y-1">
-            <label className="text-[9px] sm:text-[10px] font-black text-gray-450 uppercase tracking-widest pl-1">Mes Seleccionado</label>
+            <label className="text-[9px] font-semibold text-slate-450 uppercase tracking-widest pl-1">Mes Seleccionado</label>
             <div className="flex space-x-1.5">
               <select
                 value={currentMonth.split(' ')[0]}
@@ -460,7 +460,7 @@ export default function CommissionSimulator({
                   const year = parts[1] || '2026';
                   setCurrentMonth?.(e.target.value + ' ' + year);
                 }}
-                className="w-full p-1.5 sm:p-2.5 bg-purple-50/50 hover:bg-purple-50/70 text-purple-950 font-bold text-[10.5px] sm:text-xs rounded-lg sm:rounded-xl border border-purple-100 focus:outline-none focus:border-purple-400 focus:bg-white transition-all cursor-pointer"
+                className="w-full p-2 bg-slate-50 hover:bg-slate-100 text-slate-800 font-medium text-xs rounded-lg border border-slate-200 focus:outline-none focus:border-slate-400 focus:bg-white transition-all cursor-pointer"
               >
                 {['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'].map((m) => (
                   <option key={m} value={m}>{m}</option>
@@ -473,7 +473,7 @@ export default function CommissionSimulator({
                   const month = parts[0] || 'Mayo';
                   setCurrentMonth?.(month + ' ' + e.target.value);
                 }}
-                className="p-1.5 sm:p-2.5 bg-purple-50/50 hover:bg-purple-50/70 text-purple-950 font-bold text-[10.5px] sm:text-xs rounded-lg sm:rounded-xl border border-purple-100 focus:outline-none focus:border-purple-400 focus:bg-white transition-all cursor-pointer"
+                className="p-2 bg-slate-50 hover:bg-slate-100 text-slate-800 font-medium text-xs rounded-lg border border-slate-200 focus:outline-none focus:border-slate-400 focus:bg-white transition-all cursor-pointer"
               >
                 {['2025', '2026', '2027', '2028'].map((y) => (
                   <option key={y} value={y}>{y}</option>
@@ -484,15 +484,15 @@ export default function CommissionSimulator({
 
           {/* Current metrics display */}
           <div className="space-y-1">
-            <label className="text-[9px] sm:text-[10px] font-black text-gray-450 uppercase tracking-widest pl-1">Métricas a Grabar</label>
-            <div className="p-1 px-1.5 sm:p-2 bg-slate-50 border border-slate-100 rounded-lg sm:rounded-xl text-[9px] sm:text-xs space-y-0.5 sm:space-y-1 font-semibold text-gray-600">
+            <label className="text-[9px] font-semibold text-slate-450 uppercase tracking-widest pl-1">Métricas a Grabar</label>
+            <div className="p-1.5 px-2 bg-slate-50/50 border border-slate-100 rounded-lg text-[10px] sm:text-xs space-y-1 font-semibold text-slate-600">
               <div className="flex justify-between items-center">
                 <span className="truncate">Pos: {totals?.points || 0}/{metaObjective} Pts</span>
-                <span className="font-extrabold text-purple-750">({currentPercentage.toFixed(0)}%)</span>
+                <span className="font-semibold text-slate-800">({currentPercentage.toFixed(0)}%)</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="truncate">Pre: {prepagosTotals?.points || 0}/{metaPrepagoObjective} Pts</span>
-                <span className="font-extrabold text-rose-600">({prepagoPercentage.toFixed(0)}%)</span>
+                <span className="font-semibold text-indigo-600">({prepagoPercentage.toFixed(0)}%)</span>
               </div>
             </div>
           </div>
@@ -527,7 +527,7 @@ export default function CommissionSimulator({
                 };
                 onSaveMonthlyHistory(newRec);
               }}
-              className="w-full p-2 sm:p-2.5 bg-teal-600 hover:bg-teal-700 text-white rounded-lg sm:rounded-xl font-bold text-[10.5px] sm:text-xs uppercase tracking-wider flex items-center justify-center space-x-1 sm:space-x-2 transition-all cursor-pointer shadow-sm active:scale-95"
+              className="w-full py-2 px-3 bg-slate-900 hover:bg-slate-850 text-white rounded-lg font-medium text-xs uppercase tracking-wider flex items-center justify-center space-x-2 transition-all cursor-pointer"
             >
               <Save className="w-3.5 h-3.5 text-white" />
               <span>Guardar Historial</span>
@@ -538,14 +538,14 @@ export default function CommissionSimulator({
 
       {/* Historial Mensual Display Section */}
       {monthlyHistory && monthlyHistory.length > 0 && (
-        <section className="bg-white rounded-3xl border border-purple-100 p-5 shadow-sm space-y-3">
-          <div className="flex items-center space-x-2 border-b border-purple-50 pb-2.5">
-            <span className="p-1.5 bg-teal-50 text-teal-600 rounded-lg">
-              <CheckCircle2 className="w-4.5 h-4.5 text-teal-600" />
+        <section className="bg-white rounded-2xl border border-slate-100 p-5 space-y-3">
+          <div className="flex items-center space-x-2 border-b border-slate-100 pb-2.5">
+            <span className="p-1.5 bg-slate-50 text-slate-500 rounded-lg">
+              <CheckCircle2 className="w-4 h-4 text-slate-500" />
             </span>
             <div>
-              <h4 className="font-black text-gray-950 text-xs uppercase tracking-widest">Historial de Ventas y Metas por Mes</h4>
-              <p className="text-[9px] text-gray-400 font-bold uppercase">Registro permanente de los periodos cerrados</p>
+              <h4 className="font-semibold text-slate-700 text-xs uppercase tracking-widest">Historial de Ventas y Metas por Mes</h4>
+              <p className="text-[9px] text-slate-400 font-medium uppercase tracking-wider">Registro permanente de los periodos cerrados</p>
             </div>
           </div>
 
@@ -557,45 +557,45 @@ export default function CommissionSimulator({
               return (
                 <div 
                   key={hist.id}
-                  className="bg-purple-50/10 hover:bg-purple-50/20 border border-purple-100/50 rounded-2xl p-4 flex flex-col justify-between transition-all"
+                  className="bg-slate-50/30 hover:bg-slate-50/60 border border-slate-100 rounded-xl p-4 flex flex-col justify-between transition-all"
                 >
                   <div className="flex items-start justify-between">
                     <div>
-                      <span className="text-sm font-black text-purple-950">{hist.monthName}</span>
-                      <p className="text-[9px] text-gray-400 font-bold uppercase mt-0.5">
+                      <span className="text-xs font-semibold text-slate-800">{hist.monthName}</span>
+                      <p className="text-[9px] text-slate-400 font-medium uppercase mt-0.5">
                         Grabado el {new Date(hist.timestamp).toLocaleDateString('es-CL')}
                       </p>
                     </div>
                     <button
                       onClick={() => onDeleteMonthlyHistory?.(hist.id)}
-                      className="p-1.5 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
+                      className="p-1 text-slate-400 hover:text-rose-500 hover:bg-rose-50 rounded transition-colors cursor-pointer"
                       title="Eliminar este mes"
                     >
-                      <Trash2 className="w-4 h-4 text-red-500" />
+                      <Trash2 className="w-3.5 h-3.5" />
                     </button>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2 mt-3 text-[11px] font-semibold text-gray-600">
-                    <div className="p-2 bg-white rounded-xl border border-slate-100">
-                      <span className="block text-[8px] font-black text-gray-450 uppercase tracking-wider">Móvil Pospago</span>
-                      <span className="text-gray-950 font-bold">{hist.postpagoPoints}/{hist.postpagoMeta} Pts</span>
-                      <span className={`block text-[9px] font-extrabold mt-1 uppercase ${isPostpagoActive ? 'text-teal-600' : 'text-rose-500'}`}>
+                  <div className="grid grid-cols-2 gap-2 mt-3 text-[11px] font-semibold text-slate-600">
+                    <div className="p-2 bg-white rounded-lg border border-slate-100">
+                      <span className="block text-[8px] font-medium text-slate-400 uppercase tracking-widest">Móvil Pospago</span>
+                      <span className="text-slate-850 font-semibold">{hist.postpagoPoints}/{hist.postpagoMeta} Pts</span>
+                      <span className={`block text-[9px] font-medium mt-1 uppercase ${isPostpagoActive ? 'text-teal-600' : 'text-rose-500'}`}>
                         {hist.postpagoPercent.toFixed(1)}% {isPostpagoActive ? '✔ Activo' : '❌ Inactivo'}
                       </span>
                     </div>
 
-                    <div className="p-2 bg-white rounded-xl border border-slate-100">
-                      <span className="block text-[8px] font-black text-gray-450 uppercase tracking-wider">Prepago (Meta)</span>
-                      <span className="text-gray-950 font-bold">{hist.prepagoPoints}/{hist.prepagoMeta} Pts</span>
-                      <span className={`block text-[9px] font-extrabold mt-1 uppercase ${isPrepagoActive ? 'text-teal-600' : 'text-rose-500'}`}>
+                    <div className="p-2 bg-white rounded-lg border border-slate-100">
+                      <span className="block text-[8px] font-medium text-slate-400 uppercase tracking-widest">Prepago (Meta)</span>
+                      <span className="text-slate-850 font-semibold">{hist.prepagoPoints}/{hist.prepagoMeta} Pts</span>
+                      <span className={`block text-[9px] font-medium mt-1 uppercase ${isPrepagoActive ? 'text-teal-600' : 'text-rose-500'}`}>
                         {hist.prepagoPercent.toFixed(1)}% {isPrepagoActive ? '✔ Activo' : '❌ Inactivo'}
                       </span>
                     </div>
                   </div>
 
-                  <div className="mt-3.5 pt-3.5 border-t border-purple-100/60 flex justify-between items-center bg-purple-50/20 px-3 py-2 rounded-xl">
-                    <span className="text-[10px] text-purple-900 font-extrabold uppercase">Comisión Estimada</span>
-                    <span className="text-sm font-black text-teal-750">{formatCLP(hist.totalCommission)}</span>
+                  <div className="mt-3 pt-3 border-t border-slate-100 flex justify-between items-center bg-white px-3 py-1.5 rounded-lg">
+                    <span className="text-[9px] text-slate-500 font-medium uppercase tracking-wider">Comisión Estimada</span>
+                    <span className="text-xs font-semibold text-slate-850">{formatCLP(hist.totalCommission)}</span>
                   </div>
                 </div>
               );
@@ -603,70 +603,62 @@ export default function CommissionSimulator({
           </div>
         </section>
       )}
-
-      {/* 1. Header & Summary Cards of COMMISSION ACCUMULATION */}
-      <section className="bg-gradient-to-br from-purple-900 to-purple-950 p-6 rounded-[36px] text-white shadow-xl shadow-purple-950/20 relative overflow-hidden">
-        {/* Subtle decorative circles for a premium aesthetic */}
-        <div className="absolute top-[-40px] right-[-40px] w-48 h-48 bg-wom-magenta/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-[-30px] left-[-35px] w-36 h-36 bg-wom-magenta/10 rounded-full blur-2xl pointer-events-none" />
-
-        <div className="text-center space-y-1.5 mb-6">
-          <span className="bg-wom-magenta text-white font-extrabold text-[10px] tracking-widest uppercase px-3 py-1 rounded-full border border-white/10 shadow-sm inline-block">
+      <section className="bg-slate-900 p-6 rounded-2xl text-white border border-slate-800 relative overflow-hidden">
+        <div className="text-center space-y-1 mb-6">
+          <span className="bg-slate-800 text-slate-300 font-semibold text-[9px] tracking-widest uppercase px-3 py-1 rounded-full border border-slate-700 shadow-sm inline-block">
             Resumen de Comisión Real Alcanzada
           </span>
-          <h2 className="text-2xl font-black tracking-tight uppercase">Cifras del Mes de {currentMonth.split(' ')[0]}</h2>
-          <p className="text-xs text-purple-200/90 max-w-lg mx-auto flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-3">
-            <span>Metas Postpago: <strong className="text-white">{currentPercentage.toFixed(1)}%</strong></span>
-            <span className="hidden sm:inline-block text-purple-400">•</span>
-            <span>Metas Prepago: <strong className="text-white">{prepagoPercentage.toFixed(1)}%</strong></span>
+          <h2 className="text-xl font-semibold tracking-tight uppercase text-white pt-1">Cifras del Mes de {currentMonth.split(' ')[0]}</h2>
+          <p className="text-[11px] text-slate-400 max-w-lg mx-auto flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-3 font-medium">
+            <span>Metas Postpago: <strong className="text-white font-semibold">{currentPercentage.toFixed(1)}%</strong></span>
+            <span className="hidden sm:inline-block text-slate-600">•</span>
+            <span>Metas Prepago: <strong className="text-white font-semibold">{prepagoPercentage.toFixed(1)}%</strong></span>
           </p>
         </div>
 
         {/* Triple Summary Panels */}
-        <div className="grid grid-cols-3 gap-1 pl-0.5 pr-0.5 sm:gap-3 sm:pl-0 sm:pr-0">
+        <div className="grid grid-cols-3 gap-2.5 pl-0.5 pr-0.5 sm:pl-0 sm:pr-0">
           {/* Postpago card */}
-          <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-1.5 min-[350px]:p-2.5 sm:p-4 md:p-3 lg:p-5 px-1 sm:px-3 md:px-1.5 lg:px-4 border border-white/10 hover:border-white/20 transition-all flex flex-col items-center justify-center text-center w-full">
-            <span className="block text-[7px] min-[350px]:text-[8px] min-[400px]:text-[9px] sm:text-[10px] md:text-[9px] lg:text-[10px] text-purple-200 uppercase font-black tracking-wider mb-1 select-none">
+          <div className="bg-slate-800 border border-slate-700/60 rounded-xl p-2.5 sm:p-4 hover:bg-slate-800/80 transition-all flex flex-col items-center justify-center text-center w-full">
+            <span className="block text-[8px] sm:text-[9.5px] text-slate-400 uppercase font-semibold tracking-widest mb-1 select-none">
               Móvil Postpago
             </span>
-            <span className="block text-[11px] min-[350px]:text-xs min-[400px]:text-sm sm:text-base md:text-sm lg:text-lg xl:text-2xl font-black text-white tracking-tight my-0.5 text-center w-full whitespace-nowrap">
+            <span className="block text-xs sm:text-lg font-semibold text-white tracking-tight my-0.5 text-center w-full whitespace-nowrap">
               {formatCLP(realPostpagoComm)}
             </span>
-            <span className="block text-[7px] min-[350px]:text-[8px] min-[400px]:text-[9px] sm:text-[9.5px] md:text-[8.5px] lg:text-[9.5px] text-purple-100 font-bold uppercase mt-0.5">
-              Metas: <strong className="text-white">{currentPercentage.toFixed(1)}%</strong>
+            <span className="block text-[8px] sm:text-[9px] text-slate-400 font-normal uppercase mt-0.5">
+              Metas: <strong className="text-white font-semibold">{currentPercentage.toFixed(1)}%</strong>
             </span>
-            <span className="block text-[6.5px] min-[350px]:text-[7.5px] min-[400px]:text-[8px] text-purple-200 font-black uppercase mt-1 bg-white/10 px-1 py-0.5 rounded-full select-none">
+            <span className="block text-[7px] sm:text-[8px] text-slate-300 font-semibold uppercase mt-1.5 bg-white/5 px-2 py-0.5 rounded-full select-none">
               {currentPercentage >= 70 ? '✔ Pago Activo' : 'Requiere 70%'}
             </span>
           </div>
 
-          {" "}
           {/* Prepago card */}
-          <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-1.5 min-[350px]:p-2.5 sm:p-4 md:p-3 lg:p-5 px-1 sm:px-3 md:px-1.5 lg:px-4 border border-white/10 hover:border-white/20 transition-all flex flex-col items-center justify-center text-center w-full">
-            <span className="block text-[7px] min-[350px]:text-[8px] min-[400px]:text-[9px] sm:text-[10px] md:text-[9px] lg:text-[10px] text-purple-200 uppercase font-black tracking-wider mb-1 select-none">
+          <div className="bg-slate-800 border border-slate-700/60 rounded-xl p-2.5 sm:p-4 hover:bg-slate-800/80 transition-all flex flex-col items-center justify-center text-center w-full">
+            <span className="block text-[8px] sm:text-[9.5px] text-slate-400 uppercase font-semibold tracking-widest mb-1 select-none">
               Móvil Prepago
             </span>
-            <span className="block text-[11px] min-[350px]:text-xs min-[400px]:text-sm sm:text-base md:text-sm lg:text-lg xl:text-2xl font-black text-rose-300 tracking-tight my-0.5 text-center w-full whitespace-nowrap">
+            <span className="block text-xs sm:text-lg font-semibold text-slate-300 tracking-tight my-0.5 text-center w-full whitespace-nowrap">
               {formatCLP(realPrepagoComm)}
             </span>
-            <span className="block text-[7px] min-[350px]:text-[8px] min-[400px]:text-[9px] sm:text-[9.5px] md:text-[8.5px] lg:text-[9.5px] text-purple-100 font-bold uppercase mt-0.5">
-              Metas: <strong className="text-white">{prepagoPercentage.toFixed(1)}%</strong>
+            <span className="block text-[8px] sm:text-[9px] text-slate-400 font-normal uppercase mt-0.5">
+              Metas: <strong className="text-white font-semibold">{prepagoPercentage.toFixed(1)}%</strong>
             </span>
-            <span className="block text-[6.5px] min-[350px]:text-[7.5px] min-[400px]:text-[8px] text-purple-200 font-black uppercase mt-1 bg-white/10 px-1 py-0.5 rounded-full select-none">
+            <span className="block text-[7px] sm:text-[8px] text-slate-300 font-semibold uppercase mt-1.5 bg-white/5 px-2 py-0.5 rounded-full select-none">
               {prepagoPercentage >= 70 ? '✔ Pago Activo' : 'Requiere 70%'}
             </span>
           </div>
 
-          {" "}
           {/* Sumatoria Total card */}
-          <div className="bg-gradient-to-tr from-wom-magenta to-rose-600 rounded-xl sm:rounded-2xl p-1.5 min-[350px]:p-2.5 sm:p-4 md:p-3 lg:p-5 px-1 sm:px-3 md:px-1.5 lg:px-4 shadow-lg border border-white/15 hover:border-white/25 transition-all flex flex-col items-center justify-center text-center w-full">
-            <span className="block text-[7px] min-[350px]:text-[8px] min-[400px]:text-[9px] sm:text-[10px] md:text-[9px] lg:text-[10px] text-white/90 uppercase font-black tracking-wider mb-1 select-none">
+          <div className="bg-indigo-950 border border-indigo-900/60 rounded-xl p-2.5 sm:p-4 hover:bg-indigo-900/40 transition-all flex flex-col items-center justify-center text-center w-full">
+            <span className="block text-[8px] sm:text-[9.5px] text-indigo-300 uppercase font-semibold tracking-widest mb-1 select-none">
               Comisión Total
             </span>
-            <span className="block text-[11px] min-[350px]:text-xs min-[400px]:text-sm sm:text-base md:text-sm lg:text-lg xl:text-2xl font-black text-white tracking-tight my-0.5 drop-shadow-sm text-center w-full whitespace-nowrap">
+            <span className="block text-xs sm:text-lg font-semibold text-white tracking-tight my-0.5 text-center w-full whitespace-nowrap">
               {formatCLP(realTotalComm)}
             </span>
-            <span className="block text-[6.5px] min-[350px]:text-[7.5px] min-[400px]:text-[8px] text-yellow-300 font-black uppercase mt-1.5 flex items-center justify-center space-x-0.5 bg-black/10 px-1 py-0.5 rounded-full select-none">
+            <span className="block text-[7px] sm:text-[8px] text-yellow-300 font-semibold uppercase mt-1.5 flex items-center justify-center space-x-0.5 bg-white/5 px-2 py-0.5 rounded-full select-none">
               <Sparkles className="w-2.5 h-2.5 text-yellow-300 animate-pulse shrink-0" />
               <span>Suma Real</span>
             </span>
@@ -674,19 +666,19 @@ export default function CommissionSimulator({
         </div>
 
         {currentPercentage < 70 && prepagoPercentage < 70 ? (
-          <div className="mt-4.5 bg-rose-500/20 text-rose-200 p-3 rounded-2xl text-center text-xs font-semibold border border-rose-500/30">
+          <div className="mt-4 bg-rose-500/10 text-rose-300 p-3 rounded-xl text-center text-xs font-normal border border-rose-500/20 leading-relaxed">
             ⚠️ Alerta: Ninguno de tus cumplimientos alcanza el <strong>70% mínimo</strong> necesario para activar el pago de comisiones. ¡Sigue registrando ventas!
           </div>
         ) : currentPercentage < 70 ? (
-          <div className="mt-4.5 bg-rose-500/20 text-rose-200 p-3 rounded-2xl text-center text-xs font-semibold border border-rose-500/30">
+          <div className="mt-4 bg-rose-500/10 text-rose-300 p-3 rounded-xl text-center text-xs font-normal border border-rose-500/20 leading-relaxed">
             ⚠️ Alerta Postpago: Tu cumplimiento Postpago ({currentPercentage.toFixed(1)}%) es inferior al <strong>70% mínimo</strong>. Solo comisionarás la parte de Prepago.
           </div>
         ) : prepagoPercentage < 70 ? (
-          <div className="mt-4.5 bg-rose-500/20 text-rose-200 p-3 rounded-2xl text-center text-xs font-semibold border border-rose-500/30">
+          <div className="mt-4 bg-rose-500/10 text-rose-300 p-3 rounded-xl text-center text-xs font-normal border border-rose-500/20 leading-relaxed">
             ⚠️ Alerta Prepago: Tu cumplimiento Prepago ({prepagoPercentage.toFixed(1)}%) es inferior al <strong>70% mínimo</strong>. Solo comisionarás la parte de Postpago.
           </div>
         ) : (
-          <div className="mt-4.5 bg-emerald-500/20 text-emerald-200 p-3 rounded-2xl text-center text-xs font-semibold border border-emerald-500/30">
+          <div className="mt-4 bg-emerald-500/10 text-emerald-300 p-3 rounded-xl text-center text-xs font-normal border border-emerald-500/20 leading-relaxed">
             🎉 ¡Excelente! Ambos cumplimientos superan el <strong>70% mínimo</strong> obligatorio. ¡Tus bonos están activos y acumulados!
           </div>
         )}
@@ -694,42 +686,42 @@ export default function CommissionSimulator({
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-start">
         {/* 2. Interactive Commission Slider (Real-time recalculation) */}
-        <section className="bg-white p-5 rounded-[32px] border border-purple-100 custom-card-shadow space-y-4">
+        <section className="bg-white p-5 rounded-2xl border border-slate-100 space-y-4">
         <div className="flex items-center space-x-2.5">
-          <div id="simulated-commission-icon" className="w-9 h-9 rounded-xl bg-purple-50 flex items-center justify-center text-wom-purple">
-            <Sliders className="w-5 h-5 text-wom-magenta" />
+          <div id="simulated-commission-icon" className="w-8 h-8 rounded-lg bg-slate-50 border border-slate-150 flex items-center justify-center text-slate-400">
+            <Sliders className="w-4 h-4 text-slate-400" />
           </div>
           <div>
-            <h3 className="text-sm font-black text-gray-800 uppercase tracking-wide">
+            <h3 className="text-xs font-semibold text-slate-700 uppercase tracking-widest">
               Simulador Interactivo de Tramo
             </h3>
-            <p className="text-[10px] text-gray-450 uppercase font-semibold">
+            <p className="text-[10px] text-slate-400">
               Proyecta tus ingresos mensuales fácilmente
             </p>
           </div>
         </div>
 
-        <p className="text-xs text-gray-500 leading-relaxed">
+        <p className="text-xs text-slate-500 leading-relaxed">
           Mueve el deslizador para proyectar tus comisiones. El simulador calculará tu bono Postpago, Prepago y Sumatoria Total conforme a los anexos de cumplimiento del mes:
         </p>
 
         {/* Simulator Outputs Group */}
-        <div className="bg-slate-50 border border-slate-150 p-4 rounded-2xl grid grid-cols-4 gap-3 text-center">
-          <div className="flex flex-col items-center justify-center border-r border-slate-200 pr-1">
-            <span className="text-[10px] text-gray-400 font-bold uppercase block mb-1">Meta %</span>
-            <span className="text-lg font-black text-wom-purple">{simulatedPct}%</span>
+        <div className="bg-slate-50/50 border border-slate-100 p-4 rounded-xl grid grid-cols-4 gap-2.5 text-center">
+          <div className="flex flex-col items-center justify-center border-r border-slate-150 pr-1">
+            <span className="text-[9px] text-slate-400 font-medium uppercase tracking-widest block mb-0.5">Meta %</span>
+            <span className="text-sm font-semibold text-slate-800">{simulatedPct}%</span>
           </div>
-          <div className="flex flex-col items-center justify-center border-r border-slate-200 px-1">
-            <span className="text-[10px] text-gray-400 font-semibold uppercase block mb-1">Sim. Postpago</span>
-            <span className="text-xs font-black text-gray-750">{formatCLP(simComm.postpago)}</span>
+          <div className="flex flex-col items-center justify-center border-r border-slate-150 px-1">
+            <span className="text-[9px] text-slate-400 font-medium uppercase tracking-widest block mb-0.5">Postpago</span>
+            <span className="text-xs font-semibold text-slate-700">{formatCLP(simComm.postpago)}</span>
           </div>
-          <div className="flex flex-col items-center justify-center border-r border-slate-200 px-1">
-            <span className="text-[10px] text-gray-400 font-semibold uppercase block mb-1">Sim. Prepago</span>
-            <span className="text-xs font-black text-gray-750">{formatCLP(simComm.prepago)}</span>
+          <div className="flex flex-col items-center justify-center border-r border-slate-150 px-1">
+            <span className="text-[9px] text-slate-400 font-medium uppercase tracking-widest block mb-0.5">Prepago</span>
+            <span className="text-xs font-semibold text-slate-700">{formatCLP(simComm.prepago)}</span>
           </div>
           <div className="flex flex-col items-center justify-center pl-1">
-            <span className="text-[10px] text-purple-600 font-black uppercase block mb-0.5">Sim. Suma</span>
-            <span className="text-sm font-black text-wom-magenta">{formatCLP(simComm.total)}</span>
+            <span className="text-[9px] text-indigo-600 font-semibold uppercase tracking-widest block mb-0.5">Sim. Suma</span>
+            <span className="text-xs font-bold text-indigo-600">{formatCLP(simComm.total)}</span>
           </div>
         </div>
 
@@ -743,86 +735,86 @@ export default function CommissionSimulator({
             step="1"
             value={simulatedPct}
             onChange={(e) => setSimulatedPct(parseInt(e.target.value))}
-            className="w-full h-2.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-wom-magenta focus:outline-none"
+            className="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-indigo-600 focus:outline-none"
           />
-          <div className="flex justify-between text-[9px] text-gray-400 font-bold uppercase select-none px-0.5">
-            <span className="text-purple-600">70% ($110.000)</span>
-            <span>100% (Meta)</span>
+          <div className="flex justify-between text-[9px] text-slate-400 font-medium uppercase tracking-wider select-none px-0.5">
+            <span className="text-slate-500">70% ($110.000)</span>
+            <span>100%</span>
             <span>130%</span>
-            <span className="text-emerald-600 font-black">160% ($440.000)</span>
+            <span className="text-indigo-600 font-semibold">160% ($440.000)</span>
           </div>
         </div>
       </section>
 
       {/* 3. Reference Annex Boards - Separate & Consolidated Tables */}
-      <section className="bg-white rounded-[32px] overflow-hidden border border-purple-100 custom-card-shadow flex flex-col">
+      <section className="bg-white rounded-2xl overflow-hidden border border-slate-100 flex flex-col">
         {/* Title bar */}
-        <div className="bg-purple-50 p-4.5 border-b border-purple-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div className="bg-slate-50/50 p-4 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div className="space-y-0.5">
-            <h4 id="annex-reference-title" className="text-xs font-black text-wom-purple uppercase tracking-wider">
+            <h4 id="annex-reference-title" className="text-xs font-semibold text-slate-700 uppercase tracking-widest">
               Anexo Oficial de Metas & Cumplimiento
             </h4>
-            <p className="text-[10px] text-purple-400 font-semibold uppercase">
+            <p className="text-[9px] text-slate-400 font-medium uppercase tracking-wider">
               Progestión Chile - Estructura de Comisión
             </p>
           </div>
 
           <div className="relative">
-            <span className="absolute inset-y-0 left-0 flex items-center pl-2.5 pointer-events-none text-purple-300">
+            <span className="absolute inset-y-0 left-0 flex items-center pl-2.5 pointer-events-none text-slate-400">
               <Search className="w-3.5 h-3.5" />
             </span>
             <input
               id="search-annex-table"
               type="text"
-              placeholder="Buscar meta (ej. 100%)..."
+              placeholder="Buscar meta..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="bg-white border border-purple-200 rounded-xl pl-8 pr-3 py-1 text-xs text-gray-700 placeholder-purple-300 focus:outline-none focus:border-wom-purple w-full sm:w-48 shadow-inner"
+              className="bg-white border border-slate-200 rounded-lg pl-8 pr-3 py-1 text-xs text-slate-750 placeholder-slate-400 focus:outline-none focus:border-slate-400 w-full sm:w-48"
             />
           </div>
         </div>
 
         {/* Tab Toggle buttons */}
-        <div id="annex-tab-toggle-container" className="grid grid-cols-4 border-b border-purple-100 bg-purple-50/30 p-1 gap-1">
+        <div id="annex-tab-toggle-container" className="grid grid-cols-4 border-b border-slate-100 bg-slate-50/30 p-1 gap-1">
           <button
             onClick={() => setActiveTableTab('all')}
-            className={`py-2 px-1 text-[10px] font-black uppercase rounded-lg tracking-tight text-center cursor-pointer transition-all ${
+            className={`py-2 px-1 text-[9px] font-semibold uppercase rounded-md tracking-wider text-center cursor-pointer transition-all ${
               activeTableTab === 'all' 
-                ? 'bg-purple-900 text-white shadow-sm' 
-                : 'text-purple-700 hover:bg-purple-50'
+                ? 'bg-slate-900 text-white shadow-sm' 
+                : 'text-slate-600 hover:bg-slate-50'
             }`}
           >
             📋 Todo
           </button>
           <button
             onClick={() => setActiveTableTab('postpago')}
-            className={`py-2 px-1 text-[10px] font-black uppercase rounded-lg tracking-tight text-center cursor-pointer transition-all ${
+            className={`py-2 px-1 text-[9px] font-semibold uppercase rounded-md tracking-wider text-center cursor-pointer transition-all ${
               activeTableTab === 'postpago' 
-                ? 'bg-purple-900 text-white shadow-sm' 
-                : 'text-purple-700 hover:bg-purple-50'
+                ? 'bg-slate-900 text-white shadow-sm' 
+                : 'text-slate-600 hover:bg-slate-50'
             }`}
           >
             📱 Postpago
           </button>
           <button
             onClick={() => setActiveTableTab('prepago')}
-            className={`py-2 px-1 text-[10px] font-black uppercase rounded-lg tracking-tight text-center cursor-pointer transition-all ${
+            className={`py-2 px-1 text-[9px] font-semibold uppercase rounded-md tracking-wider text-center cursor-pointer transition-all ${
               activeTableTab === 'prepago' 
-                ? 'bg-purple-900 text-white shadow-sm' 
-                : 'text-purple-700 hover:bg-purple-50'
+                ? 'bg-slate-900 text-white shadow-sm' 
+                : 'text-slate-600 hover:bg-slate-50'
             }`}
           >
             💰 Prepago
           </button>
           <button
             onClick={() => setActiveTableTab('total')}
-            className={`py-2 px-1 text-[10px] font-black uppercase rounded-lg tracking-tight text-center cursor-pointer transition-all ${
+            className={`py-2 px-1 text-[9px] font-semibold uppercase rounded-md tracking-wider text-center cursor-pointer transition-all ${
               activeTableTab === 'total' 
-                ? 'bg-purple-950 text-white shadow-sm' 
-                : 'text-purple-700 hover:bg-purple-50'
+                ? 'bg-slate-900 text-white shadow-sm' 
+                : 'text-slate-600 hover:bg-slate-50'
             }`}
           >
-            🔥 Suma Total
+            🧮 Suma Total
           </button>
         </div>
 
@@ -830,60 +822,60 @@ export default function CommissionSimulator({
         <div className="overflow-y-auto max-h-[360px] relative">
           
           {filteredData.length === 0 ? (
-            <div className="py-12 text-center text-xs text-gray-400 font-semibold italic">
+            <div className="py-12 text-center text-xs text-slate-450 italic">
               No se encontraron coincidencias para "{searchTerm}"
             </div>
           ) : (
             <table className="w-full text-left text-xs relative border-collapse">
               
               {/* Table header */}
-              <thead className="sticky top-0 bg-white/95 backdrop-blur-sm shadow-[0_1px_0_0_rgba(147,51,234,0.08)] z-10 text-[9.5px] font-extrabold uppercase tracking-wide text-purple-800">
+              <thead className="sticky top-0 bg-white/95 backdrop-blur-sm shadow-sm z-10 text-[9.5px] font-semibold uppercase tracking-wider text-slate-505 bg-slate-50/80">
                 
                 {activeTableTab === 'all' && (
                   <tr>
-                    <th className="p-3 pl-4 border-b border-purple-100">Cumplimiento</th>
-                    <th className="p-3 border-b border-purple-100 text-right">Postpago</th>
-                    <th className="p-3 border-b border-purple-100 text-right">Prepago</th>
-                    <th className="p-3 pr-4 border-b border-purple-100 text-right bg-purple-50/40 text-purple-950">Sumatoria</th>
+                    <th className="p-3 pl-4 border-b border-slate-100 text-slate-500 font-semibold uppercase">Cumplimiento</th>
+                    <th className="p-3 border-b border-slate-100 text-right text-slate-500 font-semibold uppercase">Postpago</th>
+                    <th className="p-3 border-b border-slate-100 text-right text-slate-500 font-semibold uppercase">Prepago</th>
+                    <th className="p-3 pr-4 border-b border-slate-100 text-right bg-slate-100/50 text-slate-700 font-semibold uppercase">Sumatoria</th>
                   </tr>
                 )}
 
                 {activeTableTab === 'postpago' && (
                   <tr>
-                    <th className="p-3 pl-4 border-b border-purple-100">Cumplimiento Meta</th>
-                    <th className="p-3 pr-4 border-b border-purple-100 text-right text-purple-950">Comisión Postpago</th>
+                    <th className="p-3 pl-4 border-b border-slate-100 text-slate-500 font-semibold uppercase">Cumplimiento Meta</th>
+                    <th className="p-3 pr-4 border-b border-slate-100 text-right text-slate-750 font-semibold uppercase">Comisión Postpago</th>
                   </tr>
                 )}
 
                 {activeTableTab === 'prepago' && (
                   <tr>
-                    <th className="p-3 pl-4 border-b border-purple-100">Cumplimiento Meta</th>
-                    <th className="p-3 pr-4 border-b border-purple-100 text-right text-rose-800">Comisión Prepago</th>
+                    <th className="p-3 pl-4 border-b border-slate-100 text-slate-500 font-semibold uppercase">Cumplimiento Meta</th>
+                    <th className="p-3 pr-4 border-b border-slate-100 text-right text-slate-750 font-semibold uppercase">Comisión Prepago</th>
                   </tr>
                 )}
 
                 {activeTableTab === 'total' && (
                   <tr>
-                    <th className="p-3 pl-4 border-b border-purple-100">Cumplimiento Meta</th>
-                    <th className="p-3 pr-4 border-b border-purple-100 text-right text-purple-950 bg-purple-50/50">Sumatoria Total (Web Chat)</th>
+                    <th className="p-3 pl-4 border-b border-slate-100 text-slate-500 font-semibold uppercase">Cumplimiento Meta</th>
+                    <th className="p-3 pr-4 border-b border-slate-100 text-right text-slate-750 bg-slate-100/50 font-semibold uppercase">Sumatoria Total</th>
                   </tr>
                 )}
 
               </thead>
 
               {/* Table body */}
-              <tbody className="divide-y divide-purple-50 text-gray-750 font-semibold">
+              <tbody className="divide-y divide-slate-100 text-slate-650 font-medium">
                 
                 {filteredData.map((row) => {
                   const isCurrentRow = closestPctRow === row.pct;
                   const isSimulatedRow = simulatedPct === row.pct;
                   
                   // Row dynamic bg style
-                  let rowBackground = "hover:bg-purple-50/30 transition-colors";
+                  let rowBackground = "hover:bg-slate-50 transition-colors";
                   if (isCurrentRow) {
-                    rowBackground = "bg-purple-100/50 text-purple-950 border-y border-purple-300 font-black";
+                    rowBackground = "bg-slate-100 text-slate-900 font-semibold";
                   } else if (isSimulatedRow) {
-                    rowBackground = "bg-amber-50/60 hover:bg-amber-100/40 text-amber-950 transition-all font-bold";
+                    rowBackground = "bg-indigo-50/40 hover:bg-indigo-50 text-indigo-950 transition-all font-semibold";
                   }
 
                   return (
@@ -895,25 +887,25 @@ export default function CommissionSimulator({
                       {activeTableTab === 'all' && (
                         <>
                           <td className="p-2.5 pl-4 flex items-center space-x-1.5 whitespace-nowrap">
-                            <span className="text-gray-900">{row.pct}%</span>
+                            <span className="text-slate-800 font-medium">{row.pct}%</span>
                             {isCurrentRow && (
-                              <span className="bg-wom-magenta text-white font-extrabold text-[8px] uppercase px-1.5 py-0.5 rounded-md leading-none select-none tracking-tight">
+                              <span className="bg-slate-950 text-white font-semibold text-[8px] uppercase px-1.5 py-0.5 rounded-md leading-none select-none tracking-tight">
                                 📍 Tu Progreso
                               </span>
                             )}
                             {isSimulatedRow && !isCurrentRow && (
-                              <span className="bg-amber-500 text-white font-extrabold text-[8px] uppercase px-1.5 py-0.5 rounded-md leading-none select-none tracking-tight">
-                                Simulated
+                              <span className="bg-indigo-600 text-white font-semibold text-[8px] uppercase px-1.5 py-0.5 rounded-md leading-none select-none tracking-tight">
+                                Simulado
                               </span>
                             )}
                           </td>
-                          <td className="p-2.5 text-right font-mono text-[11px] text-gray-700">
+                          <td className="p-2.5 text-right font-mono text-[11px] text-slate-600">
                             {formatCLP(row.postpago)}
                           </td>
-                          <td className="p-2.5 text-right font-mono text-[11px] text-gray-700">
+                          <td className="p-2.5 text-right font-mono text-[11px] text-slate-600">
                             {formatCLP(row.prepago)}
                           </td>
-                          <td className="p-2.5 pr-4 text-right font-mono text-[11px] text-purple-900 bg-purple-50/15 font-bold">
+                          <td className="p-2.5 pr-4 text-right font-mono text-[11px] text-indigo-600 bg-slate-50/50 font-semibold">
                             {formatCLP(row.total)}
                           </td>
                         </>
@@ -924,15 +916,15 @@ export default function CommissionSimulator({
                         <>
                           <td className="p-3 pl-4 whitespace-nowrap">
                             <div className="flex items-center space-x-2">
-                              <span className="text-gray-950 font-bold">{row.pct}%</span>
+                              <span className="text-slate-800 font-medium">{row.pct}%</span>
                               {isCurrentRow && (
-                                <span className="bg-purple-600 text-white text-[8px] uppercase font-black px-1.5 py-0.5 rounded">
+                                <span className="bg-slate-850 text-white text-[8px] uppercase font-semibold px-1.5 py-0.5 rounded">
                                   Actual
                                 </span>
                               )}
                             </div>
                           </td>
-                          <td className="p-3 pr-4 text-right font-mono font-bold text-gray-950">
+                          <td className="p-3 pr-4 text-right font-mono text-slate-800 font-medium">
                             {formatCLP(row.postpago)}
                           </td>
                         </>
@@ -943,15 +935,15 @@ export default function CommissionSimulator({
                         <>
                           <td className="p-3 pl-4 whitespace-nowrap">
                             <div className="flex items-center space-x-2">
-                              <span className="text-gray-950 font-bold">{row.pct}%</span>
+                              <span className="text-slate-800 font-medium">{row.pct}%</span>
                               {isCurrentRow && (
-                                <span className="bg-purple-600 text-white text-[8px] uppercase font-black px-1.5 py-0.5 rounded">
+                                <span className="bg-slate-850 text-white text-[8px] uppercase font-semibold px-1.5 py-0.5 rounded">
                                   Actual
                                 </span>
                               )}
                             </div>
                           </td>
-                          <td className="p-3 pr-4 text-right font-mono font-bold text-rose-700">
+                          <td className="p-3 pr-4 text-right font-mono text-slate-800 font-medium">
                             {formatCLP(row.prepago)}
                           </td>
                         </>
@@ -962,15 +954,15 @@ export default function CommissionSimulator({
                         <>
                           <td className="p-3 pl-4 whitespace-nowrap">
                             <div className="flex items-center space-x-2">
-                              <span className="text-gray-950 font-bold">{row.pct}%</span>
+                              <span className="text-slate-800 font-medium">{row.pct}%</span>
                               {isCurrentRow && (
-                                <span className="bg-purple-600 text-white text-[8px] uppercase font-black px-1.5 py-0.5 rounded">
+                                <span className="bg-slate-850 text-white text-[8px] uppercase font-semibold px-1.5 py-0.5 rounded">
                                   Actual
                                 </span>
                               )}
                             </div>
                           </td>
-                          <td className="p-3 pr-4 text-right font-mono font-bold text-wom-purple bg-purple-50/20">
+                          <td className="p-3 pr-4 text-right font-mono text-indigo-600 font-semibold bg-indigo-50/20">
                             {formatCLP(row.total)}
                           </td>
                         </>
@@ -985,8 +977,8 @@ export default function CommissionSimulator({
         </div>
 
         {/* Informative advice at bottom */}
-        <div className="bg-slate-50 p-3.5 border-t border-purple-100 flex items-start space-x-2 text-gray-500">
-          <Info className="w-4 h-4 text-purple-400 mt-0.5 shrink-0" />
+        <div className="bg-slate-50 p-3.5 border-t border-slate-100 flex items-start space-x-2 text-slate-500">
+          <Info className="w-4 h-4 text-slate-400 mt-0.5 shrink-0" />
           <p className="text-[10px] leading-relaxed select-none">
             De acuerdo con el reglamento Progestión, las comisiones se fijan estrictamente por la meta de cumplimiento alcanzada en el mes calendario. Si el cumplimiento final está debajo del 70%, el pago acumulado de comisiones será de $0.
           </p>

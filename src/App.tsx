@@ -777,42 +777,42 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 flex items-center justify-center p-0 md:p-4">
+    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-0 md:p-6">
       {/* Outer framing centered like a high contrast native telephone workspace */}
-      <div className="w-full max-w-md md:max-w-3xl lg:max-w-5xl xl:max-w-6xl bg-[#faf9fc] min-h-screen md:my-4 md:min-h-[850px] md:max-h-[950px] lg:min-h-[880px] lg:max-h-[960px] md:rounded-[40px] shadow-2xl flex flex-col overflow-x-hidden border border-purple-100 relative">
+      <div className="w-full max-w-md md:max-w-3xl lg:max-w-5xl xl:max-w-6xl bg-white min-h-screen md:my-4 md:min-h-[850px] md:max-h-[950px] lg:min-h-[880px] lg:max-h-[960px] md:rounded-3xl shadow-sm flex flex-col overflow-x-hidden border border-slate-100 relative">
         
         <AnimatePresence mode="wait">
           {!currentUser ? (
             /* --- LOGIN / WELCOME PROFILE SCREEN --- */
             <motion.div
               key="login"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              className="flex-1 flex flex-col justify-between p-6 py-12"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="flex-1 flex flex-col justify-between p-8 py-16"
             >
-              <div className="space-y-8 flex-1 flex flex-col justify-center">
+              <div className="space-y-6 flex-1 flex flex-col justify-center max-w-sm mx-auto w-full">
                 {/* Brand Logo Banner */}
                 <div className="text-center space-y-3">
                   <img 
                     src={metaWomLogo} 
                     alt="Meta WOM Logo" 
-                    className="w-32 h-32 mx-auto rounded-3xl shadow-lg border-2 border-purple-100 object-cover"
+                    className="w-16 h-16 mx-auto rounded-2xl border border-slate-100 object-cover"
                     referrerPolicy="no-referrer"
                   />
-                  <h1 className="text-4xl font-extrabold text-gray-800 tracking-tight select-none">
-                    META<span className="text-wom-magenta"> WOM</span>
+                  <h1 className="text-2xl font-light tracking-tight text-slate-800">
+                    META<span className="font-semibold text-indigo-650"> WOM</span>
                   </h1>
-                  <p className="text-xs text-purple-400 font-bold uppercase tracking-wider">
+                  <p className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">
                     Asistente de Metas y Comisiones
                   </p>
                 </div>
 
                 {/* Form layout */}
-                <div className="bg-white p-6 rounded-3xl border border-purple-100 custom-card-shadow space-y-4">
+                <div className="bg-white p-6 rounded-2xl border border-slate-100 space-y-4">
                   <form onSubmit={handleLogin} className="space-y-4">
                     <div className="space-y-1">
-                      <label className="text-[10px] font-bold text-wom-purple uppercase tracking-wider block px-1">
+                      <label className="text-[10px] font-medium text-slate-450 uppercase tracking-wider block px-0.5">
                         Tu Nombre o Apodo
                       </label>
                       <input
@@ -822,21 +822,19 @@ export default function App() {
                         placeholder="Ej: usuario"
                         value={newUsernameInput}
                         onChange={(e) => setNewUsernameInput(e.target.value)}
-                        className="w-full bg-purple-50 hover:bg-purple-100/60 focus:bg-white text-wom-purple placeholder-purple-300 font-bold text-sm rounded-2xl p-4 border border-purple-200 focus:outline-none focus:ring-2 focus:ring-wom-purple transition-all"
+                        className="w-full bg-slate-50 hover:bg-slate-100/50 focus:bg-white text-slate-800 placeholder-slate-400 font-medium text-sm rounded-xl p-3 border border-slate-200 focus:border-slate-450 focus:outline-none transition-colors"
                       />
                     </div>
 
                     <button
                       id="submitLogin"
                       type="submit"
-                      className="w-full bg-gradient-to-r from-wom-purple to-purple-800 hover:opacity-95 text-white font-bold py-4 rounded-2xl shadow-lg shadow-purple-200 transition-all active:scale-95 text-xs uppercase tracking-widest flex items-center justify-center space-x-2"
+                      className="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-3 rounded-xl transition-colors text-xs uppercase tracking-wider flex items-center justify-center space-x-2 cursor-pointer"
                     >
-                      <Calculator className="w-4 h-4" />
                       <span>Ingresar al Sistema</span>
                     </button>
                   </form>
                 </div>
-
 
               </div>
             </motion.div>
@@ -850,97 +848,97 @@ export default function App() {
               className="flex-1 flex flex-col justify-between"
             >
               {/* Profile Header */}
-              <header className="bg-white border-b border-purple-100 p-4 shrink-0 flex flex-col items-center justify-center space-y-3 sm:flex-row sm:space-y-0 sm:justify-between shadow-sm z-30">
-                <div className="flex flex-col items-center text-center space-y-1 sm:flex-row sm:space-y-0 sm:space-x-3.5 sm:text-left">
+              <header className="bg-white border-b border-slate-100 p-4 shrink-0 flex flex-col items-center justify-center space-y-2 sm:flex-row sm:space-y-0 sm:justify-between z-30">
+                <div className="flex flex-col items-center text-center space-y-1 sm:flex-row sm:space-y-0 sm:space-x-3 sm:text-left">
                   <img 
                     src={metaWomLogo} 
                     alt="Logo" 
-                    className="w-14 h-14 rounded-2xl shadow-md border border-purple-200 object-cover"
+                    className="w-8 h-8 rounded-lg border border-slate-100 object-cover"
                     referrerPolicy="no-referrer"
                   />
                   <div className="flex flex-col items-center sm:items-start select-none">
-                    <h1 className="text-xl sm:text-2xl font-black text-gray-800 tracking-wide uppercase leading-tight">
-                      META<span className="text-wom-magenta"> WOM</span>
+                    <h1 className="text-lg font-light tracking-tight text-slate-850">
+                      META<span className="font-semibold text-indigo-600"> WOM</span>
                     </h1>
                   </div>
                 </div>
 
                 {/* Profile Widget switcher */}
-                <div className="flex items-center space-x-1.5 bg-purple-50/70 py-1 pl-2.5 pr-1 rounded-xl border border-purple-100 max-w-[50%]">
-                  <span className="text-[11px] font-extrabold text-wom-purple truncate max-w-[80px]">
+                <div className="flex items-center space-x-2 bg-slate-50 py-1 pl-3 pr-1 rounded-xl border border-slate-100">
+                  <span className="text-[11px] font-medium text-slate-600 truncate max-w-[80px]">
                     {currentUser}
                   </span>
                   <button
                     id="btnLogout"
                     onClick={handleLogout}
-                    className="p-1.5 bg-white text-rose-500 hover:text-rose-600 rounded-lg transition-all border border-purple-100 hover:shadow-sm"
+                    className="p-1 px-2 text-rose-500 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors border border-transparent"
                     title="Cerrar sesión"
                   >
-                    <LogOut className="w-3.5 h-3.5" />
+                    <span className="text-[10px] font-medium uppercase font-sans">Salir</span>
                   </button>
                 </div>
               </header>
 
               {/* Navigation Tabs bar */}
-              <nav className="grid grid-cols-5 bg-white sticky top-0 z-25 border-b border-purple-100/50 shadow-sm shrink-0">
+              <nav className="grid grid-cols-5 bg-white sticky top-0 z-25 border-b border-slate-100 shrink-0 select-none">
                 <button
                   id="tab-btn-panel"
                   onClick={() => setActiveTab('panel')}
-                  className={`py-3 sm:py-4 text-[8px] sm:text-[10px] md:text-xs lg:text-[13px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
+                  className={`py-3 sm:py-4 text-[8px] sm:text-[10px] md:text-[11px] font-medium tracking-wide uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
                     activeTab === 'panel'
-                      ? 'border-b-3 border-wom-purple text-wom-purple font-extrabold bg-purple-50/20'
-                      : 'text-gray-400 hover:text-gray-650'
+                      ? 'border-b-2 border-indigo-600 text-indigo-600 font-semibold'
+                      : 'text-slate-400 hover:text-slate-650'
                   }`}
                 >
-                  <Smartphone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  <Smartphone className="w-3.5 h-3.5 sm:w-4 sm:h-4 opacity-80" />
                   <span className="truncate w-full text-center px-0.5">Pospago</span>
                 </button>
                 <button
                   id="tab-btn-prepago"
                   onClick={() => setActiveTab('prepago')}
-                  className={`py-3 sm:py-4 text-[8px] sm:text-[10px] md:text-xs lg:text-[13px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
+                  className={`py-3 sm:py-4 text-[8px] sm:text-[10px] md:text-[11px] font-medium tracking-wide uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
                     activeTab === 'prepago'
-                      ? 'border-b-3 border-wom-purple text-wom-purple font-extrabold bg-purple-50/20'
-                      : 'text-gray-400 hover:text-gray-650'
+                      ? 'border-b-2 border-indigo-600 text-indigo-600 font-semibold'
+                      : 'text-slate-400 hover:text-slate-650'
                   }`}
                 >
-                  <PhoneCall className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  <PhoneCall className="w-3.5 h-3.5 sm:w-4 sm:h-4 opacity-80" />
                   <span className="truncate w-full text-center px-0.5">Prepagos</span>
                 </button>
                 <button
                   id="tab-btn-proyeccion"
                   onClick={() => setActiveTab('proyeccion')}
-                  className={`py-3 sm:py-4 text-[8px] sm:text-[10px] md:text-xs lg:text-[13px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
+                  className={`py-3 sm:py-4 text-[8px] sm:text-[10px] md:text-[11px] font-medium tracking-wide uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
                     activeTab === 'proyeccion'
-                      ? 'border-b-3 border-wom-purple text-wom-purple font-extrabold bg-purple-50/20'
-                      : 'text-gray-400 hover:text-gray-650'
+                      ? 'border-b-2 border-indigo-600 text-indigo-600 font-semibold'
+                      : 'text-slate-400 hover:text-slate-650'
                   }`}
                 >
-                  <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4 opacity-80" />
                   <span className="truncate w-full text-center px-0.5">Proyección</span>
                 </button>
                 <button
                   id="tab-btn-dashboard"
                   onClick={() => setActiveTab('dashboard')}
-                  className={`py-3 sm:py-4 text-[8px] sm:text-[10px] md:text-xs lg:text-[13px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
+                  className={`py-3 sm:py-4 text-[8px] sm:text-[10px] md:text-[11px] font-medium tracking-wide uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
                     activeTab === 'dashboard'
-                      ? 'border-b-3 border-wom-purple text-wom-purple font-extrabold bg-purple-50/20'
-                      : 'text-gray-450 hover:text-gray-650'
+                      ? 'border-b-2 border-indigo-600 text-indigo-600 font-semibold'
+                      : 'text-slate-400 hover:text-slate-650'
                   }`}
                 >
-                  <LayoutDashboard className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                  <span className="truncate w-full text-center px-0.5">Control Metas</span>
+                  <LayoutDashboard className="w-3.5 h-3.5 sm:w-4 sm:h-4 opacity-80" />
+                  <span className="truncate w-full text-center px-0.5 flex items-center justify-center">Control</span>
                 </button>
                 <button
                   id="tab-btn-comision"
                   onClick={() => setActiveTab('comision')}
-                  className={`py-3 sm:py-4 text-[8px] sm:text-[10px] md:text-xs lg:text-[13px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
+                  className={`py-3 sm:py-4 text-[8px] sm:text-[10px] md:text-[11px] font-medium tracking-wide uppercase transition-all flex flex-col items-center justify-center space-y-1 ${
                     activeTab === 'comision'
-                      ? 'border-b-3 border-wom-purple text-wom-purple font-extrabold bg-purple-50/20'
-                      : 'text-gray-400 hover:text-gray-650'
+                      ? 'border-b-2 border-indigo-600 text-indigo-600 font-semibold'
+                      : 'text-slate-400 hover:text-slate-650'
                   }`}
                 >
-                  <Coins className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  <Coins className="w-3.5 h-3.5 sm:w-4 sm:h-4 opacity-80" />
                   <span className="truncate w-full text-center px-0.5">Comisión</span>
                 </button>
               </nav>
@@ -959,189 +957,184 @@ export default function App() {
                       className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-start"
                     >
                       {/* Left Column: Target selectors & Sale entries */}
-                      <div className="space-y-4">
-                        {/* Meta Goal Objective Box */}
-                      <section className="bg-white p-4.5 rounded-3xl border border-purple-100 custom-card-shadow flex items-center justify-between">
-                        <div className="flex items-center space-x-2.5">
-                          <div className="w-8.5 h-8.5 rounded-xl bg-purple-100/60 flex items-center justify-center text-wom-purple">
-                            <Target className="w-4.5 h-4.5" />
+                                     {/* Meta Goal Objective Box */}
+                        <section className="bg-slate-50/50 p-4 rounded-xl border border-slate-100 flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <Target className="w-4 h-4 text-slate-400" />
+                            <div>
+                              <h3 className="text-xs font-semibold text-slate-600 uppercase tracking-widest">
+                                Meta de Ventas
+                              </h3>
+                              <p className="text-[10px] text-slate-400 font-normal">
+                                Objetivo mensual exigido
+                              </p>
+                            </div>
                           </div>
-                          <div>
-                            <h3 className="text-xs font-black text-gray-750 uppercase tracking-wide">
-                              Meta de Ventas
-                            </h3>
-                            <p className="text-[10px] text-gray-450 uppercase font-semibold">
-                              Objetivo mensual exigido
-                            </p>
+
+                          {/* Interactive Meta selector */}
+                          <div className="flex items-center bg-white border border-slate-200 rounded-lg px-2 py-0.5">
+                            <input
+                              id="fieldMetaGoal"
+                              type="number"
+                              min="1"
+                              value={metaObjective}
+                              onChange={(e) => handleUpdateMeta(parseInt(e.target.value) || 1)}
+                              className="bg-transparent text-slate-800 font-semibold text-right w-12 focus:outline-none text-xs"
+                            />
+                            <span className="text-slate-400 font-medium text-[10px] ml-1">
+                              PTS
+                            </span>
                           </div>
-                        </div>
+                        </section>
 
-                        {/* Interactive Meta selector */}
-                        <div className="flex items-center bg-purple-50 border border-purple-100 rounded-xl px-2.5 py-1">
-                          <input
-                            id="fieldMetaGoal"
-                            type="number"
-                            min="1"
-                            value={metaObjective}
-                            onChange={(e) => handleUpdateMeta(parseInt(e.target.value) || 1)}
-                            className="bg-transparent text-wom-purple font-black text-right w-16 focus:outline-none text-sm"
-                          />
-                          <span className="text-purple-400 font-bold text-xs ml-1">
-                            PTS
-                          </span>
-                        </div>
-                      </section>
+                        {/* Main gauge section */}
+                        <PercentageCircle 
+                          percentage={currentFulfillmentPercent} 
+                          points={totals.points} 
+                          meta={metaObjective} 
+                        />
 
-                      {/* Main gauge section */}
-                      <PercentageCircle 
-                        percentage={currentFulfillmentPercent} 
-                        points={totals.points} 
-                        meta={metaObjective} 
-                      />
-
-                      {/* Sales items register panel */}
-                      <section className="bg-white p-5 rounded-[32px] border border-purple-100 custom-card-shadow space-y-4">
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <h2 className="text-sm font-black text-wom-purple uppercase tracking-wider">
-                              Registrar Ventas Nuevas
-                            </h2>
-                            <p className="text-[10px] text-gray-450">
-                              Agrega productos y presiona registrar
-                            </p>
+                        {/* Sales items register panel */}
+                        <section className="bg-white p-5 rounded-2xl border border-slate-100 space-y-4">
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <h2 className="text-xs font-semibold text-slate-500 uppercase tracking-widest">
+                                Registrar Ventas
+                              </h2>
+                              <p className="text-[10px] text-slate-400">
+                                Agrega productos y presiona registrar
+                              </p>
+                            </div>
+                            <span className="text-[9px] font-medium text-slate-400 bg-slate-100 px-2 py-0.5 rounded border border-slate-200/60">
+                              Hoy
+                            </span>
                           </div>
-                          <span className="text-[10px] font-bold text-wom-magenta bg-rose-50 px-2 py-0.5 rounded-md uppercase border border-rose-100">
-                            Hoy
-                          </span>
-                        </div>
 
-                        {/* Step items stack as smaller grid cards */}
-                        <div className="grid grid-cols-2 gap-2.5">
-                          {PRODUCTS.map((prod) => (
-                            <div 
-                              key={prod.id} 
-                              className={`flex flex-col justify-between p-3 bg-slate-50 border border-gray-150 rounded-[20px] transition-all hover:border-purple-200 custom-card-shadow ${getProductColorBorder(prod.id)} ${prod.id === 'renov' ? 'col-span-2' : ''}`}
-                            >
-                              {/* Product Info above buttons */}
-                              <div className="flex flex-col items-center text-center space-y-1 pb-1.5 pt-0.5">
-                                <div className="p-1.5 bg-white rounded-xl border border-gray-100 flex items-center justify-center shadow-xs">
-                                  {getProductIcon(prod.id)}
-                                </div>
-                                <div className="space-y-0.5">
-                                  <p className="text-[11px] font-black text-gray-800 leading-tight">
-                                    {prod.name}
-                                  </p>
-                                  <p className="text-[10px] font-black text-wom-magenta/95">
-                                    +{prod.points} PTS
-                                  </p>
-                                  {prod.id === 'renov' && (
-                                    <p className="text-[8.5px] font-bold text-amber-600 leading-normal mt-0.5 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-100">
-                                      {isRenovationBonusActive ? '🔥 Bono activo: vale 5 PTS' : 'Sube a 5 PTS al llegar al 95%'}
+                          {/* Step items stack as smaller grid cards */}
+                          <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-3 xl:grid-cols-5 gap-1.5 animate-fadeIn">
+                            {PRODUCTS.map((prod) => (
+                              <div 
+                                key={prod.id} 
+                                className="flex flex-col justify-between p-1.5 bg-slate-50/50 border border-slate-100 rounded-xl hover:border-indigo-100 hover:bg-slate-50/70 transition-colors"
+                              >
+                                {/* Product Info above buttons */}
+                                <div className="flex flex-col items-center text-center space-y-1 pb-1 pt-0.5">
+                                  <div className="w-7 h-7 rounded-lg bg-white border border-slate-100 flex items-center justify-center shrink-0">
+                                    {getProductIcon(prod.id)}
+                                  </div>
+                                  <div className="space-y-0.5 flex flex-col justify-center items-center">
+                                    <p className="text-[10px] font-medium text-slate-700 leading-tight max-h-[26px] line-clamp-2 px-0.5 overflow-hidden text-center min-h-[24px] flex items-center justify-center">
+                                      {prod.name}
                                     </p>
+                                    <p className="text-[9px] font-semibold text-indigo-600 leading-none">
+                                      +{prod.points} PTS
+                                    </p>
+                                  </div>
+                                  {prod.id === 'renov' && (
+                                    <span style={{ fontSize: '7px' }} className="font-medium text-amber-800 bg-amber-50/90 py-0.5 px-1 rounded border border-amber-100 leading-none truncate max-w-full block mt-0.5">
+                                      {isRenovationBonusActive ? 'Bono Activo' : '+5 PTS (≥95%)'}
+                                    </span>
                                   )}
                                 </div>
+
+                                {/* Clickable controls below the info */}
+                                <div className="flex items-center justify-between bg-white rounded-lg p-0.5 border border-slate-200/50 mt-1">
+                                  <button
+                                    id={`step-down-${prod.id}`}
+                                    onClick={() => handleStepCount(prod.id as any, -1)}
+                                    className="w-5 h-5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold flex items-center justify-center cursor-pointer transition-colors"
+                                  >
+                                    <Minus className="w-2 h-2" />
+                                  </button>
+                                  
+                                  <span className="text-[11px] font-semibold text-slate-800 min-w-[12px] text-center select-none">
+                                    {tempCounts[prod.id as keyof typeof tempCounts] || 0}
+                                  </span>
+
+                                  <button
+                                    id={`step-up-${prod.id}`}
+                                    onClick={() => handleStepCount(prod.id as any, 1)}
+                                    className="w-5 h-5 rounded bg-indigo-600 hover:bg-indigo-505 hover:bg-indigo-500 text-white font-bold flex items-center justify-center cursor-pointer transition-colors"
+                                  >
+                                    <Plus className="w-2 h-2" />
+                                  </button>
+                                </div>
                               </div>
+                            ))}
+                          </div>
 
-                              {/* Clickable controls below the info */}
-                              <div className="flex items-center justify-between bg-white rounded-xl p-1 border border-gray-150 shadow-xs">
-                                <button
-                                  id={`step-down-${prod.id}`}
-                                  onClick={() => handleStepCount(prod.id as any, -1)}
-                                  className="w-6 h-6 rounded-lg bg-gray-50 border border-gray-150/80 hover:bg-gray-100 hover:border-gray-300 text-gray-600 font-bold flex items-center justify-center active:scale-95 transition-all"
-                                >
-                                  <Minus className="w-3 h-3" />
-                                </button>
-                                
-                                <span className="text-xs font-black text-gray-800 select-none">
-                                  {tempCounts[prod.id as keyof typeof tempCounts] || 0}
-                                </span>
-
-                                <button
-                                  id={`step-up-${prod.id}`}
-                                  onClick={() => handleStepCount(prod.id as any, 1)}
-                                  className="w-6 h-6 rounded-lg bg-gradient-to-tr from-wom-purple to-purple-800 hover:opacity-95 text-white font-bold flex items-center justify-center active:scale-95 transition-all shadow-sm"
-                                >
-                                  <Plus className="w-3 h-3" />
-                                </button>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-
-                        <div className="flex gap-2 mt-3">
-                          <button
-                            id="submitRegisterSales"
-                            onClick={handleRegisterAndClear}
-                            className="flex-1 bg-gradient-to-r from-wom-magenta to-purple-900 hover:opacity-95 text-white font-black py-3 px-3 rounded-2xl shadow-md transition-all active:scale-95 text-xs uppercase flex items-center justify-center space-x-1"
-                          >
-                            <PlusCircle className="w-4 h-4" />
-                            <span>Ingresar Venta</span>
-                          </button>
-
-                          {lastAddedRecordId && salesHistory.some(r => r.id === lastAddedRecordId) && (
+                          <div className="flex gap-2 pt-1">
                             <button
-                              id="undoRegisterSales"
-                              onClick={handleUndoRegister}
-                              className="bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-700 font-black py-3 px-3 rounded-2xl shadow-sm transition-all active:scale-95 text-xs uppercase flex items-center justify-center space-x-1"
-                              title="Deshacer el último ingreso"
+                              id="submitRegisterSales"
+                              onClick={handleRegisterAndClear}
+                              className="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-medium py-2.5 px-3 rounded-xl transition-colors text-xs uppercase tracking-wide flex items-center justify-center space-x-1 cursor-pointer"
                             >
-                              <Undo2 className="w-4 h-4" />
-                              <span>Deshacer</span>
+                              <PlusCircle className="w-3.5 h-3.5" />
+                              <span>Registrar</span>
                             </button>
-                          )}
-                        </div>
-                      </section>
-                      </div>
 
+                            {lastAddedRecordId && salesHistory.some(r => r.id === lastAddedRecordId) && (
+                              <button
+                                id="undoRegisterSales"
+                                onClick={handleUndoRegister}
+                                className="bg-slate-100 hover:bg-slate-200 text-slate-600 font-medium py-2.5 px-3 rounded-xl transition-colors text-xs uppercase flex items-center justify-center space-x-1 border border-slate-200 cursor-pointer"
+                                title="Deshacer el último ingreso"
+                              >
+                                <Undo2 className="w-3.5 h-3.5" />
+                                <span>Deshacer</span>
+                              </button>
+                            )}
+                          </div>
+                        </section>
                       {/* Right Column: Statistics tracker, Trend details & logs */}
                       <div className="space-y-4">
                         {/* Cumulative stats tracker */}
-                        <section className="bg-white p-5 rounded-3xl border border-purple-100 custom-card-shadow space-y-3">
-                        <div className="flex justify-between items-center border-b border-purple-50 pb-2">
-                          <h3 className="text-xs font-bold text-wom-purple uppercase tracking-wider">
-                            Acumulado General del Mes
+                        <section className="bg-white p-5 rounded-2xl border border-slate-100 space-y-3">
+                        <div className="flex justify-between items-center border-b border-slate-100 pb-2">
+                          <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-widest">
+                            Acumulado Mensual
                           </h3>
                           <button
                             id="btnFullReset"
                             onClick={handleFullReset}
-                            className="bg-rose-50 text-rose-500 hover:bg-rose-100 border border-rose-100 text-[9px] font-bold px-2 py-1 rounded-lg uppercase tracking-wider transition-all"
+                            className="text-rose-500 hover:text-rose-600 hover:bg-rose-50/50 text-[10px] font-medium px-2 py-1 rounded transition-colors uppercase tracking-wider cursor-pointer"
                           >
-                            Resetear Todo
+                            Reiniciar
                           </button>
                         </div>
 
                         <div className="grid grid-cols-3 gap-1.5 text-center text-[10px]">
-                          <div className="bg-purple-50/50 p-2 rounded-xl border border-purple-50">
-                            <p className="text-gray-400 font-bold uppercase truncate">Porta Pos</p>
-                            <p className="text-sm font-black text-wom-purple mt-0.5">{totals.postpago}</p>
+                          <div className="bg-slate-50/50 p-2 rounded-lg border border-slate-100/60">
+                            <p className="text-slate-400 font-medium uppercase truncate">Porta Pos</p>
+                            <p className="text-xs font-semibold text-slate-800 mt-0.5">{totals.postpago}</p>
                           </div>
-                          <div className="bg-purple-50/50 p-2 rounded-xl border border-purple-50">
-                            <p className="text-gray-400 font-bold uppercase truncate">Pos 15.990</p>
-                            <p className="text-sm font-black text-wom-purple mt-0.5">{totals.porta_pos_15990}</p>
+                          <div className="bg-slate-50/50 p-2 rounded-lg border border-slate-100/60">
+                            <p className="text-slate-400 font-medium uppercase truncate">@15.990</p>
+                            <p className="text-xs font-semibold text-slate-800 mt-0.5">{totals.porta_pos_15990}</p>
                           </div>
-                          <div className="bg-emerald-50/40 p-2 rounded-xl border border-emerald-100">
-                            <p className="text-emerald-500 font-bold uppercase truncate">Porta Prepago</p>
-                            <p className="text-sm font-black text-emerald-700 mt-0.5">{totals.porta}</p>
+                          <div className="bg-slate-50/50 p-2 rounded-lg border border-slate-100/60">
+                            <p className="text-slate-400 font-medium uppercase truncate">Porta Pre</p>
+                            <p className="text-xs font-semibold text-slate-800 mt-0.5">{totals.porta}</p>
                           </div>
-                          <div className="bg-purple-50/50 p-2 rounded-xl border border-purple-50">
-                            <p className="text-gray-400 font-bold uppercase truncate">Plan Nuevo</p>
-                            <p className="text-sm font-black text-wom-purple mt-0.5">{totals.nuevo}</p>
+                          <div className="bg-slate-50/50 p-2 rounded-lg border border-slate-100/60">
+                            <p className="text-slate-400 font-medium uppercase truncate">Nuevo</p>
+                            <p className="text-xs font-semibold text-slate-800 mt-0.5">{totals.nuevo}</p>
                           </div>
-                          <div className="bg-purple-50/50 p-2 rounded-xl border border-purple-50">
-                            <p className="text-gray-400 font-bold uppercase truncate">Renovación</p>
-                            <p className="text-sm font-black text-wom-purple mt-0.5">{totals.renov}</p>
+                          <div className="bg-slate-50/50 p-2 rounded-lg border border-slate-100/60">
+                            <p className="text-slate-400 font-medium uppercase truncate">Renov.</p>
+                            <p className="text-xs font-semibold text-slate-800 mt-0.5">{totals.renov}</p>
                           </div>
                           {totals.portaPre8 > 0 && (
-                            <div className="bg-purple-50/20 p-2 rounded-xl border border-purple-50 opacity-60">
-                              <p className="text-gray-400 font-bold uppercase truncate">Pre 8 (Legacy)</p>
-                              <p className="text-sm font-black text-wom-purple mt-0.5">{totals.portaPre8}</p>
+                            <div className="bg-slate-50/50 p-2 rounded-lg border border-slate-100/60">
+                              <p className="text-slate-400 font-medium uppercase truncate">Pre 8</p>
+                              <p className="text-xs font-semibold text-slate-800 mt-0.5">{totals.portaPre8}</p>
                             </div>
                           )}
                         </div>
 
                         {isRenovationBonusActive && (
-                          <div className="bg-amber-50 border border-amber-200 text-amber-900 rounded-xl p-2.5 text-[10px] font-bold text-center flex items-center justify-center space-x-1">
-                            <span>🔥 ¡Tu bono del 95% está activo! Las Renovaciones valen 5 Puntos.</span>
+                          <div className="bg-amber-50/60 border border-amber-100 text-amber-800 rounded-lg p-2 text-[10px] font-medium text-center flex items-center justify-center">
+                            <span>Bono activo: Renovaciones valen 5 Puntos.</span>
                           </div>
                         )}
                       </section>
@@ -1166,48 +1159,46 @@ export default function App() {
                       {/* Left Column: Closure Tendency & Rhythm Metrics */}
                       <div className="space-y-4">
                         {/* Close Projections summary info */}
-                      <section className="bg-white p-6 rounded-3xl custom-card-shadow border border-purple-100 overflow-hidden relative">
-                        <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-purple-100 to-transparent rounded-full" />
-                        
-                        <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">
+                      <section className="bg-white p-5 rounded-2xl border border-slate-100 overflow-hidden relative">
+                        <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">
                           Tendencia de Cierre Estimada
                         </h3>
                         <div className="grid grid-cols-2 gap-6 relative">
-                          <div className="text-center border-r border-gray-100">
-                            <p className="text-3xl font-black text-wom-purple">
+                          <div className="text-center border-r border-slate-100">
+                            <p className="text-3xl font-light text-slate-800">
                               {projectedFinalPoints}
                             </p>
-                            <p className="text-[9px] font-bold text-gray-400 uppercase tracking-wider mt-1">
+                            <p className="text-[10px] font-medium text-slate-400 uppercase tracking-wider mt-1">
                               Puntos Finales Est.
                             </p>
                           </div>
                           <div className="text-center">
-                            <p className="text-3xl font-black text-wom-magenta">
+                            <p className="text-3xl font-light text-indigo-600">
                               {projectedFulfillmentPercent.toFixed(1)}%
                             </p>
-                            <p className="text-[9px] font-bold text-gray-400 uppercase tracking-wider mt-1">
-                              Fulfillment Proyectado
+                            <p className="text-[10px] font-medium text-slate-400 uppercase tracking-wider mt-1">
+                              Avance Proyectado
                             </p>
                           </div>
                         </div>
                       </section>
 
                       {/* Simple Rhythm Indicators */}
-                      <div className="grid grid-cols-2 gap-3.5">
-                        <div className="bg-white p-4.5 rounded-2xl custom-card-shadow border border-purple-50 text-center">
-                          <p className="text-2xl font-black text-gray-700">
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="bg-slate-50/50 p-4 rounded-xl border border-slate-100 text-center">
+                          <p className="text-xl font-semibold text-slate-800">
                             {pointsDailyRhythm.toFixed(1)}
                           </p>
-                          <p className="text-[8px] font-bold text-purple-400 uppercase tracking-widest mt-0.5">
-                            Rendimiento Pts / Día
+                          <p className="text-[9px] font-medium text-slate-400 uppercase tracking-wider mt-1">
+                            Puntos por Día
                           </p>
                         </div>
-                        <div className="bg-white p-4.5 rounded-2xl custom-card-shadow border border-purple-50 text-center">
-                          <p className="text-2xl font-black text-gray-700">
+                        <div className="bg-slate-50/50 p-4 rounded-xl border border-slate-100 text-center">
+                          <p className="text-xl font-semibold text-slate-800">
                             {daysRemaining}
                           </p>
-                          <p className="text-[8px] font-bold text-purple-400 uppercase tracking-widest mt-0.5">
-                            Días para el Cierre
+                          <p className="text-[9px] font-medium text-slate-400 uppercase tracking-wider mt-1">
+                            Días Restantes
                           </p>
                         </div>
                       </div>
@@ -1216,40 +1207,40 @@ export default function App() {
                       {/* Right Column: Dynamic Targets Advisory, Speeds and Strategic Advice */}
                       <div className="space-y-4">
                         {/* Advisory of single-product totals required for 100% */}
-                        <section className="bg-white p-5 rounded-3xl custom-card-shadow border border-purple-50 space-y-3.5">
-                        <div className="flex items-center space-x-2">
-                          <Sparkles className="w-5 h-5 text-wom-yellow fill-wom-yellow/20" />
-                          <h3 className="text-xs font-black text-wom-purple uppercase tracking-widest">
-                            Para Alcanzar el 100% necesitas:
+                        <section className="bg-white p-5 rounded-2xl border border-slate-100 space-y-3.5">
+                        <div className="flex items-center space-x-2 border-b border-slate-100 pb-2">
+                          <Sparkles className="w-4 h-4 text-slate-400" />
+                          <h3 className="text-xs font-semibold text-slate-600 uppercase tracking-widest">
+                            Para alcanzar el 100% necesitas
                           </h3>
                         </div>
 
                         {pointsRemainingToTarget === 0 ? (
-                          <div className="bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-200 text-emerald-800 p-4 rounded-2xl text-center font-bold text-xs space-y-1">
-                            <p className="text-sm">🎉 ¡Meta cumplida!</p>
-                            <p className="font-medium opacity-80 text-[11px]">Ya aseguraste tu 100% de cumplimiento. ¡Ve por el sobrecumplimiento y maximiza tu cobro!</p>
+                          <div className="bg-emerald-50/40 border border-emerald-100/60 text-emerald-800 p-4 rounded-xl text-center text-xs space-y-1">
+                            <p className="font-semibold">🎉 Meta Cumplida</p>
+                            <p className="font-normal opacity-85 text-[11px]">Ya has superado el objetivo general de tu cuota.</p>
                           </div>
                         ) : (
                           <>
-                            <p className="text-[11px] text-gray-500">
-                              Te restan <strong>{pointsRemainingToTarget} puntos</strong> para el objetivo global. Para lograrlo usando una sola línea de negocio requieres:
+                            <p className="text-[11px] text-slate-505">
+                              Te faltan <strong>{pointsRemainingToTarget} puntos</strong>. Si se cubrieran con una sola línea de negocio, necesitarías:
                             </p>
                             
-                            <div className="grid grid-cols-2 gap-2.5">
+                            <div className="grid grid-cols-2 gap-2">
                               {PRODUCTS.map((prod) => {
                                 const countRequired = Math.ceil(pointsRemainingToTarget / prod.points);
                                 return (
                                   <div 
                                     key={prod.id} 
-                                    className="bg-purple-50/50 p-3 rounded-2xl border border-purple-100/60 flex items-center justify-between"
+                                    className="bg-slate-50/50 p-2.5 rounded-lg border border-slate-100/65 flex items-center justify-between"
                                   >
                                     <div className="flex items-center space-x-2">
                                       {getProductIcon(prod.id)}
-                                      <span className="text-[10px] font-bold text-gray-600 uppercase">
-                                        {prod.id === 'postpago' ? 'Porta Pos' : prod.id === 'porta_pos_15990' ? 'Porta -$15.990' : prod.id === 'porta' ? 'Porta Prepago' : prod.id === 'nuevo' ? 'P. Nuevo' : 'Renov.'}
+                                      <span className="text-[10px] font-medium text-slate-500 uppercase">
+                                        {prod.id === 'postpago' ? 'Porta Pos' : prod.id === 'porta_pos_15990' ? 'Porta $15.990' : prod.id === 'porta' ? 'Porta Pre' : prod.id === 'nuevo' ? 'Plan Nuevo' : 'Renov.'}
                                       </span>
                                     </div>
-                                    <span className="text-sm font-black text-wom-purple">
+                                    <span className="text-xs font-semibold text-indigo-600">
                                       {countRequired}
                                     </span>
                                   </div>
@@ -1261,46 +1252,46 @@ export default function App() {
                       </section>
 
                       {/* Velocity and pace warnings based on fulfillment projections */}
-                      <section className={`p-5 rounded-3xl text-center space-y-2.5 border ${
+                      <section className={`p-4 rounded-xl text-center space-y-1 border ${
                         projectedFulfillmentPercent >= 100
-                          ? 'bg-emerald-50 border-emerald-100 text-emerald-800'
+                          ? 'bg-emerald-50/40 border-emerald-100/60 text-emerald-800'
                           : projectedFulfillmentPercent >= 70
-                          ? 'bg-purple-50 border-purple-100 text-purple-800'
-                          : 'bg-rose-50 border-rose-100 text-rose-800'
+                          ? 'bg-indigo-50/40 border-indigo-100/60 text-indigo-800'
+                          : 'bg-rose-50/40 border-rose-100/60 text-rose-800'
                       }`}>
-                        <p className="text-lg font-black tracking-tight leading-none">
+                        <p className="text-xs font-semibold uppercase tracking-wider">
                           {projectedFulfillmentPercent >= 100
-                            ? '📈 ¡RITMO DE ÉXITO!'
+                            ? 'Ritmo Óptimo'
                             : projectedFulfillmentPercent >= 70
-                            ? '💰 ZONA DE COMISIÓN'
-                            : '🚨 ALERTA DE RITMO'}
+                            ? 'Tramo de Comisión'
+                            : 'Ritmo Insuficiente'}
                         </p>
-                        <p className="text-[11px] font-bold uppercase tracking-wider opacity-90 leading-tight">
+                        <p className="text-[11px] font-normal opacity-90 leading-tight">
                           {projectedFulfillmentPercent >= 100
                             ? 'Lograrás tu cuota si sostienes la velocidad de ventas.'
                             : projectedFulfillmentPercent >= 70
-                            ? 'Estás en tramo de cobro básico pero bajo el 100%.'
-                            : 'Peligro: Proyectas quedar sin cobro de comisiones.'}
+                            ? 'Estás en tramo de cobro básico pero debajo del 100%.'
+                            : 'Peligro: Proyectas quedar fuera de la zona de comisamiento.'}
                         </p>
                       </section>
 
                       {/* Strategic custom advice box */}
-                      <section className="bg-white p-5 rounded-3xl custom-card-shadow border border-purple-50 space-y-2">
-                        <h4 className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                      <section className="bg-white p-5 rounded-2xl border border-slate-100 space-y-2">
+                        <h4 className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest">
                           Estrategia Recomendada
                         </h4>
-                        <p className="text-xs text-gray-650 leading-relaxed">
+                        <p className="text-xs text-slate-600 leading-relaxed">
                           {projectedFulfillmentPercent >= 100 ? (
                             <span>
-                              ¡Excelente desempeño comercial! Para blindar tu volumen de comisiones del mes y evitar anulaciones, prioriza la calidad de firma en tus portabilidades <strong>Postpago (+16 pts)</strong> y gestiona llamadas rápidas de <strong>Renovaciones (+3 pts)</strong> en tu cartera.
+                              ¡Sigue así! Para afianzar tus incentivos comerciales y evitar retrocesos en tu panel, enfoca tus energías en robustecer la calidad de las portabilidades <strong>Postpago (+16 pts)</strong> y mantener activas las <strong>Renovaciones (+3 pts)</strong>.
                             </span>
                           ) : projectedFulfillmentPercent >= 70 ? (
                             <span>
-                              Ya tienes activado el pago mínimo. Para duplicar tu bono hacia el 100%, necesitas elevar tu ritmo diario de ventas a un promedio de <strong className="text-wom-purple font-extrabold">{dailyPointsNeeded} puntos por día</strong> de aquí al cierre de mes, empujando la portabilidad móvil.
+                              Has desbloqueado el tramo base. Si deseas alcanzar el incentivo completo de tu meta, necesitas elevar tu promedio de ventas a <strong className="font-semibold text-indigo-601">{dailyPointsNeeded} puntos por día</strong> hasta el final del ciclo.
                             </span>
                           ) : (
                             <span>
-                              Recomendación urgente: Necesitas reactivar tu embudo. Intenta hacer una campaña relámpago en redes de <strong>Portabilidades Prepago (+9 pts)</strong> o focusea 2 <strong>Portabilidades Postpago (+16 pts)</strong> diarias para forzar la entrada a la zona de comisiones mínimas. ¡Ánimo, aún quedan {daysRemaining} días para darle vuelta!
+                              Acción comercial prioritaria: Sugerimos activar campañas breves orientadas a portabilidad <strong>Prepago (+9 pts)</strong> o concretar dos portabilidades <strong>Postpago (+16 pts)</strong> diarias para forzar la entrada a la zona de cobro. ¡Aún restan {daysRemaining} días hábiles!
                             </span>
                           )}
                         </p>
@@ -1320,12 +1311,12 @@ export default function App() {
                       {/* Left Column: Register & Goals */}
                       <div className="space-y-4">
                         {/* Prepago Actions Card */}
-                      <section className="bg-white p-5 rounded-[32px] border border-purple-100 custom-card-shadow space-y-4">
+                      <section className="bg-white p-5 rounded-2xl border border-slate-100 space-y-4">
                         <div>
-                          <h2 className="text-sm font-black text-purple-700 uppercase tracking-wider">
+                          <h2 className="text-xs font-semibold text-slate-500 uppercase tracking-widest">
                             Registrar Prepago
                           </h2>
-                          <p className="text-[10px] text-gray-450">
+                          <p className="text-[10px] text-slate-400">
                             Presiona para ingresar de inmediato un prepago activo o cargado:
                           </p>
                         </div>
@@ -1334,49 +1325,49 @@ export default function App() {
                           <button
                             id="register-prepago-activo"
                             onClick={() => handleRegisterPrepago('activo')}
-                            className="bg-gradient-to-tr from-purple-600 to-purple-800 text-white font-bold py-3.5 px-3 rounded-2xl shadow-md cursor-pointer transition-all active:scale-95 text-xs text-center flex flex-col items-center justify-center space-y-1 hover:brightness-105"
+                            className="bg-slate-900 hover:bg-slate-800 text-white font-medium py-3 px-3 rounded-xl transition-colors cursor-pointer text-xs text-center flex flex-col items-center justify-center space-y-0.5"
                           >
-                            <span className="text-sm font-black">✔ Prepago Activo</span>
-                            <span className="text-[10px] opacity-90">+1 Punto</span>
+                            <span className="text-xs font-medium">📱 Prepago Activo</span>
+                            <span className="text-[9px] text-slate-400 font-normal">+1 Punto</span>
                           </button>
                           
                           <button
                             id="register-prepago-cargado"
                             onClick={() => handleRegisterPrepago('cargado')}
-                            className="bg-gradient-to-tr from-emerald-500 to-teal-600 text-white font-bold py-3.5 px-3 rounded-2xl shadow-md cursor-pointer transition-all active:scale-95 text-xs text-center flex flex-col items-center justify-center space-y-1 hover:brightness-105"
+                            className="bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-3 px-3 rounded-xl transition-colors cursor-pointer text-xs text-center flex flex-col items-center justify-center space-y-0.5"
                           >
-                            <span className="text-sm font-black">💰 Fue Cargado</span>
-                            <span className="text-[10px] opacity-90">+3 Puntos</span>
+                            <span className="text-xs font-medium">💰 Fue Cargado</span>
+                            <span className="text-[9px] text-indigo-200 font-normal">+3 Puntos</span>
                           </button>
                         </div>
                       </section>
 
                       {/* Meta Prepago target input */}
-                      <section className="bg-white p-4.5 rounded-3xl border border-purple-100 custom-card-shadow flex items-center justify-between">
+                      <section className="bg-slate-50/50 p-4 rounded-xl border border-slate-100 flex items-center justify-between">
                         <div className="flex items-center space-x-2.5">
-                          <div className="w-8.5 h-8.5 rounded-xl bg-purple-100/60 flex items-center justify-center text-wom-purple">
-                            <Target className="w-4.5 h-4.5" />
+                          <div className="w-8 h-8 rounded-lg bg-white border border-slate-150 flex items-center justify-center text-slate-400">
+                            <Target className="w-4 h-4" />
                           </div>
                           <div>
-                            <h3 className="text-xs font-black text-gray-700 uppercase tracking-wide">
+                            <h3 className="text-xs font-semibold text-slate-600 uppercase tracking-widest">
                               Meta Prepago Exigida
                             </h3>
-                            <p className="text-[10px] text-gray-450 uppercase font-semibold">
+                            <p className="text-[10px] text-slate-400">
                               Objetivo mensual Prepago
                             </p>
                           </div>
                         </div>
 
-                        <div className="flex items-center bg-purple-50 border border-purple-100 rounded-xl px-2.5 py-1">
+                        <div className="flex items-center bg-white border border-slate-200 rounded-lg px-2 py-0.5">
                           <input
                             id="fieldMetaPrepago"
                             type="number"
                             min="1"
                             value={metaPrepagoObjective}
                             onChange={(e) => handleUpdatePrepagoMeta(parseInt(e.target.value) || 1)}
-                            className="bg-transparent text-wom-purple font-black text-right w-16 focus:outline-none text-sm"
+                            className="bg-transparent text-slate-800 font-semibold text-right w-12 focus:outline-none text-xs"
                           />
-                          <span className="text-purple-400 font-bold text-xs ml-1">
+                          <span className="text-slate-400 font-medium text-[10px] ml-1">
                             PTS
                           </span>
                         </div>
@@ -1393,59 +1384,59 @@ export default function App() {
                       {/* Right Column: Accumulated Totals & Records historical tracker */}
                       <div className="space-y-4">
                         {/* Accumulated Prepagos */}
-                        <section className="bg-white p-4 rounded-3xl border border-purple-100 custom-card-shadow space-y-2">
-                        <div className="flex justify-between items-center border-b border-purple-50 pb-1.5">
-                          <h3 className="text-xs font-bold text-wom-purple uppercase">
+                        <section className="bg-white p-5 rounded-2xl border border-slate-100 space-y-3">
+                        <div className="flex justify-between items-center border-b border-slate-100 pb-2">
+                          <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-widest">
                             Totales Prepago
                           </h3>
                           <button
                             id="btnResetPrepagos"
                             onClick={handleFullResetPrepagos}
-                            className="text-rose-500 hover:text-rose-650 text-[10px] font-bold uppercase transition-all"
+                            className="text-rose-500 hover:text-rose-600 text-[10px] font-medium uppercase tracking-wider cursor-pointer transition-colors"
                           >
                             Limpiar Prepagos
                           </button>
                         </div>
                         <div className="grid grid-cols-3 gap-2 text-center text-xs">
-                          <div className="bg-purple-50/40 p-2 rounded-xl">
-                            <span className="block text-[10px] text-gray-400 uppercase font-bold">Activos (1 Pt)</span>
-                            <span className="font-black text-purple-700 text-sm">{prepagosTotals.activos}</span>
+                          <div className="bg-slate-50/50 p-2 rounded-lg border border-slate-100/60">
+                            <span className="block text-[10px] text-slate-400 font-medium uppercase truncate">Activos</span>
+                            <span className="font-semibold text-slate-800 text-xs mt-0.5 block">{prepagosTotals.activos}</span>
                           </div>
-                          <div className="bg-emerald-50/40 p-2 rounded-xl">
-                            <span className="block text-[10px] text-teal-600 uppercase font-bold">Cargados (3 Pts)</span>
-                            <span className="font-black text-emerald-700 text-sm">{prepagosTotals.cargados}</span>
+                          <div className="bg-slate-50/50 p-2 rounded-lg border border-slate-100/60">
+                            <span className="block text-[10px] text-slate-400 font-medium uppercase truncate">Cargados</span>
+                            <span className="font-semibold text-slate-800 text-xs mt-0.5 block">{prepagosTotals.cargados}</span>
                           </div>
-                          <div className="bg-gradient-to-r from-purple-50 to-emerald-50 p-2 rounded-xl font-bold">
-                            <span className="block text-[10px] text-gray-500 uppercase font-bold">Puntos Total</span>
-                            <span className="font-black text-purple-950 text-sm">{prepagosTotals.points}</span>
+                          <div className="bg-slate-50/50 p-2 rounded-lg border border-slate-100/60">
+                            <span className="block text-[10px] text-slate-400 font-medium uppercase truncate font-semibold">Total Pts</span>
+                            <span className="font-semibold text-indigo-600 text-xs mt-0.5 block">{prepagosTotals.points}</span>
                           </div>
                         </div>
                       </section>
 
                       {/* Prepago Historical Records */}
-                      <section className="bg-white p-4.5 rounded-3xl border border-purple-100 custom-card-shadow space-y-3">
-                        <h4 className="text-xs font-black text-purple-700 uppercase tracking-widest pl-1">
+                      <section className="bg-white p-5 rounded-2xl border border-slate-100 space-y-3">
+                        <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-widest pl-1">
                           Historial Prepago del Mes
                         </h4>
 
                         {prepagosHistory.length === 0 ? (
-                          <p className="text-center text-[10.5px] text-gray-400 py-6 italic">
-                            No hay prepagos registrados en este mes. ¡Presiona los botones superiores para registrar!
+                          <p className="text-center text-[10.5px] text-slate-400 py-6 italic">
+                            No hay prepagos registrados en este mes.
                           </p>
                         ) : (
                           <div className="space-y-2 max-h-48 overflow-y-auto pr-1">
                             {prepagosHistory.map((item) => (
                               <div
                                 key={item.id}
-                                className="flex items-center justify-between p-2.5 bg-slate-50 border border-gray-150 rounded-xl transition-all border-l-4 border-l-emerald-500"
+                                className="flex items-center justify-between p-2.5 bg-slate-50/50 border border-slate-100 rounded-xl transition-all border-l-2 border-l-emerald-500"
                               >
                                 <div className="flex items-center space-x-2">
-                                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                                   <div>
-                                    <p className="text-xs font-bold text-gray-700">
+                                    <p className="text-xs font-semibold text-slate-700">
                                       {item.type === 'activo' ? '📱 Prepago Activo (+1 Pt)' : '💰 Prepago Cargado (+3 Pts)'}
                                     </p>
-                                    <p className="text-[9px] font-mono text-gray-400">
+                                    <p className="text-[10px] font-mono text-slate-400">
                                       {new Date(item.timestamp).toLocaleString('es-CL', {
                                         hour: '2-digit',
                                         minute: '2-digit',
@@ -1457,7 +1448,7 @@ export default function App() {
                                 </div>
                                 <button
                                   onClick={() => handleDeletePrepago(item.id)}
-                                  className="p-1.5 hover:bg-rose-100 text-rose-400 hover:text-rose-600 rounded-lg transition-all"
+                                  className="p-1 hover:bg-rose-50 text-slate-350 hover:text-rose-500 rounded transition-colors cursor-pointer"
                                   title="Borrar registro"
                                 >
                                   <Trash2 className="w-3.5 h-3.5" />
