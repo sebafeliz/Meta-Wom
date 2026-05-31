@@ -5,18 +5,18 @@
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-display: "Poppins", system-ui, sans-serif;
   
-  --color-wom-purple: #4f46e5; /* Lumina Indigo-600 */
-  --color-wom-purple-light: #f5f3ff; /* Lumina Indigo-50 */
-  --color-wom-dark: #1e1b4b; /* Lumina Indigo-950 */
-  --color-wom-magenta: #6366f1; /* Secondary Indigo-500 */
-  --color-wom-yellow: #f59e0b; /* Amber accent */
+  --color-wom-purple: #3c004f; /* Real WOM Purple */
+  --color-wom-purple-light: #fdf2f8; /* Soft WOM Light Pink hint */
+  --color-wom-dark: #100015; /* Extremely dark WOM bg */
+  --color-wom-magenta: #e10098; /* Real WOM Electric Magenta */
+  --color-wom-yellow: #ffdd00; /* WOM High-Contrast Yellow */
 }
 
 /* Custom smooth entries and scrollbar aesthetics conforming to Sleek Design HTML */
 html, body {
   font-family: var(--font-sans);
-  background-color: #f8fafc; /* bg-slate-50 style */
-  color: #0f172a; /* text-slate-900 style */
+  background-color: #4c018c; /* Deep requested purple background */
+  color: #ffffff; /* Highly contrasting text default */
 }
 
 ::-webkit-scrollbar {
@@ -29,12 +29,12 @@ html, body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(99, 102, 241, 0.2);
+  background: rgba(225, 0, 152, 0.25);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(99, 102, 241, 0.4);
+  background: rgba(225, 0, 152, 0.5);
 }
 
 /* Disable default spinners */
