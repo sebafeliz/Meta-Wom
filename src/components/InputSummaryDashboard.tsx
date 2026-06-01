@@ -341,18 +341,18 @@ export default function InputSummaryDashboard({
   const isPrepagoActive = prepagoFulfillmentPercent >= 70;
 
   return (
-    <div className="bg-[#52336e] rounded-3xl p-4.5 sm:p-6 text-white border border-purple-400/20 shadow-lg space-y-4">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-purple-500/15 pb-3">
+    <div className="bg-white rounded-3xl p-4.5 sm:p-6 text-[#4c018c] border border-[#4c018c]/15 shadow-lg space-y-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#4c018c]/15 pb-3">
         <div className="flex items-center space-x-2.5">
-          <div className="p-2 bg-[#3c2452] text-purple-200 rounded-xl shadow-sm border border-purple-500/10">
-            <TrendingUp className="w-5 h-5 text-purple-200" />
+          <div className="p-2 bg-[#4c018c]/5 text-[#4c018c] rounded-xl shadow-sm border border-[#4c018c]/10">
+            <TrendingUp className="w-5 h-5 text-[#4c018c]" />
           </div>
           <div>
-            <h3 className="font-extrabold text-[13px] sm:text-sm text-white uppercase tracking-tight flex items-center gap-1">
+            <h3 className="font-extrabold text-[13px] sm:text-sm text-[#4c018c] uppercase tracking-tight flex items-center gap-1">
               <span>Control Interno de Metas</span>
-              <Sparkles className="w-3.5 h-3.5 text-purple-300 animate-pulse shrink-0" />
+              <Sparkles className="w-3.5 h-3.5 text-[#4c018c] animate-pulse shrink-0" />
             </h3>
-            <p className="text-[10px] text-purple-200 font-bold uppercase tracking-wide">
+            <p className="text-[10px] text-[#4c018c]/70 font-bold uppercase tracking-wide">
               Resumen acumulado instantáneo en base a tus registros ({currentMonth})
             </p>
           </div>
@@ -361,83 +361,83 @@ export default function InputSummaryDashboard({
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         {/* Postpago Micro widget */}
-        <div className="bg-[#3c2452] border border-purple-500/10 rounded-2xl p-3.5 space-y-2.5 hover:border-purple-500/30 transition-colors shadow-md">
+        <div className="bg-white border border-[#4c018c]/15 rounded-2xl p-3.5 space-y-2.5 hover:border-[#4c018c]/30 transition-colors shadow-md text-[#4c018c]">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] text-purple-200 uppercase font-bold tracking-widest">Móvil Pospago</span>
-            <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full ${isPostpagoActive ? 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/20' : 'bg-rose-500/15 text-rose-300 border border-rose-500/20'}`}>
+            <span className="text-[10px] text-[#4c018c]/75 uppercase font-bold tracking-widest">Móvil Pospago</span>
+            <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full ${isPostpagoActive ? 'bg-emerald-550/10 text-emerald-800 border border-emerald-555/20' : 'bg-rose-550/10 text-rose-700 border border-rose-555/20'}`}>
               {isPostpagoActive ? '✔ Activo' : '⏳ Inactivo'}
             </span>
           </div>
           <div className="flex items-baseline justify-between select-none">
-            <span className="text-xl font-black text-white">{totals.points} <span className="text-[11px] font-semibold text-purple-200">/ {metaObjective} Pts</span></span>
-            <span className="text-sm font-black text-purple-200">{currentFulfillmentPercent.toFixed(0)}%</span>
+            <span className="text-xl font-black text-[#4c018c]">{totals.points} <span className="text-[11px] font-semibold text-[#4c018c]/60">/ {metaObjective} Pts</span></span>
+            <span className="text-sm font-black text-[#4c018c]/80">{currentFulfillmentPercent.toFixed(0)}%</span>
           </div>
           {/* Simple HTML bar */}
-          <div className="w-full h-1.5 bg-purple-900/50 rounded-full overflow-hidden">
+          <div className="w-full h-1.5 bg-[#4c018c]/10 rounded-full overflow-hidden">
             <div 
               style={{ width: `${Math.min(100, currentFulfillmentPercent)}%` }}
-              className="h-full bg-purple-450 rounded-full transition-all duration-500"
+              className="h-full bg-[#4c018c] rounded-full transition-all duration-500"
             />
           </div>
-          <div className="flex justify-between items-center pt-0.5 border-t border-purple-500/10 text-[10.5px]">
-            <span className="text-purple-200 font-normal">Comisión Estimada:</span>
-            <span className="font-extrabold text-white bg-purple-950/30 rounded px-1.5 py-0.5">{formatCLP(postpagoComm)}</span>
+          <div className="flex justify-between items-center pt-0.5 border-t border-[#4c018c]/15 text-[10.5px]">
+            <span className="text-[#4c018c]/80 font-normal">Comisión Estimada:</span>
+            <span className="font-extrabold text-[#4c018c] bg-[#4c018c]/5 rounded px-1.5 py-0.5">{formatCLP(postpagoComm)}</span>
           </div>
         </div>
 
         {/* Prepago Micro widget */}
-        <div className="bg-[#3c2452] border border-purple-500/10 rounded-2xl p-3.5 space-y-2.5 hover:border-purple-500/30 transition-colors shadow-md">
+        <div className="bg-white border border-[#4c018c]/15 rounded-2xl p-3.5 space-y-2.5 hover:border-[#4c018c]/30 transition-colors shadow-md text-[#4c018c]">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] text-purple-200 uppercase font-bold tracking-widest">Móvil Prepago</span>
-            <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full ${isPrepagoActive ? 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/20' : 'bg-rose-500/15 text-rose-300 border border-rose-500/20'}`}>
+            <span className="text-[10px] text-[#4c018c]/75 uppercase font-bold tracking-widest">Móvil Prepago</span>
+            <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full ${isPrepagoActive ? 'bg-emerald-555/10 text-emerald-800 border border-emerald-555/20' : 'bg-rose-555/10 text-rose-700 border border-rose-555/20'}`}>
               {isPrepagoActive ? '✔ Activo' : '⏳ Inactivo'}
             </span>
           </div>
           <div className="flex items-baseline justify-between select-none">
-            <span className="text-xl font-black text-white">{prepagosTotals.points} <span className="text-[11px] font-semibold text-purple-200">/ {metaPrepagoObjective} Pts</span></span>
-            <span className="text-sm font-black text-purple-200">{prepagoFulfillmentPercent.toFixed(0)}%</span>
+            <span className="text-xl font-black text-[#4c018c]">{prepagosTotals.points} <span className="text-[11px] font-semibold text-[#4c018c]/60">/ {metaPrepagoObjective} Pts</span></span>
+            <span className="text-sm font-black text-[#4c018c]/80">{prepagoFulfillmentPercent.toFixed(0)}%</span>
           </div>
           {/* Simple HTML bar */}
-          <div className="w-full h-1.5 bg-purple-900/50 rounded-full overflow-hidden">
+          <div className="w-full h-1.5 bg-[#4c018c]/10 rounded-full overflow-hidden">
             <div 
               style={{ width: `${Math.min(100, prepagoFulfillmentPercent)}%` }}
-              className="h-full bg-purple-400 rounded-full transition-all duration-500"
+              className="h-full bg-[#4c018c]/85 rounded-full transition-all duration-500"
             />
           </div>
-          <div className="flex justify-between items-center pt-0.5 border-t border-purple-500/10 text-[10.5px]">
-            <span className="text-purple-200 font-normal">Comisión Estimada:</span>
-            <span className="font-extrabold text-white bg-purple-950/30 rounded px-1.5 py-0.5">{formatCLP(prepagoComm)}</span>
+          <div className="flex justify-between items-center pt-0.5 border-t border-[#4c018c]/15 text-[10.5px]">
+            <span className="text-[#4c018c]/80 font-normal">Comisión Estimada:</span>
+            <span className="font-extrabold text-[#4c018c] bg-[#4c018c]/5 rounded px-1.5 py-0.5">{formatCLP(prepagoComm)}</span>
           </div>
         </div>
 
         {/* Unified Revenue Consolidated widget */}
-        <div className="bg-[#2a1739] border border-purple-500/20 rounded-2xl p-3.5 flex flex-col justify-between hover:bg-[#231230] transition-all shadow-md text-white">
+        <div className="bg-white border border-[#4c018c]/20 rounded-2xl p-3.5 flex flex-col justify-between hover:bg-slate-50 transition-all shadow-md text-[#4c018c]">
           <div className="flex items-center space-x-1">
-            <Award className="w-4 h-4 text-amber-300" />
-            <span className="text-[9px] text-purple-200 uppercase font-black tracking-widest">Ingresos Consolidados</span>
+            <Award className="w-4 h-4 text-amber-600" />
+            <span className="text-[11px] text-[#4c018c]/75 uppercase font-black tracking-widest">Ingresos Consolidados</span>
           </div>
           
           <div className="my-1.5">
-            <span className="block text-[8px] text-purple-200 uppercase font-bold tracking-wider">Monto Real de Comisión</span>
-            <span className="text-2xl font-black text-white tracking-tight drop-shadow-sm select-all">
+            <span className="block text-[8px] text-[#4c018c]/70 uppercase font-bold tracking-wider">Monto Real de Comisión</span>
+            <span className="text-2xl font-black text-[#4c018c] tracking-tight select-all">
               {formatCLP(totalComm)}
             </span>
           </div>
 
-          <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[9px] font-bold text-purple-200 uppercase">
+          <div className="pt-2 border-t border-[#4c018c]/15 flex items-center justify-between text-[9px] font-bold text-[#4c018c]/70 uppercase">
             {(!isPostpagoActive && !isPrepagoActive) ? (
-              <span className="flex items-center gap-1 text-red-300">
-                <AlertCircle className="w-3.5 h-3.5 text-red-300" />
+              <span className="flex items-center gap-1 text-rose-700">
+                <AlertCircle className="w-3.5 h-3.5 text-rose-700" />
                 <span>Requiere 70% en algún sector</span>
               </span>
             ) : (!isPostpagoActive || !isPrepagoActive) ? (
-              <span className="flex items-center gap-1 text-yellow-300">
-                <AlertCircle className="w-3.5 h-3.5 text-yellow-300" />
+              <span className="flex items-center gap-1 text-amber-700">
+                <AlertCircle className="w-3.5 h-3.5 text-amber-700" />
                 <span>Un sector comisionable</span>
               </span>
             ) : (
-              <span className="flex items-center gap-1 text-teal-300">
-                <CheckCircle2 className="w-3.5 h-3.5 text-teal-300" />
+              <span className="flex items-center gap-1 text-emerald-700">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" />
                 <span>Ambas comisiones sumando</span>
               </span>
             )}

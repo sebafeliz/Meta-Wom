@@ -21,19 +21,19 @@ export default function AuditTrail({ history, onDeleteRecord }: AuditTrailProps)
   };
 
   return (
-    <div className="bg-[#52336e] rounded-2xl p-5 border border-purple-400/20 text-white space-y-3 shadow-lg">
-      <div className="flex justify-between items-center border-b border-purple-500/15 pb-2">
-        <h3 className="text-xs font-bold text-white uppercase tracking-wider">
+    <div className="bg-white rounded-2xl p-5 border border-[#4c018c]/15 text-[#4c018c] space-y-3 shadow-lg">
+      <div className="flex justify-between items-center border-b border-[#4c018c]/15 pb-2">
+        <h3 className="text-xs font-bold text-[#4c018c] uppercase tracking-wider">
           Ventas Recientes ({history.length})
         </h3>
         {history.length > 0 && (
-          <span className="text-[10px] text-purple-200 font-bold uppercase">Historial</span>
+          <span className="text-[10px] text-[#4c018c]/80 font-bold uppercase">Historial</span>
         )}
       </div>
 
       {history.length === 0 ? (
-        <div className="text-center py-8 text-purple-300 text-xs font-semibold">
-          <Clock className="w-6 h-6 mx-auto stroke-1.0 opacity-40 mb-2 text-purple-200" />
+        <div className="text-center py-8 text-[#4c018c]/70 text-xs font-semibold">
+          <Clock className="w-6 h-6 mx-auto stroke-1.0 opacity-40 mb-2 text-[#4c018c]" />
           No hay registros de ventas hoy
         </div>
       ) : (
@@ -41,50 +41,50 @@ export default function AuditTrail({ history, onDeleteRecord }: AuditTrailProps)
           {history.map((record) => (
             <div
               key={record.id}
-              className="flex items-center justify-between p-3 bg-[#3c2452] rounded-xl border border-purple-500/10 hover:border-purple-400/30 transition-colors text-xs"
+              className="flex items-center justify-between p-3 bg-[#4c018c]/5 rounded-xl border border-[#4c018c]/10 hover:border-[#4c018c]/30 transition-colors text-xs"
             >
               <div className="space-y-1 flex-1">
                 {/* Time Badge */}
-                <div className="flex items-center text-[9.5px] text-purple-250 font-bold">
-                  <Clock className="w-3 h-3 mr-1 opacity-80" />
+                <div className="flex items-center text-[9.5px] text-[#4c018c]/80 font-bold">
+                  <Clock className="w-3 h-3 mr-1 opacity-80 text-[#4c018c]" />
                   {formatTime(record.timestamp)}
                 </div>
 
                 {/* Subcounts Row */}
                 <div className="flex flex-wrap gap-1.5 text-[10.5px] pt-1">
                   {record.postpagoCount > 0 && (
-                    <span className="bg-[#301c42]/80 text-[#eed9ff] px-2 py-0.5 rounded flex items-center border border-purple-500/5">
-                      <Smartphone className="w-3 h-3 mr-1 text-purple-300" />
+                    <span className="bg-[#4c018c]/10 text-[#4c018c] px-2 py-0.5 rounded flex items-center border border-[#4c018c]/10">
+                      <Smartphone className="w-3 h-3 mr-1 text-[#4c018c]" />
                       {record.postpagoCount} Porta Pos
                     </span>
                   )}
                   {record.portaCount > 0 && (
-                    <span className="bg-[#301c42]/80 text-[#eed9ff] px-2 py-0.5 rounded flex items-center border border-purple-500/5">
-                      <PhoneCall className="w-3 h-3 mr-1 text-purple-300" />
+                    <span className="bg-[#4c018c]/10 text-[#4c018c] px-2 py-0.5 rounded flex items-center border border-[#4c018c]/10">
+                      <PhoneCall className="w-3 h-3 mr-1 text-[#4c018c]" />
                       {record.portaCount} Porta Pre
                     </span>
                   )}
                   {(record.portaPos15990Count ?? 0) > 0 && (
-                    <span className="bg-emerald-500/15 text-emerald-350 px-2 py-0.5 rounded flex items-center border border-emerald-500/10 font-medium">
-                      <Smartphone className="w-3 h-3 mr-1 text-emerald-300" />
+                    <span className="bg-[#4c018c]/10 text-[#4c018c] px-2 py-0.5 rounded flex items-center border border-[#4c018c]/10 font-bold">
+                      <Smartphone className="w-3 h-3 mr-1 text-[#4c018c]" />
                       {record.portaPos15990Count} @15.990
                     </span>
                   )}
                   {record.portaPre8Count > 0 && (
-                    <span className="bg-[#301c42]/80 text-[#eed9ff] px-2 py-0.5 rounded flex items-center border border-purple-500/5">
-                      <PhoneCall className="w-3 h-3 mr-1 text-purple-300" />
+                    <span className="bg-[#4c018c]/10 text-[#4c018c] px-2 py-0.5 rounded flex items-center border border-[#4c018c]/10">
+                      <PhoneCall className="w-3 h-3 mr-1 text-[#4c018c]" />
                       {record.portaPre8Count} Pre 8
                     </span>
                   )}
                   {record.nuevoCount > 0 && (
-                    <span className="bg-[#301c42]/80 text-[#eed9ff] px-2 py-0.5 rounded flex items-center border border-purple-500/5">
-                      <Zap className="w-3 h-3 mr-1 text-purple-300" />
+                    <span className="bg-[#4c018c]/10 text-[#4c018c] px-2 py-0.5 rounded flex items-center border border-[#4c018c]/10">
+                      <Zap className="w-3 h-3 mr-1 text-[#4c018c]" />
                       {record.nuevoCount} Nuevo
                     </span>
                   )}
                   {record.renovCount > 0 && (
-                    <span className={`${record.renovationBonusApplied ? 'bg-amber-500/15 text-amber-300 border border-amber-500/10' : 'bg-[#301c42]/80 text-[#eed9ff] border border-purple-500/5'} px-2 py-0.5 rounded flex items-center`}>
-                      <RefreshCw className="w-3 h-3 mr-1 text-purple-300" />
+                    <span className="bg-[#4c018c]/10 text-[#4c018c] px-2 py-0.5 rounded flex items-center border border-[#4c018c]/10">
+                      <RefreshCw className="w-3 h-3 mr-1 text-[#4c018c]" />
                       {record.renovCount} Renov. {record.renovationBonusApplied ? '(Bono)' : ''}
                     </span>
                   )}
@@ -94,17 +94,17 @@ export default function AuditTrail({ history, onDeleteRecord }: AuditTrailProps)
               {/* Total points generated & Trash */}
               <div className="flex items-center space-x-3 ml-2 shrink-0">
                 <div className="text-right">
-                  <p className="text-sm font-black text-rose-350">
+                  <p className="text-sm font-black text-[#4c018c]">
                     +{record.pointsEarned}
                   </p>
-                  <p className="text-[8px] text-purple-200 uppercase tracking-widest font-black">
+                  <p className="text-[8px] text-[#4c018c]/80 uppercase tracking-widest font-black">
                     PTS
                   </p>
                 </div>
                 
                 <button
                   onClick={() => onDeleteRecord(record.id)}
-                  className="p-1.5 text-purple-200 hover:text-rose-400 hover:bg-rose-500/10 rounded-lg transition-colors border border-transparent"
+                  className="p-1.5 text-[#4c018c]/80 hover:text-red-650 hover:bg-red-500/10 rounded-lg transition-colors border border-transparent"
                   title="Eliminar este registro"
                 >
                   <Trash2 className="w-3.5 h-3.5" />

@@ -375,124 +375,124 @@ export default function CommissionSimulator({
     <div className="space-y-6 animate-fadeIn">
 
       {/* 1. Resumen de Comisión Real Alcanzada */}
-      <section className="bg-[#52336e] p-6 rounded-2xl text-white border border-purple-400/20 relative overflow-hidden shadow-lg">
+      <section className="bg-white p-6 rounded-2xl text-[#4c018c] border border-[#4c018c]/15 relative overflow-hidden shadow-lg">
         <div className="text-center space-y-1 mb-6">
-          <span className="bg-purple-950/60 text-purple-200 font-bold text-[9px] tracking-widest uppercase px-3 py-1 rounded-full border border-purple-500/25 shadow-sm inline-block">
+          <span className="bg-[#4c018c]/10 text-[#4c018c] font-bold text-[9px] tracking-widest uppercase px-3 py-1 rounded-full border border-[#4c018c]/25 shadow-sm inline-block">
             Resumen de Comisión Real Alcanzada
           </span>
-          <h2 className="text-xl font-bold tracking-tight uppercase text-white pt-1">Cifras del Mes de {currentMonth.split(' ')[0]}</h2>
-          <p className="text-[11px] text-purple-200 max-w-lg mx-auto flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-3 font-medium">
-            <span>Metas Postpago: <strong className="text-white font-bold">{currentPercentage.toFixed(1)}%</strong></span>
-            <span className="hidden sm:inline-block text-purple-400">•</span>
-            <span>Metas Prepago: <strong className="text-white font-bold">{prepagoPercentage.toFixed(1)}%</strong></span>
+          <h2 className="text-xl font-bold tracking-tight uppercase text-[#4c018c] pt-1">Cifras del Mes de {currentMonth.split(' ')[0]}</h2>
+          <p className="text-[11px] text-[#4c018c]/80 max-w-lg mx-auto flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-3 font-medium">
+            <span>Metas Postpago: <strong className="text-[#4c018c] font-black">{currentPercentage.toFixed(1)}%</strong></span>
+            <span className="hidden sm:inline-block text-[#4c018c]/30">•</span>
+            <span>Metas Prepago: <strong className="text-[#4c018c] font-black">{prepagoPercentage.toFixed(1)}%</strong></span>
           </p>
         </div>
 
         {/* Triple Summary Panels */}
         <div className="grid grid-cols-3 gap-2.5 pl-0.5 pr-0.5 sm:pl-0 sm:pr-0">
           {/* Postpago card */}
-          <div className="bg-[#3c2452] border border-purple-800/10 rounded-xl p-2.5 sm:p-4 hover:bg-[#321c45] transition-all flex flex-col items-center justify-center text-center w-full">
-            <span className="block text-[8px] sm:text-[9.5px] text-purple-200 uppercase font-semibold tracking-widest mb-1 select-none">
+          <div className="bg-[#4c018c]/5 border border-[#4c018c]/10 rounded-xl p-2.5 sm:p-4 hover:bg-[#4c018c]/10 transition-all flex flex-col items-center justify-center text-center w-full">
+            <span className="block text-[8px] sm:text-[9.5px] text-[#4c018c]/80 uppercase font-semibold tracking-widest mb-1 select-none">
               Móvil Postpago
             </span>
-            <span className="block text-xs sm:text-lg font-black text-white tracking-tight my-0.5 text-center w-full whitespace-nowrap bg-purple-950/20 rounded px-1">
+            <span className="block text-xs sm:text-lg font-black text-[#4c018c] tracking-tight my-0.5 text-center w-full whitespace-nowrap bg-[#4c018c]/10 rounded px-1 font-mono">
               {formatCLP(realPostpagoComm)}
             </span>
-            <span className="block text-[8px] sm:text-[9px] text-purple-205 font-medium uppercase mt-0.5">
-              Metas: <strong className="text-white font-semibold">{currentPercentage.toFixed(1)}%</strong>
+            <span className="block text-[8px] sm:text-[9px] text-[#4c018c]/80 font-medium uppercase mt-0.5">
+              Metas: <strong className="text-[#4c018c] font-semibold">{currentPercentage.toFixed(1)}%</strong>
             </span>
-            <span className="block text-[7px] sm:text-[8px] text-teal-200 font-bold uppercase mt-1.5 bg-teal-500/10 px-2 py-0.5 rounded-full select-none">
+            <span className="block text-[7px] sm:text-[8px] text-[#4c018c] font-bold uppercase mt-1.5 bg-[#4c018c]/10 px-2 py-0.5 rounded-full select-none">
               {currentPercentage >= 70 ? '✔ Pago Activo' : 'Requiere 70%'}
             </span>
           </div>
 
           {/* Prepago card */}
-          <div className="bg-[#3c2452] border border-purple-800/10 rounded-xl p-2.5 sm:p-4 hover:bg-[#321c45] transition-all flex flex-col items-center justify-center text-center w-full">
-            <span className="block text-[8px] sm:text-[9.5px] text-purple-200 uppercase font-semibold tracking-widest mb-1 select-none">
+          <div className="bg-[#4c018c]/5 border border-[#4c018c]/10 rounded-xl p-2.5 sm:p-4 hover:bg-[#4c018c]/10 transition-all flex flex-col items-center justify-center text-center w-full">
+            <span className="block text-[8px] sm:text-[9.5px] text-[#4c018c]/80 uppercase font-semibold tracking-widest mb-1 select-none">
               Móvil Prepago
             </span>
-            <span className="block text-xs sm:text-lg font-black text-purple-100 tracking-tight my-0.5 text-center w-full whitespace-nowrap bg-purple-950/20 rounded px-1">
+            <span className="block text-xs sm:text-lg font-black text-[#4c018c] tracking-tight my-0.5 text-center w-full whitespace-nowrap bg-[#4c018c]/10 rounded px-1 font-mono">
               {formatCLP(realPrepagoComm)}
             </span>
-            <span className="block text-[8px] sm:text-[9px] text-purple-205 font-medium uppercase mt-0.5">
-              Metas: <strong className="text-white font-semibold">{prepagoPercentage.toFixed(1)}%</strong>
+            <span className="block text-[8px] sm:text-[9px] text-[#4c018c]/80 font-medium uppercase mt-0.5">
+              Metas: <strong className="text-[#4c018c] font-semibold">{prepagoPercentage.toFixed(1)}%</strong>
             </span>
-            <span className="block text-[7px] sm:text-[8px] text-teal-200 font-bold uppercase mt-1.5 bg-teal-500/10 px-2 py-0.5 rounded-full select-none">
+            <span className="block text-[7px] sm:text-[8px] text-[#4c018c] font-bold uppercase mt-1.5 bg-[#4c018c]/10 px-2 py-0.5 rounded-full select-none">
               {prepagoPercentage >= 70 ? '✔ Pago Activo' : 'Requiere 70%'}
             </span>
           </div>
 
           {/* Sumatoria Total card */}
-          <div className="bg-[#7a489c]/85 border border-purple-400/20 rounded-xl p-2.5 sm:p-4 hover:bg-[#7ff3b4]/10 transition-all flex flex-col items-center justify-center text-center w-full shadow-inner">
-            <span className="block text-[8px] sm:text-[9.5px] text-purple-100 uppercase font-bold tracking-widest mb-1 select-none">
+          <div className="bg-[#4c018c]/10 border border-[#4c018c]/15 rounded-xl p-2.5 sm:p-4 hover:bg-[#4c018c]/20 transition-all flex flex-col items-center justify-center text-center w-full shadow-inner">
+            <span className="block text-[8px] sm:text-[9.5px] text-[#4c018c] uppercase font-bold tracking-widest mb-1 select-none font-sans">
               Comisión Total
             </span>
-            <span className="block text-xs sm:text-lg font-black text-white tracking-tight my-0.5 text-center w-full whitespace-nowrap bg-purple-950/45 rounded px-1">
+            <span className="block text-xs sm:text-lg font-black text-[#4c018c] tracking-tight my-0.5 text-center w-full whitespace-nowrap bg-[#4c018c]/15 rounded px-1 font-mono">
               {formatCLP(realTotalComm)}
             </span>
-            <span className="block text-[7px] sm:text-[8px] text-[#facc15] font-bold uppercase mt-1.5 flex items-center justify-center space-x-0.5 bg-purple-905 px-2 py-0.5 rounded-full select-none">
-              <Sparkles className="w-2.5 h-2.5 text-[#facc15] animate-pulse shrink-0" />
+            <span className="block text-[7px] sm:text-[8px] text-[#4c018c] font-bold uppercase mt-1.5 flex items-center justify-center space-x-0.5 bg-[#4c018c]/20 px-2 py-0.5 rounded-full select-none font-sans">
+              <Sparkles className="w-2.5 h-2.5 text-[#4c018c] animate-pulse shrink-0" />
               <span>Suma Real</span>
             </span>
           </div>
         </div>
 
         {currentPercentage < 70 && prepagoPercentage < 70 ? (
-          <div className="mt-4 bg-rose-500/10 text-rose-200 p-3 rounded-xl text-center text-xs font-semibold border border-rose-500/20 leading-relaxed">
+          <div className="mt-4 bg-[#4c018c]/10 text-[#4c018c] p-3 rounded-xl text-center text-xs font-semibold border border-[#4c018c]/20 leading-relaxed">
             ⚠️ Alerta: Ninguno de tus cumplimientos alcanza el <strong>70% mínimo</strong> necesario para activar el pago de comisiones. ¡Sigue registrando ventas!
           </div>
         ) : currentPercentage < 70 ? (
-          <div className="mt-4 bg-rose-500/10 text-rose-200 p-3 rounded-xl text-center text-xs font-semibold border border-rose-500/20 leading-relaxed">
+          <div className="mt-4 bg-[#4c018c]/10 text-[#4c018c] p-3 rounded-xl text-center text-xs font-semibold border border-[#4c018c]/20 leading-relaxed">
             ⚠️ Alerta Postpago: Tu cumplimiento Postpago ({currentPercentage.toFixed(1)}%) es inferior al <strong>70% mínimo</strong>. Solo comisionarás la parte de Prepago.
           </div>
         ) : prepagoPercentage < 70 ? (
-          <div className="mt-4 bg-rose-500/10 text-rose-200 p-3 rounded-xl text-center text-xs font-semibold border border-rose-500/20 leading-relaxed">
+          <div className="mt-4 bg-[#4c018c]/10 text-[#4c018c] p-3 rounded-xl text-center text-xs font-semibold border border-[#4c018c]/20 leading-relaxed">
             ⚠️ Alerta Prepago: Tu cumplimiento Prepago ({prepagoPercentage.toFixed(1)}%) es inferior al <strong>70% mínimo</strong>. Solo comisionarás la parte de Postpago.
           </div>
         ) : (
-          <div className="mt-4 bg-teal-500/15 text-teal-200 p-3 rounded-xl text-center text-xs font-semibold border border-teal-500/20 leading-relaxed">
+          <div className="mt-4 bg-[#4c018c]/10 text-[#4c018c] p-3 rounded-xl text-center text-xs font-semibold border border-[#4c018c]/20 leading-relaxed">
             🎉 ¡Excelente! Ambos cumplimientos superan el <strong>70% mínimo</strong> obligatorio. ¡Incentivos y bonos 100% activos!
           </div>
         )}
       </section>
 
       {/* 2. Interactive Commission Slider (Real-time recalculation) */}
-      <section className="bg-[#52336e] p-5 rounded-2xl border border-purple-400/20 space-y-4 shadow-lg text-white">
+      <section className="bg-white p-5 rounded-2xl border border-[#4c018c]/15 space-y-4 shadow-lg text-[#4c018c]">
         <div className="flex items-center space-x-2.5">
-          <div id="simulated-commission-icon" className="w-8 h-8 rounded-lg bg-[#3c2452] border border-purple-500/15 flex items-center justify-center text-purple-100">
-            <Sliders className="w-4 h-4 text-purple-200" />
+          <div id="simulated-commission-icon" className="w-8 h-8 rounded-lg bg-[#4c018c]/10 border border-[#4c018c]/15 flex items-center justify-center text-[#4c018c]">
+            <Sliders className="w-4 h-4 text-[#4c018c]" />
           </div>
           <div>
-            <h3 className="text-xs font-bold text-white uppercase tracking-widest">
+            <h3 className="text-xs font-bold text-[#4c018c] uppercase tracking-widest">
               Simulador Interactivo de Tramo
             </h3>
-            <p className="text-[10px] text-purple-205">
+            <p className="text-[10px] text-[#4c018c]/80 font-semibold">
               Proyecta tus ingresos mensuales fácilmente
             </p>
           </div>
         </div>
 
-        <p className="text-xs text-purple-100 leading-relaxed font-normal">
+        <p className="text-xs text-[#4c018c]/95 leading-relaxed font-normal">
           Mueve el deslizador para proyectar tus comisiones. El simulador calculará tu bono Postpago, Prepago y Sumatoria Total conforme a los anexos de cumplimiento del mes:
         </p>
 
         {/* Simulator Outputs Group */}
-        <div className="bg-[#3c2452]/60 border border-purple-500/15 p-4 rounded-xl grid grid-cols-4 gap-2.5 text-center">
-          <div className="flex flex-col items-center justify-center border-r border-[#693d8b]/50 pr-1">
-            <span className="text-[9px] text-purple-200 font-bold uppercase tracking-widest block mb-0.5">Meta %</span>
-            <span className="text-sm font-bold text-white">{simulatedPct}%</span>
+        <div className="bg-[#4c018c]/5 border border-[#4c018c]/15 p-4 rounded-xl grid grid-cols-4 gap-2.5 text-center text-[#4c018c]">
+          <div className="flex flex-col items-center justify-center border-r border-[#4c018c]/20 pr-1">
+            <span className="text-[9px] text-[#4c018c]/80 font-bold uppercase tracking-widest block mb-0.5">Meta %</span>
+            <span className="text-sm font-bold text-[#4c018c]">{simulatedPct}%</span>
           </div>
-          <div className="flex flex-col items-center justify-center border-r border-[#693d8b]/50 px-1">
-            <span className="text-[9px] text-purple-200 font-bold uppercase tracking-widest block mb-0.5">Postpago</span>
-            <span className="text-xs font-black text-[#ffd5ec]">{formatCLP(simComm.postpago)}</span>
+          <div className="flex flex-col items-center justify-center border-r border-[#4c018c]/20 px-1">
+            <span className="text-[9px] text-[#4c018c]/80 font-bold uppercase tracking-widest block mb-0.5">Postpago</span>
+            <span className="text-xs font-black text-[#4c018c] font-mono">{formatCLP(simComm.postpago)}</span>
           </div>
-          <div className="flex flex-col items-center justify-center border-r border-[#693d8b]/50 px-1">
-            <span className="text-[9px] text-purple-200 font-bold uppercase tracking-widest block mb-0.5">Prepago</span>
-            <span className="text-xs font-black text-pink-305">{formatCLP(simComm.prepago)}</span>
+          <div className="flex flex-col items-[#4c018c] justify-center border-r border-[#4c018c]/20 px-1">
+            <span className="text-[9px] text-[#4c018c]/80 font-bold uppercase tracking-widest block mb-0.5">Prepago</span>
+            <span className="text-xs font-black text-[#4c018c] font-mono">{formatCLP(simComm.prepago)}</span>
           </div>
-          <div className="flex flex-col items-center justify-center pl-1">
-            <span className="text-[9px] text-yellow-300 font-black uppercase tracking-widest block mb-0.5">Sim. Suma</span>
-            <span className="text-xs font-black text-[#ffa3dc]">{formatCLP(simComm.total)}</span>
+          <div className="flex flex-col items-[#4c018c] justify-center pl-1">
+            <span className="text-[9px] text-[#4c018c]/85 font-black uppercase tracking-widest block mb-0.5">Sim. Suma</span>
+            <span className="text-xs font-black text-[#4c018c] font-mono">{formatCLP(simComm.total)}</span>
           </div>
         </div>
 
@@ -506,27 +506,27 @@ export default function CommissionSimulator({
             step="1"
             value={simulatedPct}
             onChange={(e) => setSimulatedPct(parseInt(e.target.value))}
-            className="w-full h-2 bg-purple-900/55 rounded-lg appearance-none cursor-pointer accent-wom-magenta focus:outline-none"
+            className="w-full h-2 bg-gray-100 rounded-lg appearance-none cursor-pointer accent-[#4c018c] focus:outline-none"
           />
-          <div className="flex justify-between text-[9px] text-purple-200 font-bold uppercase tracking-wider select-none px-0.5">
-            <span className="text-purple-100">70% ($110.000)</span>
+          <div className="flex justify-between text-[9px] text-[#4c018c]/80 font-bold uppercase tracking-wider select-none px-0.5">
+            <span className="text-[#4c018c]">70% ({formatCLP(110000)})</span>
             <span>100%</span>
             <span>130%</span>
-            <span className="text-yellow-300 font-black pb-0.5">160% ($440.000)</span>
+            <span className="text-[#4c018c] font-black pb-0.5">160% ({formatCLP(440000)})</span>
           </div>
         </div>
       </section>
 
       {/* 3. Period Selection & Historical Logger Card (NOW PLACED IN BOTTOM PART) */}
-      <section className="bg-[#52336e] rounded-2xl border border-purple-400/20 p-4 sm:p-5 space-y-3 sm:space-y-4 shadow-lg text-white">
-        <div className="flex items-center justify-between gap-1.5 border-b border-purple-500/15 pb-2.5">
+      <section className="bg-white rounded-2xl border border-[#4c018c]/15 p-4 sm:p-5 space-y-3 sm:space-y-4 shadow-lg text-[#4c018c]">
+        <div className="flex items-center justify-between gap-1.5 border-b border-[#4c018c]/15 pb-2.5">
           <div className="flex items-center space-x-2">
-            <span className="p-1.5 sm:p-2 bg-[#3c2452] text-purple-200 rounded-lg">
-              <Calendar className="w-4 h-4 text-purple-100" />
+            <span className="p-1.5 sm:p-2 bg-[#4c018c]/10 text-[#4c018c] rounded-lg">
+              <Calendar className="w-4 h-4 text-[#4c018c]" />
             </span>
             <div>
-              <h3 className="font-bold text-xs sm:text-sm text-white uppercase tracking-widest">Periodo de Rentabilidad</h3>
-              <p className="hidden xs:block text-[9px] text-purple-205 font-medium uppercase tracking-wider">Define el mes y guarda históricos</p>
+              <h3 className="font-bold text-xs sm:text-sm text-[#4c018c] uppercase tracking-widest">Periodo de Rentabilidad</h3>
+              <p className="hidden xs:block text-[9px] text-[#4c018c]/80 font-medium uppercase tracking-wider">Define el mes y guarda históricos</p>
             </div>
           </div>
         </div>
@@ -534,7 +534,7 @@ export default function CommissionSimulator({
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-4 pt-1">
           {/* Month selector dropdown */}
           <div className="space-y-1">
-            <label className="text-[9px] font-semibold text-purple-205 uppercase tracking-widest pl-1">Mes Seleccionado</label>
+            <label className="text-[9px] font-semibold text-[#4c018c]/80 uppercase tracking-widest pl-1">Mes Seleccionado</label>
             <div className="flex space-x-1.5">
               <select
                 value={currentMonth.split(' ')[0]}
@@ -543,10 +543,10 @@ export default function CommissionSimulator({
                   const year = parts[1] || '2026';
                   setCurrentMonth?.(e.target.value + ' ' + year);
                 }}
-                className="w-full p-2 bg-[#3c2452] hover:bg-[#482b63] text-white font-semibold text-xs rounded-lg border border-purple-500/25 focus:outline-none focus:border-purple-400 transition-all cursor-pointer"
+                className="w-full p-2 bg-white hover:bg-[#4c018c]/5 text-[#4c018c] font-semibold text-xs rounded-lg border border-[#4c018c]/25 focus:outline-none focus:border-[#4c018c] transition-all cursor-pointer"
               >
                 {['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'].map((m) => (
-                  <option key={m} className="bg-[#3c2452] text-white" value={m}>{m}</option>
+                  <option key={m} className="bg-white text-[#4c018c]" value={m}>{m}</option>
                 ))}
               </select>
               <select
@@ -556,10 +556,10 @@ export default function CommissionSimulator({
                   const month = parts[0] || 'Mayo';
                   setCurrentMonth?.(month + ' ' + e.target.value);
                 }}
-                className="p-2 bg-[#3c2452] hover:bg-[#482b63] text-white font-semibold text-xs rounded-lg border border-purple-500/25 focus:outline-none focus:border-purple-400 transition-all cursor-pointer"
+                className="p-2 bg-white hover:bg-[#4c018c]/5 text-[#4c018c] font-semibold text-xs rounded-lg border border-[#4c018c]/25 focus:outline-none focus:border-[#4c018c] transition-all cursor-pointer"
               >
                 {['2025', '2026', '2027', '2028'].map((y) => (
-                  <option key={y} className="bg-[#3c2452] text-white" value={y}>{y}</option>
+                  <option key={y} className="bg-white text-[#4c018c]" value={y}>{y}</option>
                 ))}
               </select>
             </div>
@@ -567,15 +567,15 @@ export default function CommissionSimulator({
 
           {/* Current metrics display */}
           <div className="space-y-1">
-            <label className="text-[9px] font-semibold text-purple-205 uppercase tracking-widest pl-1">Métricas a Grabar</label>
-            <div className="p-1.5 px-2 bg-[#3c2452]/50 border border-purple-500/20 rounded-lg text-[10px] sm:text-xs space-y-1 font-bold text-purple-100">
+            <label className="text-[9px] font-semibold text-[#4c018c]/80 uppercase tracking-widest pl-1">Métricas a Grabar</label>
+            <div className="p-1.5 px-2 bg-[#4c018c]/5 border border-[#4c018c]/20 rounded-lg text-[10px] sm:text-xs space-y-1 font-bold text-[#4c018c]">
               <div className="flex justify-between items-center">
                 <span className="truncate">Pos: {totals?.points || 0}/{metaObjective} Pts</span>
-                <span className="font-bold text-white">({currentPercentage.toFixed(0)}%)</span>
+                <span className="font-bold text-[#4c018c]">({currentPercentage.toFixed(0)}%)</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="truncate">Pre: {prepagosTotals?.points || 0}/{metaPrepagoObjective} Pts</span>
-                <span className="font-bold text-pink-300">({prepagoPercentage.toFixed(0)}%)</span>
+                <span className="font-bold text-[#4c018c]">({prepagoPercentage.toFixed(0)}%)</span>
               </div>
             </div>
           </div>
@@ -610,7 +610,7 @@ export default function CommissionSimulator({
                 };
                 onSaveMonthlyHistory(newRec);
               }}
-              className="w-full py-2 px-3 bg-wom-magenta hover:bg-[#c0007e]/90 text-white rounded-lg font-bold text-xs uppercase tracking-wider flex items-center justify-center space-x-2 transition-all cursor-pointer active:scale-[0.98] shadow hover:shadow-wom-magenta/15"
+              className="w-full py-2 px-3 bg-[#4c018c] hover:bg-[#4c018c]/90 text-white rounded-lg font-bold text-xs uppercase tracking-wider flex items-center justify-center space-x-2 transition-all cursor-pointer active:scale-[0.98] shadow-sm hover:shadow-[#4c018c]/15"
             >
               <Save className="w-3.5 h-3.5 text-white" />
               <span>Guardar Historial</span>
@@ -621,14 +621,14 @@ export default function CommissionSimulator({
 
       {/* 4. Historial Mensual Display Section (NOW PLACED IN BOTTOM PART) */}
       {monthlyHistory && monthlyHistory.length > 0 && (
-        <section className="bg-[#52336e] rounded-2xl border border-purple-400/20 p-5 space-y-3 shadow-lg text-white">
-          <div className="flex items-center space-x-2 border-b border-purple-500/15 pb-2.5">
-            <span className="p-1.5 bg-[#3c2452] text-purple-200 rounded-lg">
-              <CheckCircle2 className="w-4 h-4 text-purple-100" />
+        <section className="bg-white rounded-2xl border border-[#4c018c]/15 p-5 space-y-3 shadow-lg text-[#4c018c]">
+          <div className="flex items-center space-x-2 border-b border-[#4c018c]/15 pb-2.5">
+            <span className="p-1.5 bg-[#4c018c]/10 text-[#4c018c] rounded-lg">
+              <CheckCircle2 className="w-4 h-4 text-[#4c018c]" />
             </span>
             <div>
-              <h4 className="font-bold text-white text-xs uppercase tracking-widest font-display">Historial de Ventas y Metas por Mes</h4>
-              <p className="text-[9px] text-[#dec2ff] font-semibold mt-0.5 uppercase tracking-wider">Registro permanente de los periodos cerrados</p>
+              <h4 className="font-bold text-[#4c018c] text-xs uppercase tracking-widest font-display">Historial de Ventas y Metas por Mes</h4>
+              <p className="text-[9px] text-[#4c018c]/80 font-semibold mt-0.5 uppercase tracking-wider">Registro permanente de los periodos cerrados</p>
             </div>
           </div>
 
@@ -640,45 +640,45 @@ export default function CommissionSimulator({
               return (
                 <div 
                   key={hist.id}
-                  className="bg-[#3c2452]/40 hover:bg-[#3c2452]/60 border border-purple-500/15 rounded-xl p-4 flex flex-col justify-between transition-all shadow-md"
+                  className="bg-[#4c018c]/5 hover:bg-[#4c018c]/10 border border-[#4c018c]/10 rounded-xl p-4 flex flex-col justify-between transition-all shadow-md text-[#4c018c]"
                 >
                   <div className="flex items-start justify-between">
                     <div>
-                      <span className="text-xs font-bold text-white">{hist.monthName}</span>
-                      <p className="text-[9px] text-[#dec2ff] font-semibold mt-0.5">
+                      <span className="text-xs font-bold text-[#4c018c]">{hist.monthName}</span>
+                      <p className="text-[9px] text-[#4c018c]/70 font-semibold mt-0.5">
                         Grabado el {new Date(hist.timestamp).toLocaleDateString('es-CL')}
                       </p>
                     </div>
                     <button
                       onClick={() => onDeleteMonthlyHistory?.(hist.id)}
-                      className="p-1.5 text-purple-200 hover:text-rose-400 hover:bg-rose-500/10 rounded transition-colors cursor-pointer"
+                      className="p-1.5 text-[#4c018c]/70 hover:text-rose-600 hover:bg-rose-500/10 rounded transition-colors cursor-pointer"
                       title="Eliminar este mes"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2 mt-3 text-[11px] font-semibold text-purple-150">
-                    <div className="p-2 bg-[#301c42]/60 rounded-lg border border-purple-500/10">
-                      <span className="block text-[8px] font-bold text-purple-300 uppercase tracking-widest mb-0.5">Móvil Pospago</span>
-                      <span className="text-white font-bold">{hist.postpagoPoints}/{hist.postpagoMeta} Pts</span>
-                      <span className={`block text-[9px] font-bold mt-1 uppercase ${isPostpagoActive ? 'text-teal-300 font-extrabold' : 'text-rose-455'}`}>
+                  <div className="grid grid-cols-2 gap-2 mt-3 text-[11px] font-semibold text-[#4c018c]">
+                    <div className="p-2 bg-white rounded-lg border border-[#4c018c]/10">
+                      <span className="block text-[8px] font-bold text-[#4c018c]/80 uppercase tracking-widest mb-0.5">Móvil Pospago</span>
+                      <span className="text-[#4c018c] font-black">{hist.postpagoPoints}/{hist.postpagoMeta} Pts</span>
+                      <span className={`block text-[9px] font-bold mt-1 uppercase ${isPostpagoActive ? 'text-teal-600 font-extrabold' : 'text-rose-600'}`}>
                         {hist.postpagoPercent.toFixed(1)}% {isPostpagoActive ? '✔ Activo' : '❌ Inactivo'}
                       </span>
                     </div>
 
-                    <div className="p-2 bg-[#301c42]/60 rounded-lg border border-purple-500/10">
-                      <span className="block text-[8px] font-bold text-purple-300 uppercase tracking-widest mb-0.5">Prepago (Meta)</span>
-                      <span className="text-white font-bold">{hist.prepagoPoints}/{hist.prepagoMeta} Pts</span>
-                      <span className={`block text-[9px] font-bold mt-1 uppercase ${isPrepagoActive ? 'text-teal-300 font-extrabold' : 'text-rose-455'}`}>
+                    <div className="p-2 bg-white rounded-lg border border-[#4c018c]/10">
+                      <span className="block text-[8px] font-bold text-[#4c018c]/80 uppercase tracking-widest mb-0.5">Prepago (Meta)</span>
+                      <span className="text-[#4c018c] font-black">{hist.prepagoPoints}/{hist.prepagoMeta} Pts</span>
+                      <span className={`block text-[9px] font-bold mt-1 uppercase ${isPrepagoActive ? 'text-teal-600 font-extrabold' : 'text-rose-600'}`}>
                         {hist.prepagoPercent.toFixed(1)}% {isPrepagoActive ? '✔ Activo' : '❌ Inactivo'}
                       </span>
                     </div>
                   </div>
 
-                  <div className="mt-3 pt-3 border-t border-purple-500/10 flex justify-between items-center bg-[#301c42]/60 px-3 py-1.5 rounded-lg">
-                    <span className="text-[9px] text-purple-200 font-bold uppercase tracking-wider">Comisión Estimada</span>
-                    <span className="text-xs font-black text-white">{formatCLP(hist.totalCommission)}</span>
+                  <div className="mt-3 pt-3 border-t border-[#4c018c]/10 flex justify-between items-center bg-[#4c018c]/10 px-3 py-1.5 rounded-lg">
+                    <span className="text-[9px] text-[#4c018c]/80 font-bold uppercase tracking-wider">Comisión Estimada</span>
+                    <span className="text-xs font-black text-[#4c018c] font-mono">{formatCLP(hist.totalCommission)}</span>
                   </div>
                 </div>
               );

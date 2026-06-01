@@ -43,7 +43,7 @@ import TrendTimeline from './components/TrendTimeline';
 import AuditTrail from './components/AuditTrail';
 import CommissionSimulator from './components/CommissionSimulator';
 import InputSummaryDashboard from './components/InputSummaryDashboard';
-const metaWomLogo = "https://1701336841.rsc.cdn77.org/_assets/img/logos/wom-d.svg";
+const metaWomLogo = "https://www.pactoglobal.cl/wp-content/uploads/2023/05/Logo-WOM-2024_Mesa-de-trabajo-1-copia-30-05.png";
 
 const PRODUCTS: ProductInfo[] = [
   {
@@ -749,30 +749,30 @@ export default function App() {
   const getProductIcon = (id: string) => {
     switch (id) {
       case 'postpago':
-        return <Smartphone className="w-5 h-5 text-wom-magenta" />;
+        return <Smartphone className="w-5 h-5 text-[#4c018c]" />;
       case 'porta_pos_15990':
-        return <Sparkles className="w-5 h-5 text-emerald-600" />;
+        return <Sparkles className="w-5 h-5 text-[#4c018c]" />;
       case 'porta':
-        return <PhoneCall className="w-5 h-5 text-purple-600" />;
+        return <PhoneCall className="w-5 h-5 text-[#4c018c]" />;
       case 'nuevo':
-        return <Zap className="w-5 h-5 text-blue-500" />;
+        return <Zap className="w-5 h-5 text-[#4c018c]" />;
       default:
-        return <RefreshCw className="w-5 h-5 text-amber-500" />;
+        return <RefreshCw className="w-5 h-5 text-[#4c018c]" />;
     }
   };
 
   const getProductColorBorder = (id: string) => {
     switch (id) {
       case 'postpago':
-        return 'border-l-4 border-l-wom-magenta';
+        return 'border-l-4 border-l-[#4c018c]';
       case 'porta_pos_15990':
-        return 'border-l-4 border-l-emerald-500';
+        return 'border-l-4 border-l-[#4c018c]';
       case 'porta':
-        return 'border-l-4 border-l-purple-600';
+        return 'border-l-4 border-l-[#4c018c]';
       case 'nuevo':
-        return 'border-l-4 border-l-blue-400';
+        return 'border-l-4 border-l-[#4c018c]';
       default:
-        return 'border-l-4 border-l-amber-400';
+        return 'border-l-4 border-l-[#4c018c]';
     }
   };
 
@@ -866,7 +866,7 @@ export default function App() {
               className="flex-1 flex flex-col justify-between"
             >
               {/* Profile Header adjusted with brand background for high integration */}
-              <header className="bg-[#4c018c] border-b border-wom-magenta/20 px-5 py-3.5 shrink-0 flex flex-row items-center justify-between z-30 select-none">
+              <header className="bg-white border-b border-[#4c018c]/15 px-5 py-3.5 shrink-0 flex flex-row items-center justify-between z-30 select-none text-[#4c018c]">
                 <div className="flex items-center space-x-3 select-none">
                   <img 
                     src={metaWomLogo} 
@@ -874,20 +874,20 @@ export default function App() {
                     className="h-10 w-auto object-contain"
                     referrerPolicy="no-referrer"
                   />
-                  <h1 className="text-2xl sm:text-3xl font-black tracking-tighter text-white uppercase leading-none">
+                  <h1 className="text-2xl sm:text-3xl font-black tracking-tighter text-[#4c018c] uppercase leading-none">
                     META
                   </h1>
                 </div>
 
                 {/* Profile Widget switcher */}
-                <div className="flex items-center space-x-2 bg-[#3c2452] py-1 pl-3 pr-1 rounded-xl border border-purple-500/20 shadow-inner shrink-0">
-                  <span className="text-[11px] font-bold text-purple-100 truncate max-w-[120px]">
+                <div className="flex items-center space-x-2 bg-[#4c018c]/5 py-1 pl-3 pr-1 rounded-xl border border-[#4c018c]/15 shadow-none shrink-0">
+                  <span className="text-[11px] font-bold text-[#4c018c] truncate max-w-[120px]">
                     👤 {currentUser}
                   </span>
                   <button
                     id="btnLogout"
                     onClick={handleLogout}
-                    className="p-1.5 text-purple-200 hover:text-white hover:bg-white/5 rounded-lg transition-all border border-transparent cursor-pointer flex items-center justify-center shrink-0"
+                    className="p-1.5 text-[#4c018c] hover:bg-[#4c018c]/10 rounded-lg transition-all border border-transparent cursor-pointer flex items-center justify-center shrink-0"
                     title="Cerrar sesión"
                   >
                     <LogOut className="w-4 h-4" />
@@ -896,17 +896,17 @@ export default function App() {
               </header>
 
               {/* Navigation Tabs bar */}
-              <nav className="grid grid-cols-5 bg-[#1c0038] sticky top-0 z-25 border-b border-purple-800/30 shrink-0 select-none">
+              <nav className="grid grid-cols-4 bg-white sticky top-0 z-25 border-b border-[#4c018c]/15 shrink-0 select-none text-[#4c018c] w-full">
                 <button
                   id="tab-btn-panel"
                   onClick={() => setActiveTab('panel')}
                   className={`py-3 sm:py-3.5 text-[8.5px] sm:text-[10px] md:text-[11px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 cursor-pointer ${
                     activeTab === 'panel'
-                      ? 'border-b-[3px] border-wom-yellow text-wom-yellow font-extrabold bg-white/10'
-                      : 'text-purple-200 hover:text-white'
+                      ? 'border-b-[3px] border-[#4c018c] text-[#4c018c] font-extrabold bg-[#4c018c]/10'
+                      : 'text-[#4c018c]/70 hover:text-[#4c018c] hover:bg-[#4c018c]/5'
                   }`}
                 >
-                  <Smartphone className="w-4 h-4 opacity-90" />
+                  <Smartphone className="w-4 h-4 opacity-90 text-[#4c018c]" />
                   <span className="truncate w-full text-center px-0.5">Pospago</span>
                 </button>
                 <button
@@ -914,11 +914,11 @@ export default function App() {
                   onClick={() => setActiveTab('prepago')}
                   className={`py-3 sm:py-3.5 text-[8.5px] sm:text-[10px] md:text-[11px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 cursor-pointer ${
                     activeTab === 'prepago'
-                      ? 'border-b-[3px] border-wom-yellow text-wom-yellow font-extrabold bg-white/10'
-                      : 'text-purple-200 hover:text-white'
+                      ? 'border-b-[3px] border-[#4c018c] text-[#4c018c] font-extrabold bg-[#4c018c]/10'
+                      : 'text-[#4c018c]/70 hover:text-[#4c018c] hover:bg-[#4c018c]/5'
                   }`}
                 >
-                  <PhoneCall className="w-4 h-4 opacity-90" />
+                  <PhoneCall className="w-4 h-4 opacity-90 text-[#4c018c]" />
                   <span className="truncate w-full text-center px-0.5">Prepagos</span>
                 </button>
                 <button
@@ -926,35 +926,23 @@ export default function App() {
                   onClick={() => setActiveTab('proyeccion')}
                   className={`py-3 sm:py-3.5 text-[8.5px] sm:text-[10px] md:text-[11px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 cursor-pointer ${
                     activeTab === 'proyeccion'
-                      ? 'border-b-[3px] border-wom-yellow text-wom-yellow font-extrabold bg-white/10'
-                      : 'text-purple-200 hover:text-white'
+                      ? 'border-b-[3px] border-[#4c018c] text-[#4c018c] font-extrabold bg-[#4c018c]/10'
+                      : 'text-[#4c018c]/70 hover:text-[#4c018c] hover:bg-[#4c018c]/5'
                   }`}
                 >
-                  <TrendingUp className="w-4 h-4 opacity-90" />
+                  <TrendingUp className="w-4 h-4 opacity-90 text-[#4c018c]" />
                   <span className="truncate w-full text-center px-0.5">Proyección</span>
-                </button>
-                <button
-                  id="tab-btn-dashboard"
-                  onClick={() => setActiveTab('dashboard')}
-                  className={`py-3 sm:py-3.5 text-[8.5px] sm:text-[10px] md:text-[11px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 cursor-pointer ${
-                    activeTab === 'dashboard'
-                      ? 'border-b-[3px] border-wom-yellow text-wom-yellow font-extrabold bg-white/10'
-                      : 'text-purple-200 hover:text-white'
-                  }`}
-                >
-                  <LayoutDashboard className="w-4 h-4 opacity-90" />
-                  <span className="truncate w-full text-center px-0.5 flex items-center justify-center">Control</span>
                 </button>
                 <button
                   id="tab-btn-comision"
                   onClick={() => setActiveTab('comision')}
                   className={`py-3 sm:py-3.5 text-[8.5px] sm:text-[10px] md:text-[11px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 cursor-pointer ${
                     activeTab === 'comision'
-                      ? 'border-b-[3px] border-wom-yellow text-wom-yellow font-extrabold bg-white/10'
-                      : 'text-purple-200 hover:text-white'
+                      ? 'border-b-[3px] border-[#4c018c] text-[#4c018c] font-extrabold bg-[#4c018c]/10'
+                      : 'text-[#4c018c]/70 hover:text-[#4c018c] hover:bg-[#4c018c]/5'
                   }`}
                 >
-                  <Coins className="w-4 h-4 opacity-90" />
+                  <Coins className="w-4 h-4 opacity-90 text-[#4c018c]" />
                   <span className="truncate w-full text-center px-0.5">Comisión</span>
                 </button>
               </nav>
@@ -970,34 +958,35 @@ export default function App() {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 10 }}
-                      className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-start"
+                      className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-start text-[#4c018c]"
                     >
                       {/* Left Column: Target selectors & Sale entries */}
-                                     {/* Meta Goal Objective Box */}
-                        <section className="bg-[#52336e] p-4 rounded-xl border border-purple-400/20 flex items-center justify-between shadow-md text-white">
+                      <div className="space-y-4">
+                        {/* Meta Goal Objective Box */}
+                        <section className="bg-white p-4 rounded-xl border border-[#4c018c]/15 flex items-center justify-between shadow-md text-[#4c018c]">
                           <div className="flex items-center space-x-2">
-                            <Target className="w-4 h-4 text-purple-200" />
+                            <Target className="w-4 h-4 text-[#4c018c]" />
                             <div>
-                              <h3 className="text-xs font-bold text-white uppercase tracking-widest">
+                              <h3 className="text-xs font-bold text-[#4c018c] uppercase tracking-widest">
                                 Meta de Ventas
                               </h3>
-                              <p className="text-[10px] text-purple-205 font-semibold uppercase tracking-wider">
+                              <p className="text-[10px] text-[#4c018c]/70 font-semibold uppercase tracking-wider">
                                 Objetivo mensual exigido
                               </p>
                             </div>
                           </div>
 
                           {/* Interactive Meta selector */}
-                          <div className="flex items-center bg-[#3c2452] border border-purple-500/20 rounded-lg px-2 py-0.5 shadow-inner">
+                          <div className="flex items-center bg-[#4c018c]/5 border border-[#4c018c]/20 rounded-lg px-2 py-0.5 shadow-inner">
                             <input
                               id="fieldMetaGoal"
                               type="number"
                               min="1"
                               value={metaObjective}
                               onChange={(e) => handleUpdateMeta(parseInt(e.target.value) || 1)}
-                              className="bg-transparent text-white font-extrabold text-right w-12 focus:outline-none text-xs"
+                              className="bg-transparent text-[#4c018c] font-extrabold text-right w-12 focus:outline-none text-xs"
                             />
-                            <span className="text-purple-200 font-bold text-[10px] ml-1">
+                            <span className="text-[#4c018c]/80 font-bold text-[10px] ml-1">
                               PTS
                             </span>
                           </div>
@@ -1011,17 +1000,17 @@ export default function App() {
                         />
 
                         {/* Sales items register panel */}
-                        <section className="bg-[#52336e] p-5 rounded-2xl border border-purple-400/20 space-y-4 shadow-lg text-white">
+                        <section className="bg-white p-5 rounded-2xl border border-[#4c018c]/15 space-y-4 shadow-lg text-[#4c018c]">
                           <div className="flex items-center justify-between">
                             <div>
-                              <h2 className="text-xs font-black text-white uppercase tracking-widest">
+                              <h2 className="text-xs font-black text-[#4c018c] uppercase tracking-widest">
                                 Registrar Ventas
                               </h2>
-                              <p className="text-[10px] text-purple-205 font-medium uppercase tracking-wider mt-0.5">
+                              <p className="text-[10px] text-[#4c018c]/70 font-medium uppercase tracking-wider mt-0.5">
                                 Agrega productos y presiona registrar
                               </p>
                             </div>
-                            <span className="text-[9px] font-bold text-purple-200 bg-[#3c2452] px-2 py-0.5 rounded border border-purple-500/15">
+                            <span className="text-[9px] font-bold text-[#4c018c] bg-[#4c018c]/10 px-2 py-0.5 rounded border border-[#4c018c]/20">
                               Hoy
                             </span>
                           </div>
@@ -1031,46 +1020,46 @@ export default function App() {
                             {PRODUCTS.map((prod) => (
                               <div 
                                 key={prod.id} 
-                                className="flex flex-col justify-between p-1.5 bg-[#3c2452] border border-purple-500/10 rounded-xl hover:border-purple-450 hover:bg-[#482b63] transition-colors"
+                                className="flex flex-col justify-between p-1.5 bg-[#4c018c]/5 border border-[#4c018c]/10 rounded-xl hover:border-[#4c018c]/35 hover:bg-[#4c018c]/10 transition-colors"
                               >
                                 {/* Product Info above buttons */}
                                 <div className="flex flex-col items-center text-center space-y-1 pb-1 pt-0.5">
-                                  <div className="w-7 h-7 rounded-lg bg-[#2a1739] border border-purple-500/15 flex items-center justify-center shrink-0">
+                                  <div className="w-7 h-7 rounded-lg bg-[#4c018c]/10 border border-[#4c018c]/15 flex items-center justify-center shrink-0">
                                     {getProductIcon(prod.id)}
                                   </div>
                                   <div className="space-y-0.5 flex flex-col justify-center items-center">
-                                    <p className="text-[10px] font-semibold text-purple-100 leading-tight max-h-[26px] line-clamp-2 px-0.5 overflow-hidden text-center min-h-[24px] flex items-center justify-center select-none uppercase tracking-tight">
+                                    <p className="text-[10px] font-semibold text-[#4c018c] leading-tight max-h-[26px] line-clamp-2 px-0.5 overflow-hidden text-center min-h-[24px] flex items-center justify-center select-none uppercase tracking-tight">
                                       {prod.name}
                                     </p>
-                                    <p className="text-[9px] font-black text-purple-250 leading-none uppercase pt-0.5">
+                                    <p className="text-[9px] font-black text-[#4c018c]/80 leading-none uppercase pt-0.5">
                                       +{prod.points} PTS
                                     </p>
                                   </div>
                                   {prod.id === 'renov' && (
-                                    <span style={{ fontSize: '7px' }} className="font-bold text-amber-300 bg-amber-500/15 py-0.5 px-1 rounded border border-amber-500/10 leading-none truncate max-w-full block mt-0.5 animate-pulse">
+                                    <span style={{ fontSize: '7px' }} className="font-bold text-amber-850 bg-amber-500/10 py-0.5 px-1 rounded border border-amber-500/20 leading-none truncate max-w-full block mt-0.5 animate-pulse">
                                       {isRenovationBonusActive ? 'Bono Activo' : '+5 PTS (≥95%)'}
                                     </span>
                                   )}
                                 </div>
 
                                 {/* Clickable controls below the info */}
-                                <div className="flex items-center justify-between bg-[#3c2452]/90 rounded-lg p-0.5 border border-purple-500/25 mt-1">
+                                <div className="flex items-center justify-between bg-white rounded-lg p-0.5 border border-[#4c018c]/15 mt-1">
                                   <button
                                     id={`step-down-${prod.id}`}
                                     onClick={() => handleStepCount(prod.id as any, -1)}
-                                    className="w-5 h-5 rounded bg-purple-900/40 hover:bg-purple-900 text-white font-bold flex items-center justify-center cursor-pointer transition-colors"
+                                    className="w-5 h-5 rounded bg-gray-100 hover:bg-gray-200 text-[#4c018c] font-bold flex items-center justify-center cursor-pointer transition-all"
                                   >
                                     <Minus className="w-2 h-2" />
                                   </button>
                                   
-                                  <span className="text-[11px] font-semibold text-white min-w-[12px] text-center select-none font-mono">
+                                  <span className="text-[11px] font-semibold text-[#4c018c] min-w-[12px] text-center select-none font-mono">
                                     {tempCounts[prod.id as keyof typeof tempCounts] || 0}
                                   </span>
 
                                   <button
                                     id={`step-up-${prod.id}`}
                                     onClick={() => handleStepCount(prod.id as any, 1)}
-                                    className="w-5 h-5 rounded bg-wom-magenta hover:bg-[#c0007e] text-white font-bold flex items-center justify-center cursor-pointer transition-colors"
+                                    className="w-5 h-5 rounded bg-[#4c018c] hover:bg-[#4c018c]/90 text-white font-bold flex items-center justify-center cursor-pointer transition-all"
                                   >
                                     <Plus className="w-2 h-2" />
                                   </button>
@@ -1083,7 +1072,7 @@ export default function App() {
                             <button
                               id="submitRegisterSales"
                               onClick={handleRegisterAndClear}
-                              className="flex-1 bg-wom-magenta hover:bg-[#c0007e]/90 text-white font-bold py-2.5 px-3 rounded-xl transition-all text-xs uppercase tracking-wider flex items-center justify-center space-x-1 cursor-pointer shadow hover:shadow-wom-magenta/15 active:scale-95 animate-fadeIn"
+                              className="flex-1 bg-[#4c018c] hover:bg-[#4c018c]/90 text-white font-bold py-2.5 px-3 rounded-xl transition-all text-xs uppercase tracking-wider flex items-center justify-center space-x-1 cursor-pointer shadow hover:shadow-[#4c018c]/15 active:scale-95 animate-fadeIn"
                             >
                               <PlusCircle className="w-3.5 h-3.5 text-white" />
                               <span>Registrar Ingresos</span>
@@ -1093,7 +1082,7 @@ export default function App() {
                               <button
                                 id="undoRegisterSales"
                                 onClick={handleUndoRegister}
-                                className="bg-[#3c2452] hover:bg-[#482b63] text-purple-200 font-bold py-2.5 px-3 rounded-xl transition-all text-xs uppercase flex items-center justify-center space-x-1 border border-purple-500/15 cursor-pointer active:scale-95"
+                                className="bg-white hover:bg-[#4c018c]/5 text-[#4c018c] font-bold py-2.5 px-3 rounded-xl transition-all text-xs uppercase flex items-center justify-center space-x-1 border border-[#4c018c]/25 cursor-pointer active:scale-95"
                                 title="Deshacer el último ingreso"
                               >
                                 <Undo2 className="w-3.5 h-3.5" />
@@ -1102,12 +1091,13 @@ export default function App() {
                             )}
                           </div>
                         </section>
+                      </div>
                       {/* Right Column: Statistics tracker, Trend details & logs */}
-                      <div className="space-y-4">
+                      <div className="space-y-4 text-[#4c018c]">
                         {/* Cumulative stats tracker */}
-                        <section className="bg-[#52336e] p-5 rounded-2xl border border-purple-400/20 space-y-3 shadow-lg text-white">
-                        <div className="flex justify-between items-center border-b border-purple-500/15 pb-2">
-                          <h3 className="text-xs font-bold text-white uppercase tracking-widest">
+                        <section className="bg-white p-5 rounded-2xl border border-[#4c018c]/15 space-y-3 shadow-lg text-[#4c018c]">
+                        <div className="flex justify-between items-center border-b border-[#4c018c]/15 pb-2">
+                          <h3 className="text-xs font-bold text-[#4c018c] uppercase tracking-widest">
                             Acumulado Mensual
                           </h3>
                           <button
@@ -1120,36 +1110,36 @@ export default function App() {
                         </div>
 
                         <div className="grid grid-cols-3 gap-1.5 text-center text-[10px] font-bold">
-                          <div className="bg-[#3c2452]/70 p-2 rounded-lg border border-purple-500/10 text-white">
-                            <p className="text-purple-200 uppercase truncate">Porta Pos</p>
-                            <p className="text-xs font-black text-white mt-0.5 font-mono">{totals.postpago}</p>
+                          <div className="bg-[#4c018c]/10 p-2 rounded-lg border border-[#4c018c]/10 text-[#4c018c]">
+                            <p className="text-[#4c018c]/80 uppercase truncate">Porta Pos</p>
+                            <p className="text-xs font-black text-[#4c018c] mt-0.5 font-mono">{totals.postpago}</p>
                           </div>
-                          <div className="bg-[#3c2452]/70 p-2 rounded-lg border border-purple-500/10 text-white">
-                            <p className="text-purple-200 uppercase truncate">-15.990</p>
-                            <p className="text-xs font-black text-white mt-0.5 font-mono">{totals.porta_pos_15990}</p>
+                          <div className="bg-[#4c018c]/10 p-2 rounded-lg border border-[#4c018c]/10 text-[#4c018c]">
+                            <p className="text-[#4c018c]/80 uppercase truncate">-15.990</p>
+                            <p className="text-xs font-black text-[#4c018c] mt-0.5 font-mono">{totals.porta_pos_15990}</p>
                           </div>
-                          <div className="bg-[#3c2452]/70 p-2 rounded-lg border border-purple-500/10 text-white">
-                            <p className="text-purple-200 uppercase truncate">Porta Pre</p>
-                            <p className="text-xs font-black text-white mt-0.5 font-mono">{totals.porta}</p>
+                          <div className="bg-[#4c018c]/10 p-2 rounded-lg border border-[#4c018c]/10 text-[#4c018c]">
+                            <p className="text-[#4c018c]/80 uppercase truncate">Porta Pre</p>
+                            <p className="text-xs font-black text-[#4c018c] mt-0.5 font-mono">{totals.porta}</p>
                           </div>
-                          <div className="bg-[#3c2452]/70 p-2 rounded-lg border border-purple-500/10 text-white">
-                            <p className="text-purple-200 uppercase truncate">Nuevo</p>
-                            <p className="text-xs font-black text-white mt-0.5 font-mono">{totals.nuevo}</p>
+                          <div className="bg-[#4c018c]/10 p-2 rounded-lg border border-[#4c018c]/10 text-[#4c018c]">
+                            <p className="text-[#4c018c]/80 uppercase truncate">Nuevo</p>
+                            <p className="text-xs font-black text-[#4c018c] mt-0.5 font-mono">{totals.nuevo}</p>
                           </div>
-                          <div className="bg-[#3c2452]/70 p-2 rounded-lg border border-purple-500/10 text-white">
-                            <p className="text-purple-200 uppercase truncate">Renov.</p>
-                            <p className="text-xs font-black text-white mt-0.5 font-mono">{totals.renov}</p>
+                          <div className="bg-[#4c018c]/10 p-2 rounded-lg border border-[#4c018c]/10 text-[#4c018c]">
+                            <p className="text-[#4c018c]/80 uppercase truncate">Renov.</p>
+                            <p className="text-xs font-black text-[#4c018c] mt-0.5 font-mono">{totals.renov}</p>
                           </div>
                           {totals.portaPre8 > 0 && (
-                            <div className="bg-[#3c2452]/70 p-2 rounded-lg border border-purple-500/10 text-white">
-                              <p className="text-purple-200 uppercase truncate">Pre 8</p>
-                              <p className="text-xs font-black text-white mt-0.5 font-mono">{totals.portaPre8}</p>
+                            <div className="bg-[#4c018c]/10 p-2 rounded-lg border border-[#4c018c]/10 text-[#4c018c]">
+                              <p className="text-[#4c018c]/80 uppercase truncate">Pre 8</p>
+                              <p className="text-xs font-black text-[#4c018c] mt-0.5 font-mono">{totals.portaPre8}</p>
                             </div>
                           )}
                         </div>
 
                         {isRenovationBonusActive && (
-                          <div className="bg-amber-500/15 border border-amber-500/10 text-amber-300 rounded-lg p-2 text-[10px] font-bold text-center flex items-center justify-center animate-pulse">
+                          <div className="bg-amber-500/10 border border-amber-500/20 text-amber-800 rounded-lg p-2 text-[10px] font-bold text-center flex items-center justify-center animate-pulse">
                             <span>Bono activo: Renovaciones valen 5 Puntos.</span>
                           </div>
                         )}
@@ -1175,24 +1165,24 @@ export default function App() {
                       {/* Left Column: Closure Tendency & Rhythm Metrics */}
                       <div className="space-y-4">
                         {/* Close Projections summary info */}
-                      <section className="bg-[#52336e] p-5 rounded-2xl border border-purple-400/20 overflow-hidden relative shadow-lg text-white">
-                        <h3 className="text-xs font-bold text-white uppercase tracking-widest mb-4">
+                      <section className="bg-white p-5 rounded-2xl border border-[#4c018c]/15 overflow-hidden relative shadow-lg text-[#4c018c]">
+                        <h3 className="text-xs font-bold text-[#4c018c] uppercase tracking-widest mb-4">
                           Tendencia de Cierre Estimada
                         </h3>
                         <div className="grid grid-cols-2 gap-6 relative">
-                          <div className="text-center border-r border-purple-500/15">
-                            <p className="text-3xl font-black text-white select-none font-mono">
+                          <div className="text-center border-r border-[#4c018c]/15">
+                            <p className="text-3xl font-black text-[#4c018c] select-none font-mono">
                               {projectedFinalPoints}
                             </p>
-                            <p className="text-[10px] font-bold text-purple-205 uppercase tracking-wider mt-1">
+                            <p className="text-[10px] font-bold text-[#4c018c]/70 uppercase tracking-wider mt-1">
                               Puntos Finales Est.
                             </p>
                           </div>
                           <div className="text-center">
-                            <p className="text-3xl font-black text-amber-300 font-mono">
+                            <p className="text-3xl font-black text-amber-600 font-mono">
                               {projectedFulfillmentPercent.toFixed(1)}%
                             </p>
-                            <p className="text-[10px] font-bold text-purple-205 uppercase tracking-wider mt-1">
+                            <p className="text-[10px] font-bold text-[#4c018c]/70 uppercase tracking-wider mt-1">
                               Avance Proyectado
                             </p>
                           </div>
@@ -1200,20 +1190,20 @@ export default function App() {
                       </section>
 
                       {/* Simple Rhythm Indicators */}
-                      <div className="grid grid-cols-2 gap-3">
-                        <div className="bg-[#3c2452]/70 p-4 rounded-xl border border-purple-500/10 text-center shadow">
-                          <p className="text-xl font-bold text-white font-mono">
+                      <div className="grid grid-cols-2 gap-3 text-[#4c018c]">
+                        <div className="bg-white p-4 rounded-xl border border-[#4c018c]/15 text-center shadow">
+                          <p className="text-xl font-bold text-[#4c018c] font-mono">
                             {pointsDailyRhythm.toFixed(1)}
                           </p>
-                          <p className="text-[9px] font-bold text-purple-200 uppercase tracking-wider mt-1">
+                          <p className="text-[9px] font-bold text-[#4c018c]/80 uppercase tracking-wider mt-1">
                             Puntos por Día
                           </p>
                         </div>
-                        <div className="bg-[#3c2452]/70 p-4 rounded-xl border border-purple-500/10 text-center shadow">
-                          <p className="text-xl font-bold text-white font-mono">
+                        <div className="bg-white p-4 rounded-xl border border-[#4c018c]/15 text-center shadow">
+                          <p className="text-xl font-bold text-[#4c018c] font-mono">
                             {daysRemaining}
                           </p>
-                          <p className="text-[9px] font-bold text-purple-200 uppercase tracking-wider mt-1">
+                          <p className="text-[9px] font-bold text-[#4c018c]/80 uppercase tracking-wider mt-1">
                             Días Restantes
                           </p>
                         </div>
@@ -1221,24 +1211,24 @@ export default function App() {
                       </div>
 
                       {/* Right Column: Dynamic Targets Advisory, Speeds and Strategic Advice */}
-                      <div className="space-y-4 text-white">
+                      <div className="space-y-4 text-[#4c018c]">
                         {/* Advisory of single-product totals required for 100% */}
-                        <section className="bg-[#52336e] p-5 rounded-2xl border border-purple-400/20 space-y-3.5 shadow-lg">
-                        <div className="flex items-center space-x-2 border-b border-purple-500/15 pb-2">
-                          <Sparkles className="w-4 h-4 text-purple-200" />
-                          <h3 className="text-xs font-bold text-white uppercase tracking-widest">
+                        <section className="bg-white p-5 rounded-2xl border border-[#4c018c]/15 space-y-3.5 shadow-lg text-[#4c018c]">
+                        <div className="flex items-center space-x-2 border-b border-[#4c018c]/15 pb-2">
+                          <Sparkles className="w-4 h-4 text-[#4c018c]" />
+                          <h3 className="text-xs font-bold text-[#4c018c] uppercase tracking-widest">
                             Para alcanzar el 100% necesitas
                           </h3>
                         </div>
 
                         {pointsRemainingToTarget === 0 ? (
-                          <div className="bg-emerald-500/15 border border-emerald-500/10 text-emerald-300 p-4 rounded-xl text-center text-xs space-y-1">
+                          <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-800 p-4 rounded-xl text-center text-xs space-y-1">
                             <p className="font-semibold">🎉 Meta Cumplida</p>
                             <p className="font-normal opacity-85 text-[11px]">Ya has superado el objetivo general de tu cuota.</p>
                           </div>
                         ) : (
                           <>
-                            <p className="text-[11px] text-purple-205 font-bold uppercase tracking-wider">
+                            <p className="text-[11px] text-[#4c018c]/70 font-bold uppercase tracking-wider">
                               Te faltan <strong>{pointsRemainingToTarget} puntos</strong>. Si se cubrieran con una sola línea de negocio, necesitarías:
                             </p>
                             
@@ -1248,15 +1238,15 @@ export default function App() {
                                 return (
                                   <div 
                                     key={prod.id} 
-                                    className="bg-[#3c2452]/70 p-2.5 rounded-lg border border-purple-500/10 flex items-center justify-between"
+                                    className="bg-[#4c018c]/5 p-2.5 rounded-lg border border-[#4c018c]/10 flex items-center justify-between"
                                   >
                                     <div className="flex items-center space-x-2">
                                       {getProductIcon(prod.id)}
-                                      <span className="text-[10px] font-bold text-purple-100 uppercase">
+                                      <span className="text-[10px] font-bold text-[#4c018c]/95 uppercase">
                                         {prod.id === 'postpago' ? 'Porta Pos' : prod.id === 'porta_pos_15990' ? '-15.990' : prod.id === 'porta' ? 'Porta Pre' : prod.id === 'nuevo' ? 'Plan Nuevo' : 'Renov.'}
                                       </span>
                                     </div>
-                                    <span className="text-xs font-black text-amber-300 font-mono">
+                                    <span className="text-xs font-black text-amber-700 font-mono">
                                       {countRequired}
                                     </span>
                                   </div>
@@ -1292,18 +1282,18 @@ export default function App() {
                       </section>
 
                       {/* Strategic custom advice box */}
-                      <section className="bg-[#52336e] p-5 rounded-2xl border border-purple-400/20 space-y-2 shadow-lg">
-                        <h4 className="text-[10px] font-black text-purple-200 uppercase tracking-widest">
+                      <section className="bg-white p-5 rounded-2xl border border-[#4c018c]/15 space-y-2 shadow-lg text-[#4c018c]">
+                        <h4 className="text-[10px] font-black text-[#4c018c]/70 uppercase tracking-widest">
                           Estrategia Recomendada
                         </h4>
-                        <p className="text-xs text-purple-100 leading-relaxed font-medium">
+                        <p className="text-xs text-[#4c018c]/90 leading-relaxed font-medium">
                           {projectedFulfillmentPercent >= 100 ? (
                             <span>
                               ¡Sigue así! Para afianzar tus incentivos comerciales y evitar retrocesos en tu panel, enfoca tus energías en robustecer la calidad de las portabilidades <strong>Postpago (+16 pts)</strong> y mantener activas las <strong>Renovaciones (+3 pts)</strong>.
                             </span>
                           ) : projectedFulfillmentPercent >= 70 ? (
                             <span>
-                              Has desbloqueado el tramo base. Si deseas alcanzar el incentivo completo de tu meta, necesitas elevar tu promedio de ventas a <strong className="font-bold text-amber-300">{dailyPointsNeeded} puntos por día</strong> hasta el final del ciclo.
+                              Has desbloqueado el tramo base. Si deseas alcanzar el incentivo completo de tu meta, necesitas elevar tu promedio de ventas a <strong className="font-bold text-amber-700">{dailyPointsNeeded} puntos por día</strong> hasta el final del ciclo.
                             </span>
                           ) : (
                             <span>
@@ -1327,12 +1317,12 @@ export default function App() {
                       {/* Left Column: Register & Goals */}
                       <div className="space-y-4">
                         {/* Prepago Actions Card */}
-                        <section className="bg-[#52336e] p-5 rounded-2xl border border-purple-400/20 space-y-4 shadow-lg text-white">
+                        <section className="bg-white p-5 rounded-2xl border border-[#4c018c]/15 space-y-4 shadow-lg text-[#4c018c]">
                           <div>
-                            <h2 className="text-xs font-black text-white uppercase tracking-widest animate-pulse">
+                            <h2 className="text-xs font-black text-[#4c018c] uppercase tracking-widest animate-pulse">
                               Registrar Prepago
                             </h2>
-                            <p className="text-[10px] text-purple-205 font-medium uppercase tracking-wider mt-0.5">
+                            <p className="text-[10px] text-[#4c018c]/70 font-medium uppercase tracking-wider mt-0.5">
                               Presiona para ingresar de inmediato un prepago activo o cargado:
                             </p>
                           </div>
@@ -1341,49 +1331,49 @@ export default function App() {
                             <button
                               id="register-prepago-activo"
                               onClick={() => handleRegisterPrepago('activo')}
-                              className="bg-[#3c2452] hover:bg-[#482b63] text-white font-bold py-3 px-3 rounded-xl transition-all cursor-pointer text-xs text-center flex flex-col items-center justify-center space-y-0.5 active:scale-95 border border-purple-500/15"
+                              className="bg-[#4c018c]/5 hover:bg-[#4c018c]/10 text-[#4c018c] font-bold py-3 px-3 rounded-xl transition-all cursor-pointer text-xs text-center flex flex-col items-center justify-center space-y-0.5 active:scale-95 border border-[#4c018c]/20"
                             >
                               <span className="text-xs font-bold">📱 Prepago Activo</span>
-                              <span className="text-[9px] text-[#eedffa] font-bold uppercase tracking-wider">+1 Punto</span>
+                              <span className="text-[9px] text-[#4c018c]/80 font-bold uppercase tracking-wider">+1 Punto</span>
                             </button>
                             
                             <button
                               id="register-prepago-cargado"
                               onClick={() => handleRegisterPrepago('cargado')}
-                              className="bg-wom-magenta hover:bg-[#c0007e]/90 text-white font-bold py-3 px-3 rounded-xl transition-all cursor-pointer text-xs text-center flex flex-col items-center justify-center space-y-0.5 active:scale-95 shadow-sm shadow-wom-magenta/15"
+                              className="bg-[#4c018c] hover:bg-[#4c018c]/90 text-white font-bold py-3 px-3 rounded-xl transition-all cursor-pointer text-xs text-center flex flex-col items-center justify-center space-y-0.5 active:scale-95 shadow-sm"
                             >
                               <span className="text-xs font-bold">💰 Fue Cargado</span>
-                              <span className="text-[9px] text-white/90 font-black uppercase tracking-wider">+3 Puntos</span>
+                              <span className="text-[9px] text-white/95 font-black uppercase tracking-wider">+3 Puntos</span>
                             </button>
                           </div>
                         </section>
 
                         {/* Meta Prepago target input */}
-                        <section className="bg-[#52336e] p-4 rounded-xl border border-purple-400/20 flex items-center justify-between shadow-md text-white">
+                        <section className="bg-white p-4 rounded-xl border border-[#4c018c]/15 flex items-center justify-between shadow-md text-[#4c018c]">
                           <div className="flex items-center space-x-2.5">
-                            <div className="w-8 h-8 rounded-lg bg-[#3c2452] border border-purple-500/15 flex items-center justify-center text-purple-200">
+                            <div className="w-8 h-8 rounded-lg bg-[#4c018c]/5 border border-[#4c018c]/15 flex items-center justify-center text-[#4c018c]">
                               <Target className="w-4 h-4" />
                             </div>
                             <div>
-                              <h3 className="text-xs font-bold text-white uppercase tracking-widest">
+                              <h3 className="text-xs font-bold text-[#4c018c] uppercase tracking-widest">
                                 Meta Prepago Exigida
                               </h3>
-                              <p className="text-[10px] text-purple-205 font-semibold uppercase tracking-wider">
+                              <p className="text-[10px] text-[#4c018c]/70 font-semibold uppercase tracking-wider">
                                 Objetivo mensual Prepago
                               </p>
                             </div>
                           </div>
 
-                          <div className="flex items-center bg-[#3c2452] border border-purple-500/20 rounded-lg px-2 py-0.5 shadow-inner">
+                          <div className="flex items-center bg-[#4c018c]/5 border border-[#4c018c]/20 rounded-lg px-2 py-0.5 shadow-inner">
                             <input
                               id="fieldMetaPrepago"
                               type="number"
                               min="1"
                               value={metaPrepagoObjective}
                               onChange={(e) => handleUpdatePrepagoMeta(parseInt(e.target.value) || 1)}
-                              className="bg-transparent text-white font-extrabold text-right w-12 focus:outline-none text-xs"
+                              className="bg-transparent text-[#4c018c] font-extrabold text-right w-12 focus:outline-none text-xs"
                             />
-                            <span className="text-purple-200 font-bold text-[10px] ml-1">
+                            <span className="text-[#4c018c]/70 font-bold text-[10px] ml-1">
                               PTS
                             </span>
                           </div>
@@ -1400,43 +1390,43 @@ export default function App() {
                       {/* Right Column: Accumulated Totals & Records historical tracker */}
                       <div className="space-y-4">
                         {/* Accumulated Prepagos */}
-                        <section className="bg-[#52336e] p-5 rounded-2xl border border-purple-400/20 space-y-3 shadow-lg text-white">
-                          <div className="flex justify-between items-center border-b border-purple-500/15 pb-2">
-                            <h3 className="text-xs font-bold text-white uppercase tracking-widest">
+                        <section className="bg-white p-5 rounded-2xl border border-[#4c018c]/15 space-y-3 shadow-lg text-[#4c018c]">
+                          <div className="flex justify-between items-center border-b border-[#4c018c]/15 pb-2">
+                            <h3 className="text-xs font-bold text-[#4c018c] uppercase tracking-widest">
                               Totales Prepago
                             </h3>
                             <button
                               id="btnResetPrepagos"
                               onClick={handleFullResetPrepagos}
-                              className="text-rose-455 hover:text-rose-400 text-[10px] font-bold uppercase tracking-wider cursor-pointer transition-colors px-2 py-1 rounded"
+                              className="text-rose-600 hover:text-rose-700 text-[10px] font-bold uppercase tracking-wider cursor-pointer transition-colors px-2 py-1 rounded"
                             >
                               Limpiar Prepagos
                             </button>
                           </div>
                           <div className="grid grid-cols-3 gap-2 text-center text-xs">
-                            <div className="bg-[#3c2452]/70 p-2 rounded-lg border border-purple-500/10">
-                              <span className="block text-[10px] text-purple-200 font-bold uppercase truncate">Activos</span>
-                              <span className="font-extrabold text-white text-xs mt-0.5 block font-mono">{prepagosTotals.activos}</span>
+                            <div className="bg-[#4c018c]/5 p-2 rounded-lg border border-[#4c018c]/10">
+                              <span className="block text-[10px] text-[#4c018c]/80 font-bold uppercase truncate">Activos</span>
+                              <span className="font-extrabold text-[#4c018c] text-xs mt-0.5 block font-mono">{prepagosTotals.activos}</span>
                             </div>
-                            <div className="bg-[#3c2452]/70 p-2 rounded-lg border border-purple-500/10">
-                              <span className="block text-[10px] text-purple-200 font-bold uppercase truncate">Cargados</span>
-                              <span className="font-extrabold text-white text-xs mt-0.5 block font-mono">{prepagosTotals.cargados}</span>
+                            <div className="bg-[#4c018c]/5 p-2 rounded-lg border border-[#4c018c]/10">
+                              <span className="block text-[10px] text-[#4c018c]/80 font-bold uppercase truncate">Cargados</span>
+                              <span className="font-extrabold text-[#4c018c] text-xs mt-0.5 block font-mono">{prepagosTotals.cargados}</span>
                             </div>
-                            <div className="bg-[#3c2452]/70 p-2 rounded-lg border border-purple-500/10">
-                              <span className="block text-[10px] text-purple-200 font-bold uppercase truncate">Total Pts</span>
-                              <span className="font-black text-amber-300 text-xs mt-0.5 block font-mono">{prepagosTotals.points}</span>
+                            <div className="bg-[#4c018c]/5 p-2 rounded-lg border border-[#4c018c]/10">
+                              <span className="block text-[10px] text-[#4c018c]/80 font-bold uppercase truncate">Total Pts</span>
+                              <span className="font-black text-amber-705 text-xs mt-0.5 block font-mono">{prepagosTotals.points}</span>
                             </div>
                           </div>
                         </section>
 
                         {/* Prepago Historical Records */}
-                        <section className="bg-[#52336e] p-5 rounded-2xl border border-purple-400/20 space-y-3 shadow-lg text-white">
-                          <h4 className="text-xs font-bold text-white uppercase tracking-widest pl-1">
+                        <section className="bg-white p-5 rounded-2xl border border-[#4c018c]/15 space-y-3 shadow-lg text-[#4c018c]">
+                          <h4 className="text-xs font-bold text-[#4c018c] uppercase tracking-widest pl-1">
                             Historial Prepago del Mes
                           </h4>
 
                           {prepagosHistory.length === 0 ? (
-                            <p className="text-center text-[10.5px] text-purple-205 font-bold py-6 italic uppercase tracking-wider">
+                            <p className="text-center text-[10.5px] text-[#4c018c]/70 font-bold py-6 italic uppercase tracking-wider">
                               No hay prepagos registrados en este mes.
                             </p>
                           ) : (
@@ -1444,15 +1434,15 @@ export default function App() {
                               {prepagosHistory.map((item) => (
                                 <div
                                   key={item.id}
-                                  className="flex items-center justify-between p-2.5 bg-[#3c2452]/70 border border-purple-500/10 rounded-xl transition-all border-l-2 border-l-emerald-500"
+                                  className="flex items-center justify-between p-2.5 bg-[#4c018c]/5 border border-[#4c018c]/10 rounded-xl transition-all border-l-2 border-l-[#4c018c]"
                                 >
                                   <div className="flex items-center space-x-2">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-555" />
+                                    <div className="w-1.5 h-1.5 rounded-full bg-[#4c018c]" />
                                     <div>
-                                      <p className="text-xs font-bold text-white">
+                                      <p className="text-xs font-bold text-[#4c018c]">
                                         {item.type === 'activo' ? '📱 Prepago Activo (+1 Pt)' : '💰 Prepago Cargado (+3 Pts)'}
                                       </p>
-                                      <p className="text-[10px] font-mono text-purple-200 font-semibold">
+                                      <p className="text-[10px] font-mono text-[#4c018c]/70 font-semibold">
                                         {new Date(item.timestamp).toLocaleString('es-CL', {
                                           hour: '2-digit',
                                           minute: '2-digit',
@@ -1464,7 +1454,7 @@ export default function App() {
                                   </div>
                                   <button
                                     onClick={() => handleDeletePrepago(item.id)}
-                                    className="p-1 hover:bg-[#4d3264] text-purple-300 hover:text-rose-400 rounded transition-colors cursor-pointer"
+                                    className="p-1 hover:bg-[#4c018c]/10 text-[#4c018c] hover:text-rose-600 rounded transition-colors cursor-pointer"
                                     title="Borrar registro"
                                   >
                                     <Trash2 className="w-3.5 h-3.5" />
@@ -1528,12 +1518,12 @@ export default function App() {
               </main>
 
               {/* Bottom informational date label */}
-              <footer className="bg-[#f0e5fa] border-t border-purple-200 px-4 py-3 flex items-center justify-between text-gray-400 font-bold text-[9px] uppercase tracking-wider shrink-0 select-none z-10">
+              <footer className="bg-white border-t border-[#4c018c]/15 px-4 py-3 flex items-center justify-between text-[#4c018c] font-bold text-[9px] uppercase tracking-wider shrink-0 select-none z-10">
                 <div className="flex items-center space-x-1">
-                  <Calendar className="w-3.5 h-3.5 text-purple-400" />
+                  <Calendar className="w-3.5 h-3.5 text-[#4c018c]/70" />
                   <span>Día {currentDayNum} de {daysInMonth}</span>
                 </div>
-                <div className="text-wom-magenta font-extrabold">
+                <div className="text-[#4c018c] font-black tracking-widest">
                   {daysRemaining === 0 ? '¡CIERRE HOY!' : `Cierre en ${daysRemaining} días`}
                 </div>
               </footer>
