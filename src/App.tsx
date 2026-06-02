@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.5
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { doc, setDoc, onSnapshot, getDoc, collection, getDocs } from 'firebase/firestore';
 import { db, handleFirestoreError, OperationType } from './firebase';
 import { motion, AnimatePresence } from 'motion/react';
@@ -91,7 +91,58 @@ export default function App() {
   const [newUsernameInput, setNewUsernameInput] = useState<string>('');
   
   // App navigation tab
-  const [activeTab, setActiveTab] = useState<'panel' | 'prepago' | 'proyeccion' | 'dashboard' | 'comision'>('panel');
+  const [activeTab, setActiveTab ] = useState<'panel' | 'prepago' | 'proyeccion' | 'dashboard' | 'comision'>('panel');
+
+  // Refs for tracking swipe gestures to change tabs
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+
+    const endX = e.changedTouches[0].clientX;
+    const endY = e.changedTouches[0].clientY;
+
+    const diffX = touchStartX.current - endX;
+    const diffY = touchStartY.current - endY;
+
+    // Reset touch coordinates
+    touchStartX.current = null;
+    touchStartY.current = null;
+
+    // Thresholds:
+    // Minimum horizontal distance requirement: 60px
+    // Maximum vertical movement drift: 80px
+    // Must be a distinct horizontal gesture (width change surpasses height change)
+    if (Math.abs(diffX) > 60 && Math.abs(diffY) < 80 && Math.abs(diffX) > Math.abs(diffY)) {
+      const tabs: ('panel' | 'prepago' | 'proyeccion' | 'comision')[] = ['panel', 'prepago', 'proyeccion', 'comision'];
+      
+      let currentTabName: 'panel' | 'prepago' | 'proyeccion' | 'comision' = 'panel';
+      if (activeTab === 'prepago') currentTabName = 'prepago';
+      else if (activeTab === 'proyeccion') currentTabName = 'proyeccion';
+      else if (activeTab === 'comision') currentTabName = 'comision';
+      
+      const currentIndex = tabs.indexOf(currentTabName);
+      if (currentIndex !== -1) {
+        if (diffX > 0) {
+          // Swipe left -> next tab
+          if (currentIndex < tabs.length - 1) {
+            setActiveTab(tabs[currentIndex + 1]);
+          }
+        } else {
+          // Swipe right -> previous tab
+          if (currentIndex > 0) {
+            setActiveTab(tabs[currentIndex - 1]);
+          }
+        }
+      }
+    }
+  };
 
   // Input quantities for registering a sale session
   const [tempCounts, setTempCounts] = useState<{
@@ -948,7 +999,11 @@ export default function App() {
               </nav>
 
               {/* Scrollable Contents viewport */}
-              <main className="flex-1 overflow-y-auto p-4 space-y-5 pb-8">
+              <main 
+                className="flex-1 overflow-y-auto p-4 space-y-5 pb-8"
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+              >
                 
                 {/* Active Tab rendering */}
                 <AnimatePresence mode="wait">
