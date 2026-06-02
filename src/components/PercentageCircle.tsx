@@ -32,22 +32,22 @@ export default function PercentageCircle({ percentage, points, meta }: Percentag
           <span className="text-3xl font-black text-[#4c018c] select-none tracking-tight">
             {percentage.toFixed(0)}%
           </span>
-          <span className="text-[10px] font-bold text-[#4c018c]/80 block uppercase tracking-wider mt-0.5">
+          <span className="text-[12px] font-black text-[#4c018c]/90 block uppercase tracking-wider mt-0.5">
             Cumplimiento actual
           </span>
         </div>
         <div className="text-right">
-          <span className="text-sm font-black text-[#4c018c] bg-[#4c018c]/10 px-2 py-0.5 rounded-md border border-[#4c018c]/20">
-            {points} <span className="text-[#4c018c]/75 font-normal text-xs font-mono">/ {meta} PTS</span>
+          <span className="text-base font-black text-[#4c018c] bg-[#4c018c]/10 px-2 py-0.5 rounded-md border border-[#4c018c]/20">
+            {points} <span className="text-[#4c018c]/80 font-bold text-xs font-mono">/ {meta} PTS</span>
           </span>
-          <span className="text-[10px] font-bold text-[#4c018c]/80 block uppercase tracking-wider mt-0.5 pt-1">
+          <span className="text-[12px] font-black text-[#4c018c]/90 block uppercase tracking-wider mt-0.5 pt-1">
             Puntos acumulados
           </span>
         </div>
       </div>
  
       {/* Horizontal Bar Track */}
-      <div className="relative w-full h-2 bg-gray-100 rounded-full overflow-hidden border border-[#4c018c]/10">
+      <div className="relative w-full h-2.5 bg-gray-100 rounded-full overflow-hidden border border-[#4c018c]/10">
         <div
           className={`h-full rounded-full transition-all duration-700 ease-out ${colorClass}`}
           style={{ width: `${Math.min(percentage, 100)}%` }}
@@ -55,20 +55,20 @@ export default function PercentageCircle({ percentage, points, meta }: Percentag
       </div>
  
       {/* Row with Label Indicator and Details */}
-      <div className="flex flex-wrap gap-2 justify-between items-center text-[11px]">
-        <span className={`px-2.5 py-0.5 rounded-md font-bold border ${bgClass} uppercase tracking-wider text-[10px]`}>
+      <div className="flex flex-wrap gap-2 justify-between items-center text-xs">
+        <span className={`px-2.5 py-0.5 rounded-md font-black border ${bgClass} uppercase tracking-wider text-[11px]`}>
           {label}
         </span>
         {percentage >= 100 ? (
-          <span className="font-bold text-[#4c018c] bg-[#4c018c]/10 border border-[#4c018c]/20 px-2.5 py-0.5 rounded-md">
+          <span className="font-extrabold text-[#4c018c] bg-[#4c018c]/10 border border-[#4c018c]/20 px-2.5 py-0.5 rounded-md">
             ¡Objetivo superado! 🔥
           </span>
         ) : percentage >= 70 ? (
-          <span className="font-bold text-[#4c018c] bg-[#4c018c]/10 border border-[#4c018c]/20 px-2.5 py-0.5 rounded-md">
+          <span className="font-extrabold text-[#4c018c] bg-[#4c018c]/10 border border-[#4c018c]/20 px-2.5 py-0.5 rounded-md">
             Bono e Incentivo Activos
           </span>
         ) : (
-          <span className="text-[#4c018c] font-bold">
+          <span className="text-[#4c018c] font-extrabold">
             Faltan {Math.max(0, meta - points).toFixed(0)} PTS para meta
           </span>
         )}

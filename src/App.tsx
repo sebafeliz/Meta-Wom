@@ -857,7 +857,7 @@ export default function App() {
                       style={{ animationDuration: '3s' }}
                       referrerPolicy="no-referrer"
                     />
-                    <span className="absolute -bottom-2 -right-1.5 bg-[#4c018c] text-white border border-[#4c018c]/20 font-black text-[8px] px-1.5 py-0.5 rounded-full uppercase tracking-widest shadow">
+                    <span className="absolute -bottom-2 -right-1.5 bg-[#4c018c] text-white border border-[#4c018c]/20 font-black text-[10px] px-2 py-0.5 rounded-full uppercase tracking-widest shadow">
                       PRO
                     </span>
                   </div>
@@ -865,7 +865,7 @@ export default function App() {
                     <h1 className="text-4xl font-extrabold tracking-tighter text-white uppercase select-none">
                       META<span className="text-white/80 font-black italic">WOM</span>
                     </h1>
-                    <p className="text-[10.5px] text-white/85 font-bold uppercase tracking-widest mt-1">
+                    <p className="text-xs text-white/90 font-extrabold uppercase tracking-widest mt-1">
                       Asistente de Ventas y Comisiones
                     </p>
                   </div>
@@ -878,7 +878,7 @@ export default function App() {
                   </h2>
                   <form onSubmit={handleLogin} className="space-y-4">
                     <div className="space-y-1.5">
-                      <label className="text-[10px] font-bold text-[#4c018c]/85 uppercase tracking-widest block px-0.5">
+                      <label className="text-[11.5px] font-bold text-[#4c018c]/90 uppercase tracking-widest block px-0.5">
                         Usuario
                       </label>
                       <input
@@ -895,14 +895,14 @@ export default function App() {
                     <button
                       id="submitLogin"
                       type="submit"
-                      className="w-full bg-[#4c018c] hover:bg-[#4c018c]/90 text-white font-bold py-3.5 rounded-xl transition-all text-xs uppercase tracking-widest flex items-center justify-center space-x-2 cursor-pointer shadow-md active:scale-95 text-center mt-2"
+                      className="w-full bg-[#4c018c] hover:bg-[#4c018c]/90 text-white font-bold py-3.5 rounded-xl transition-all text-sm uppercase tracking-widest flex items-center justify-center space-x-2 cursor-pointer shadow-md active:scale-95 text-center mt-2"
                     >
                       <span>Ingresar al Sistema</span>
                     </button>
                   </form>
                 </div>
 
-                <div className="text-[9px] text-white/60 font-semibold uppercase tracking-wider">
+                <div className="text-[10.5px] text-white/70 font-semibold uppercase tracking-wider">
                   Desarrollado según metas oficiales PROGESTIÓN CHILE
                 </div>
               </div>
@@ -932,7 +932,7 @@ export default function App() {
 
                 {/* Profile Widget switcher */}
                 <div className="flex items-center space-x-2 bg-[#4c018c]/5 py-1 pl-3 pr-1 rounded-xl border border-[#4c018c]/15 shadow-none shrink-0">
-                  <span className="text-[11px] font-bold text-[#4c018c] truncate max-w-[120px]">
+                  <span className="text-[12.5px] font-bold text-[#4c018c] truncate max-w-[120px]">
                     👤 {currentUser}
                   </span>
                   <button
@@ -951,9 +951,9 @@ export default function App() {
                 <button
                   id="tab-btn-panel"
                   onClick={() => setActiveTab('panel')}
-                  className={`py-3 sm:py-3.5 text-[8.5px] sm:text-[10px] md:text-[11px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 cursor-pointer ${
+                  className={`py-3 sm:py-3.5 text-[10px] sm:text-[11.5px] md:text-xs font-black tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 cursor-pointer ${
                     activeTab === 'panel'
-                      ? 'border-b-[3px] border-[#4c018c] text-[#4c018c] font-extrabold bg-[#4c018c]/10'
+                      ? 'border-b-[3px] border-[#4c018c] text-[#4c018c] font-black bg-[#4c018c]/10'
                       : 'text-[#4c018c]/70 hover:text-[#4c018c] hover:bg-[#4c018c]/5'
                   }`}
                 >
@@ -963,9 +963,9 @@ export default function App() {
                 <button
                   id="tab-btn-prepago"
                   onClick={() => setActiveTab('prepago')}
-                  className={`py-3 sm:py-3.5 text-[8.5px] sm:text-[10px] md:text-[11px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 cursor-pointer ${
+                  className={`py-3 sm:py-3.5 text-[10px] sm:text-[11.5px] md:text-xs font-black tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 cursor-pointer ${
                     activeTab === 'prepago'
-                      ? 'border-b-[3px] border-[#4c018c] text-[#4c018c] font-extrabold bg-[#4c018c]/10'
+                      ? 'border-b-[3px] border-[#4c018c] text-[#4c018c] font-black bg-[#4c018c]/10'
                       : 'text-[#4c018c]/70 hover:text-[#4c018c] hover:bg-[#4c018c]/5'
                   }`}
                 >
@@ -975,9 +975,9 @@ export default function App() {
                 <button
                   id="tab-btn-proyeccion"
                   onClick={() => setActiveTab('proyeccion')}
-                  className={`py-3 sm:py-3.5 text-[8.5px] sm:text-[10px] md:text-[11px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 cursor-pointer ${
+                  className={`py-3 sm:py-3.5 text-[10px] sm:text-[11.5px] md:text-xs font-black tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 cursor-pointer ${
                     activeTab === 'proyeccion'
-                      ? 'border-b-[3px] border-[#4c018c] text-[#4c018c] font-extrabold bg-[#4c018c]/10'
+                      ? 'border-b-[3px] border-[#4c018c] text-[#4c018c] font-black bg-[#4c018c]/10'
                       : 'text-[#4c018c]/70 hover:text-[#4c018c] hover:bg-[#4c018c]/5'
                   }`}
                 >
@@ -987,9 +987,9 @@ export default function App() {
                 <button
                   id="tab-btn-comision"
                   onClick={() => setActiveTab('comision')}
-                  className={`py-3 sm:py-3.5 text-[8.5px] sm:text-[10px] md:text-[11px] font-bold tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 cursor-pointer ${
+                  className={`py-3 sm:py-3.5 text-[10px] sm:text-[11.5px] md:text-xs font-black tracking-wider uppercase transition-all flex flex-col items-center justify-center space-y-1 cursor-pointer ${
                     activeTab === 'comision'
-                      ? 'border-b-[3px] border-[#4c018c] text-[#4c018c] font-extrabold bg-[#4c018c]/10'
+                      ? 'border-b-[3px] border-[#4c018c] text-[#4c018c] font-black bg-[#4c018c]/10'
                       : 'text-[#4c018c]/70 hover:text-[#4c018c] hover:bg-[#4c018c]/5'
                   }`}
                 >
@@ -1020,28 +1020,28 @@ export default function App() {
                         {/* Meta Goal Objective Box */}
                         <section className="bg-white p-4 rounded-xl border border-[#4c018c]/15 flex items-center justify-between shadow-md text-[#4c018c]">
                           <div className="flex items-center space-x-2">
-                            <Target className="w-4 h-4 text-[#4c018c]" />
+                            <Target className="w-4.5 h-4.5 text-[#4c018c]" />
                             <div>
-                              <h3 className="text-xs font-bold text-[#4c018c] uppercase tracking-widest">
+                              <h3 className="text-[13.5px] font-black text-[#4c018c] uppercase tracking-wider">
                                 Meta de Ventas
                               </h3>
-                              <p className="text-[10px] text-[#4c018c]/70 font-semibold uppercase tracking-wider">
+                              <p className="text-[11px] text-[#4c018c]/80 font-bold uppercase tracking-wider">
                                 Objetivo mensual exigido
                               </p>
                             </div>
                           </div>
 
                           {/* Interactive Meta selector */}
-                          <div className="flex items-center bg-[#4c018c]/5 border border-[#4c018c]/20 rounded-lg px-2 py-0.5 shadow-inner">
+                          <div className="flex items-center bg-[#4c018c]/5 border border-[#4c018c]/20 rounded-lg px-2 py-1 shadow-inner">
                             <input
                               id="fieldMetaGoal"
                               type="number"
                               min="1"
                               value={metaObjective}
                               onChange={(e) => handleUpdateMeta(parseInt(e.target.value) || 1)}
-                              className="bg-transparent text-[#4c018c] font-extrabold text-right w-12 focus:outline-none text-xs"
+                              className="bg-transparent text-[#4c018c] font-black text-right w-12 focus:outline-none text-sm"
                             />
-                            <span className="text-[#4c018c]/80 font-bold text-[10px] ml-1">
+                            <span className="text-[#4c018c]/90 font-black text-[11px] ml-1">
                               PTS
                             </span>
                           </div>
@@ -1056,16 +1056,16 @@ export default function App() {
 
                         {/* Sales items register panel */}
                         <section className="bg-white p-5 rounded-2xl border border-[#4c018c]/15 space-y-4 shadow-lg text-[#4c018c]">
-                          <div className="flex items-center justify-between">
+                          <div className="flex items-center justify-between border-b border-[#4c018c]/5 pb-2">
                             <div>
-                              <h2 className="text-xs font-black text-[#4c018c] uppercase tracking-widest">
+                              <h2 className="text-[14px] font-black text-[#4c018c] uppercase tracking-wider">
                                 Registrar Ventas
                               </h2>
-                              <p className="text-[10px] text-[#4c018c]/70 font-medium uppercase tracking-wider mt-0.5">
+                              <p className="text-[11px] text-[#4c018c]/85 font-semibold uppercase tracking-wider mt-0.5">
                                 Agrega productos y presiona registrar
                               </p>
                             </div>
-                            <span className="text-[9px] font-bold text-[#4c018c] bg-[#4c018c]/10 px-2 py-0.5 rounded border border-[#4c018c]/20">
+                            <span className="text-[10px] font-black text-[#4c018c] bg-[#4c018c]/10 px-2.5 py-0.5 rounded-md border border-[#4c018c]/20">
                               Hoy
                             </span>
                           </div>
@@ -1083,15 +1083,15 @@ export default function App() {
                                     {getProductIcon(prod.id)}
                                   </div>
                                   <div className="space-y-0.5 flex flex-col justify-center items-center">
-                                    <p className="text-[10px] font-semibold text-[#4c018c] leading-tight max-h-[26px] line-clamp-2 px-0.5 overflow-hidden text-center min-h-[24px] flex items-center justify-center select-none uppercase tracking-tight">
+                                    <p className="text-[11.5px] sm:text-xs font-black text-[#4c018c] leading-tight max-h-[28px] line-clamp-2 px-0.5 overflow-hidden text-center min-h-[24px] flex items-center justify-center select-none uppercase tracking-tight">
                                       {prod.name}
                                     </p>
-                                    <p className="text-[9px] font-black text-[#4c018c]/80 leading-none uppercase pt-0.5">
+                                    <p className="text-[10px] font-black text-[#4c018c]/90 leading-none uppercase pt-0.5">
                                       +{prod.points} PTS
                                     </p>
                                   </div>
                                   {prod.id === 'renov' && (
-                                    <span style={{ fontSize: '7px' }} className="font-bold text-amber-850 bg-amber-500/10 py-0.5 px-1 rounded border border-amber-500/20 leading-none truncate max-w-full block mt-0.5 animate-pulse">
+                                    <span style={{ fontSize: '8.5px' }} className="font-bold text-amber-950 bg-amber-500/15 py-0.5 px-1 rounded border border-amber-500/20 leading-none truncate max-w-full block mt-0.5 animate-pulse">
                                       {isRenovationBonusActive ? 'Bono Activo' : '+5 PTS (≥95%)'}
                                     </span>
                                   )}
@@ -1107,7 +1107,7 @@ export default function App() {
                                     <Minus className="w-2 h-2" />
                                   </button>
                                   
-                                  <span className="text-[11px] font-semibold text-[#4c018c] min-w-[12px] text-center select-none font-mono">
+                                  <span className="text-xs sm:text-sm font-bold text-[#4c018c] min-w-[12px] text-center select-none font-mono">
                                     {tempCounts[prod.id as keyof typeof tempCounts] || 0}
                                   </span>
 
@@ -1127,9 +1127,9 @@ export default function App() {
                             <button
                               id="submitRegisterSales"
                               onClick={handleRegisterAndClear}
-                              className="flex-1 bg-[#4c018c] hover:bg-[#4c018c]/90 text-white font-bold py-2.5 px-3 rounded-xl transition-all text-xs uppercase tracking-wider flex items-center justify-center space-x-1 cursor-pointer shadow hover:shadow-[#4c018c]/15 active:scale-95 animate-fadeIn"
+                              className="flex-1 bg-[#4c018c] hover:bg-[#4c018c]/90 text-white font-bold py-2.5 px-3 rounded-xl transition-all text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center space-x-1 cursor-pointer shadow hover:shadow-[#4c018c]/15 active:scale-95 animate-fadeIn"
                             >
-                              <PlusCircle className="w-3.5 h-3.5 text-white" />
+                              <PlusCircle className="w-4 h-4 text-white" />
                               <span>Registrar Ingresos</span>
                             </button>
 
@@ -1137,68 +1137,69 @@ export default function App() {
                               <button
                                 id="undoRegisterSales"
                                 onClick={handleUndoRegister}
-                                className="bg-white hover:bg-[#4c018c]/5 text-[#4c018c] font-bold py-2.5 px-3 rounded-xl transition-all text-xs uppercase flex items-center justify-center space-x-1 border border-[#4c018c]/25 cursor-pointer active:scale-95"
+                                className="bg-white hover:bg-[#4c018c]/5 text-[#4c018c] font-bold py-2.5 px-3 rounded-xl transition-all text-xs sm:text-sm uppercase flex items-center justify-center space-x-1 border border-[#4c018c]/25 cursor-pointer active:scale-95"
                                 title="Deshacer el último ingreso"
                               >
-                                <Undo2 className="w-3.5 h-3.5" />
+                                <Undo2 className="w-4 h-4" />
                                 <span>Deshacer</span>
                               </button>
                             )}
                           </div>
                         </section>
                       </div>
+
                       {/* Right Column: Statistics tracker, Trend details & logs */}
                       <div className="space-y-4 text-[#4c018c]">
                         {/* Cumulative stats tracker */}
                         <section className="bg-white p-5 rounded-2xl border border-[#4c018c]/15 space-y-3 shadow-lg text-[#4c018c]">
-                        <div className="flex justify-between items-center border-b border-[#4c018c]/15 pb-2">
-                          <h3 className="text-xs font-bold text-[#4c018c] uppercase tracking-widest">
-                            Acumulado Mensual
-                          </h3>
-                          <button
-                            id="btnFullReset"
-                            onClick={handleFullReset}
-                            className="text-rose-455 hover:text-rose-400 font-bold text-[10px] px-2 py-1 rounded transition-colors uppercase tracking-wider cursor-pointer font-bold"
-                          >
-                            Reiniciar
-                          </button>
-                        </div>
+                          <div className="flex justify-between items-center border-b border-[#4c018c]/15 pb-2">
+                            <h3 className="text-sm font-black text-[#4c018c] uppercase tracking-wider">
+                              Acumulado Mensual
+                            </h3>
+                            <button
+                              id="btnFullReset"
+                              onClick={handleFullReset}
+                              className="text-rose-455 hover:text-rose-450 font-black text-xs px-2.5 py-1 rounded transition-colors uppercase tracking-wider cursor-pointer"
+                            >
+                              Reiniciar
+                            </button>
+                          </div>
 
-                        <div className="grid grid-cols-3 gap-1.5 text-center text-[10px] font-bold">
-                          <div className="bg-[#4c018c]/10 p-2 rounded-lg border border-[#4c018c]/10 text-[#4c018c]">
-                            <p className="text-[#4c018c]/80 uppercase truncate">Porta Pos</p>
-                            <p className="text-xs font-black text-[#4c018c] mt-0.5 font-mono">{totals.postpago}</p>
-                          </div>
-                          <div className="bg-[#4c018c]/10 p-2 rounded-lg border border-[#4c018c]/10 text-[#4c018c]">
-                            <p className="text-[#4c018c]/80 uppercase truncate">-15.990</p>
-                            <p className="text-xs font-black text-[#4c018c] mt-0.5 font-mono">{totals.porta_pos_15990}</p>
-                          </div>
-                          <div className="bg-[#4c018c]/10 p-2 rounded-lg border border-[#4c018c]/10 text-[#4c018c]">
-                            <p className="text-[#4c018c]/80 uppercase truncate">Porta Pre</p>
-                            <p className="text-xs font-black text-[#4c018c] mt-0.5 font-mono">{totals.porta}</p>
-                          </div>
-                          <div className="bg-[#4c018c]/10 p-2 rounded-lg border border-[#4c018c]/10 text-[#4c018c]">
-                            <p className="text-[#4c018c]/80 uppercase truncate">Nuevo</p>
-                            <p className="text-xs font-black text-[#4c018c] mt-0.5 font-mono">{totals.nuevo}</p>
-                          </div>
-                          <div className="bg-[#4c018c]/10 p-2 rounded-lg border border-[#4c018c]/10 text-[#4c018c]">
-                            <p className="text-[#4c018c]/80 uppercase truncate">Renov.</p>
-                            <p className="text-xs font-black text-[#4c018c] mt-0.5 font-mono">{totals.renov}</p>
-                          </div>
-                          {totals.portaPre8 > 0 && (
+                          <div className="grid grid-cols-3 gap-1.5 text-center text-xs font-bold">
                             <div className="bg-[#4c018c]/10 p-2 rounded-lg border border-[#4c018c]/10 text-[#4c018c]">
-                              <p className="text-[#4c018c]/80 uppercase truncate">Pre 8</p>
-                              <p className="text-xs font-black text-[#4c018c] mt-0.5 font-mono">{totals.portaPre8}</p>
+                              <p className="text-[#4c018c]/80 uppercase truncate">Porta Pos</p>
+                              <p className="text-sm font-black text-[#4c018c] mt-0.5 font-mono">{totals.postpago}</p>
+                            </div>
+                            <div className="bg-[#4c018c]/10 p-2 rounded-lg border border-[#4c018c]/10 text-[#4c018c]">
+                              <p className="text-[#4c018c]/80 uppercase truncate">-15.990</p>
+                              <p className="text-sm font-black text-[#4c018c] mt-0.5 font-mono">{totals.porta_pos_15990}</p>
+                            </div>
+                            <div className="bg-[#4c018c]/10 p-2 rounded-lg border border-[#4c018c]/10 text-[#4c018c]">
+                              <p className="text-[#4c018c]/80 uppercase truncate">Porta Pre</p>
+                              <p className="text-sm font-black text-[#4c018c] mt-0.5 font-mono">{totals.porta}</p>
+                            </div>
+                            <div className="bg-[#4c018c]/10 p-2 rounded-lg border border-[#4c018c]/10 text-[#4c018c]">
+                              <p className="text-[#4c018c]/80 uppercase truncate">Nuevo</p>
+                              <p className="text-sm font-black text-[#4c018c] mt-0.5 font-mono">{totals.nuevo}</p>
+                            </div>
+                            <div className="bg-[#4c018c]/10 p-2 rounded-lg border border-[#4c018c]/10 text-[#4c018c]">
+                              <p className="text-[#4c018c]/80 uppercase truncate">Renov.</p>
+                              <p className="text-sm font-black text-[#4c018c] mt-0.5 font-mono">{totals.renov}</p>
+                            </div>
+                            {totals.portaPre8 > 0 && (
+                              <div className="bg-[#4c018c]/10 p-2 rounded-lg border border-[#4c018c]/10 text-[#4c018c]">
+                                <p className="text-[#4c018c]/80 uppercase truncate">Pre 8</p>
+                                <p className="text-sm font-black text-[#4c018c] mt-0.5 font-mono">{totals.portaPre8}</p>
+                              </div>
+                            )}
+                          </div>
+
+                          {isRenovationBonusActive && (
+                            <div className="bg-amber-500/10 border border-amber-500/20 text-amber-850 rounded-lg p-2 text-xs font-black text-center flex items-center justify-center animate-pulse">
+                              <span>Bono activo: Renovaciones valen 5 Puntos.</span>
                             </div>
                           )}
-                        </div>
-
-                        {isRenovationBonusActive && (
-                          <div className="bg-amber-500/10 border border-amber-500/20 text-amber-800 rounded-lg p-2 text-[10px] font-bold text-center flex items-center justify-center animate-pulse">
-                            <span>Bono activo: Renovaciones valen 5 Puntos.</span>
-                          </div>
-                        )}
-                      </section>
+                        </section>
 
                       {/* Timeline expected position check */}
                       <TrendTimeline points={totals.points} meta={metaObjective} />
@@ -1221,23 +1222,23 @@ export default function App() {
                       <div className="space-y-4">
                         {/* Close Projections summary info */}
                       <section className="bg-white p-5 rounded-2xl border border-[#4c018c]/15 overflow-hidden relative shadow-lg text-[#4c018c]">
-                        <h3 className="text-xs font-bold text-[#4c018c] uppercase tracking-widest mb-4">
+                        <h3 className="text-sm font-black text-[#4c018c] uppercase tracking-wider mb-4">
                           Tendencia de Cierre Estimada
                         </h3>
                         <div className="grid grid-cols-2 gap-6 relative">
                           <div className="text-center border-r border-[#4c018c]/15">
-                            <p className="text-3xl font-black text-[#4c018c] select-none font-mono">
+                            <p className="text-4xl font-black text-[#4c018c] select-none font-mono">
                               {projectedFinalPoints}
                             </p>
-                            <p className="text-[10px] font-bold text-[#4c018c]/70 uppercase tracking-wider mt-1">
+                            <p className="text-xs font-black text-[#4c018c]/80 uppercase tracking-wider mt-1">
                               Puntos Finales Est.
                             </p>
                           </div>
                           <div className="text-center">
-                            <p className="text-3xl font-black text-amber-600 font-mono">
+                            <p className="text-4xl font-black text-amber-600 font-mono">
                               {projectedFulfillmentPercent.toFixed(1)}%
                             </p>
-                            <p className="text-[10px] font-bold text-[#4c018c]/70 uppercase tracking-wider mt-1">
+                            <p className="text-xs font-black text-[#4c018c]/80 uppercase tracking-wider mt-1">
                               Avance Proyectado
                             </p>
                           </div>
@@ -1247,18 +1248,18 @@ export default function App() {
                       {/* Simple Rhythm Indicators */}
                       <div className="grid grid-cols-2 gap-3 text-[#4c018c]">
                         <div className="bg-white p-4 rounded-xl border border-[#4c018c]/15 text-center shadow">
-                          <p className="text-xl font-bold text-[#4c018c] font-mono">
+                          <p className="text-2xl font-black text-[#4c018c] font-mono">
                             {pointsDailyRhythm.toFixed(1)}
                           </p>
-                          <p className="text-[9px] font-bold text-[#4c018c]/80 uppercase tracking-wider mt-1">
+                          <p className="text-[11px] font-black text-[#4c018c]/80 uppercase tracking-wider mt-1">
                             Puntos por Día
                           </p>
                         </div>
                         <div className="bg-white p-4 rounded-xl border border-[#4c018c]/15 text-center shadow">
-                          <p className="text-xl font-bold text-[#4c018c] font-mono">
+                          <p className="text-2xl font-black text-[#4c018c] font-mono">
                             {daysRemaining}
                           </p>
-                          <p className="text-[9px] font-bold text-[#4c018c]/80 uppercase tracking-wider mt-1">
+                          <p className="text-[11px] font-black text-[#4c018c]/80 uppercase tracking-wider mt-1">
                             Días Restantes
                           </p>
                         </div>
@@ -1271,19 +1272,19 @@ export default function App() {
                         <section className="bg-white p-5 rounded-2xl border border-[#4c018c]/15 space-y-3.5 shadow-lg text-[#4c018c]">
                         <div className="flex items-center space-x-2 border-b border-[#4c018c]/15 pb-2">
                           <Sparkles className="w-4 h-4 text-[#4c018c]" />
-                          <h3 className="text-xs font-bold text-[#4c018c] uppercase tracking-widest">
+                          <h3 className="text-sm font-black text-[#4c018c] uppercase tracking-wider">
                             Para alcanzar el 100% necesitas
                           </h3>
                         </div>
 
                         {pointsRemainingToTarget === 0 ? (
                           <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-800 p-4 rounded-xl text-center text-xs space-y-1">
-                            <p className="font-semibold">🎉 Meta Cumplida</p>
-                            <p className="font-normal opacity-85 text-[11px]">Ya has superado el objetivo general de tu cuota.</p>
+                            <p className="font-semibold text-sm">🎉 Meta Cumplida</p>
+                            <p className="font-semibold opacity-90 text-xs">Ya has superado el objetivo general de tu cuota.</p>
                           </div>
                         ) : (
                           <>
-                            <p className="text-[11px] text-[#4c018c]/70 font-bold uppercase tracking-wider">
+                            <p className="text-xs text-[#4c018c]/80 font-bold uppercase tracking-wider">
                               Te faltan <strong>{pointsRemainingToTarget} puntos</strong>. Si se cubrieran con una sola línea de negocio, necesitarías:
                             </p>
                             
@@ -1293,15 +1294,15 @@ export default function App() {
                                 return (
                                   <div 
                                     key={prod.id} 
-                                    className="bg-[#4c018c]/5 p-2.5 rounded-lg border border-[#4c018c]/10 flex items-center justify-between"
+                                    className="bg-[#4c018c]/5 p-2.5 rounded-lg border border-[#4c018c]/10 flex items-center justify-between font-bold"
                                   >
                                     <div className="flex items-center space-x-2">
                                       {getProductIcon(prod.id)}
-                                      <span className="text-[10px] font-bold text-[#4c018c]/95 uppercase">
+                                      <span className="text-[11.5px] font-black text-[#4c018c]/95 uppercase">
                                         {prod.id === 'postpago' ? 'Porta Pos' : prod.id === 'porta_pos_15990' ? '-15.990' : prod.id === 'porta' ? 'Porta Pre' : prod.id === 'nuevo' ? 'Plan Nuevo' : 'Renov.'}
                                       </span>
                                     </div>
-                                    <span className="text-xs font-black text-amber-700 font-mono">
+                                    <span className="text-sm font-black text-amber-700 font-mono">
                                       {countRequired}
                                     </span>
                                   </div>
@@ -1313,21 +1314,21 @@ export default function App() {
                       </section>
 
                       {/* Velocity and pace warnings based on fulfillment projections */}
-                      <section className={`p-4 rounded-xl text-center space-y-1 border shadow-md ${
+                      <section className={`p-4 rounded-xl text-center space-y-1.5 border shadow-md ${
                         projectedFulfillmentPercent >= 100
                           ? 'bg-emerald-500/15 border-emerald-500/10 text-emerald-300'
                           : projectedFulfillmentPercent >= 70
                           ? 'bg-[#3c2452]/80 border-purple-400/20 text-purple-200'
                           : 'bg-rose-500/15 border-rose-500/10 text-rose-300'
                       }`}>
-                        <p className="text-xs font-bold uppercase tracking-wider">
+                        <p className="text-xs sm:text-sm font-black uppercase tracking-wider">
                           {projectedFulfillmentPercent >= 100
                             ? 'Ritmo Óptimo ⭐'
                             : projectedFulfillmentPercent >= 70
                             ? 'Tramo de Comisión WOM'
                             : 'Ritmo Insuficiente ⚠️'}
                         </p>
-                        <p className="text-[11px] font-semibold opacity-90 leading-tight">
+                        <p className="text-xs font-semibold opacity-90 leading-tight">
                           {projectedFulfillmentPercent >= 100
                             ? 'Lograrás tu cuota si sostienes la velocidad de ventas.'
                             : projectedFulfillmentPercent >= 70
@@ -1338,10 +1339,10 @@ export default function App() {
 
                       {/* Strategic custom advice box */}
                       <section className="bg-white p-5 rounded-2xl border border-[#4c018c]/15 space-y-2 shadow-lg text-[#4c018c]">
-                        <h4 className="text-[10px] font-black text-[#4c018c]/70 uppercase tracking-widest">
+                        <h4 className="text-[11.5px] font-black text-[#4c018c]/75 uppercase tracking-widest">
                           Estrategia Recomendada
                         </h4>
-                        <p className="text-xs text-[#4c018c]/90 leading-relaxed font-medium">
+                        <p className="text-xs sm:text-[13px] text-[#4c018c]/90 leading-relaxed font-medium">
                           {projectedFulfillmentPercent >= 100 ? (
                             <span>
                               ¡Sigue así! Para afianzar tus incentivos comerciales y evitar retrocesos en tu panel, enfoca tus energías en robustecer la calidad de las portabilidades <strong>Postpago (+16 pts)</strong> y mantener activas las <strong>Renovaciones (+3 pts)</strong>.
@@ -1374,10 +1375,10 @@ export default function App() {
                         {/* Prepago Actions Card */}
                         <section className="bg-white p-5 rounded-2xl border border-[#4c018c]/15 space-y-4 shadow-lg text-[#4c018c]">
                           <div>
-                            <h2 className="text-xs font-black text-[#4c018c] uppercase tracking-widest animate-pulse">
+                            <h2 className="text-sm font-black text-[#4c018c] uppercase tracking-wider animate-pulse">
                               Registrar Prepago
                             </h2>
-                            <p className="text-[10px] text-[#4c018c]/70 font-medium uppercase tracking-wider mt-0.5">
+                            <p className="text-xs text-[#4c018c]/70 font-bold uppercase tracking-wider mt-0.5">
                               Presiona para ingresar de inmediato un prepago activo o cargado:
                             </p>
                           </div>
@@ -1386,19 +1387,19 @@ export default function App() {
                             <button
                               id="register-prepago-activo"
                               onClick={() => handleRegisterPrepago('activo')}
-                              className="bg-[#4c018c]/5 hover:bg-[#4c018c]/10 text-[#4c018c] font-bold py-3 px-3 rounded-xl transition-all cursor-pointer text-xs text-center flex flex-col items-center justify-center space-y-0.5 active:scale-95 border border-[#4c018c]/20"
+                              className="bg-[#4c018c]/5 hover:bg-[#4c018c]/10 text-[#4c018c] font-black py-3 px-3 rounded-xl transition-all cursor-pointer text-xs sm:text-sm text-center flex flex-col items-center justify-center space-y-0.5 active:scale-95 border border-[#4c018c]/20"
                             >
-                              <span className="text-xs font-bold">📱 Prepago Activo</span>
-                              <span className="text-[9px] text-[#4c018c]/80 font-bold uppercase tracking-wider">+1 Punto</span>
+                              <span className="text-xs sm:text-sm font-black">📱 Prepago Activo</span>
+                              <span className="text-[11px] text-[#4c018c]/80 font-black uppercase tracking-wider">+1 Punto</span>
                             </button>
                             
                             <button
                               id="register-prepago-cargado"
                               onClick={() => handleRegisterPrepago('cargado')}
-                              className="bg-[#4c018c] hover:bg-[#4c018c]/90 text-white font-bold py-3 px-3 rounded-xl transition-all cursor-pointer text-xs text-center flex flex-col items-center justify-center space-y-0.5 active:scale-95 shadow-sm"
+                              className="bg-[#4c018c] hover:bg-[#4c018c]/90 text-white font-black py-3 px-3 rounded-xl transition-all cursor-pointer text-xs sm:text-sm text-center flex flex-col items-center justify-center space-y-0.5 active:scale-95 shadow-sm"
                             >
-                              <span className="text-xs font-bold">💰 Fue Cargado</span>
-                              <span className="text-[9px] text-white/95 font-black uppercase tracking-wider">+3 Puntos</span>
+                              <span className="text-xs sm:text-sm font-black">💰 Fue Cargado</span>
+                              <span className="text-[11px] text-white/95 font-black uppercase tracking-wider">+3 Puntos</span>
                             </button>
                           </div>
                         </section>
@@ -1410,10 +1411,10 @@ export default function App() {
                               <Target className="w-4 h-4" />
                             </div>
                             <div>
-                              <h3 className="text-xs font-bold text-[#4c018c] uppercase tracking-widest">
+                              <h3 className="text-sm font-black text-[#4c018c] uppercase tracking-wider">
                                 Meta Prepago Exigida
                               </h3>
-                              <p className="text-[10px] text-[#4c018c]/70 font-semibold uppercase tracking-wider">
+                              <p className="text-xs text-[#4c018c]/70 font-bold uppercase tracking-wider">
                                 Objetivo mensual Prepago
                               </p>
                             </div>
@@ -1426,9 +1427,9 @@ export default function App() {
                               min="1"
                               value={metaPrepagoObjective}
                               onChange={(e) => handleUpdatePrepagoMeta(parseInt(e.target.value) || 1)}
-                              className="bg-transparent text-[#4c018c] font-extrabold text-right w-12 focus:outline-none text-xs"
+                              className="bg-transparent text-[#4c018c] font-extrabold text-right w-12 focus:outline-none text-sm"
                             />
-                            <span className="text-[#4c018c]/70 font-bold text-[10px] ml-1">
+                            <span className="text-[#4c018c]/80 font-black text-xs ml-1 font-mono">
                               PTS
                             </span>
                           </div>
@@ -1447,41 +1448,41 @@ export default function App() {
                         {/* Accumulated Prepagos */}
                         <section className="bg-white p-5 rounded-2xl border border-[#4c018c]/15 space-y-3 shadow-lg text-[#4c018c]">
                           <div className="flex justify-between items-center border-b border-[#4c018c]/15 pb-2">
-                            <h3 className="text-xs font-bold text-[#4c018c] uppercase tracking-widest">
+                            <h3 className="text-sm font-black text-[#4c018c] uppercase tracking-wider">
                               Totales Prepago
                             </h3>
                             <button
                               id="btnResetPrepagos"
                               onClick={handleFullResetPrepagos}
-                              className="text-rose-600 hover:text-rose-700 text-[10px] font-bold uppercase tracking-wider cursor-pointer transition-colors px-2 py-1 rounded"
+                              className="text-rose-600 hover:text-rose-700 text-xs font-black uppercase tracking-wider cursor-pointer transition-colors px-2 py-1 rounded"
                             >
                               Limpiar Prepagos
                             </button>
                           </div>
                           <div className="grid grid-cols-3 gap-2 text-center text-xs">
                             <div className="bg-[#4c018c]/5 p-2 rounded-lg border border-[#4c018c]/10">
-                              <span className="block text-[10px] text-[#4c018c]/80 font-bold uppercase truncate">Activos</span>
-                              <span className="font-extrabold text-[#4c018c] text-xs mt-0.5 block font-mono">{prepagosTotals.activos}</span>
+                              <span className="block text-[11px] text-[#4c018c]/90 font-black uppercase truncate">Activos</span>
+                              <span className="font-black text-[#4c018c] text-sm mt-0.5 block font-mono">{prepagosTotals.activos}</span>
                             </div>
                             <div className="bg-[#4c018c]/5 p-2 rounded-lg border border-[#4c018c]/10">
-                              <span className="block text-[10px] text-[#4c018c]/80 font-bold uppercase truncate">Cargados</span>
-                              <span className="font-extrabold text-[#4c018c] text-xs mt-0.5 block font-mono">{prepagosTotals.cargados}</span>
+                              <span className="block text-[11px] text-[#4c018c]/90 font-black uppercase truncate">Cargados</span>
+                              <span className="font-black text-[#4c018c] text-sm mt-0.5 block font-mono">{prepagosTotals.cargados}</span>
                             </div>
                             <div className="bg-[#4c018c]/5 p-2 rounded-lg border border-[#4c018c]/10">
-                              <span className="block text-[10px] text-[#4c018c]/80 font-bold uppercase truncate">Total Pts</span>
-                              <span className="font-black text-amber-705 text-xs mt-0.5 block font-mono">{prepagosTotals.points}</span>
+                              <span className="block text-[11px] text-[#4c018c]/90 font-black uppercase truncate">Total Pts</span>
+                              <span className="font-black text-amber-705 text-sm mt-0.5 block font-mono">{prepagosTotals.points}</span>
                             </div>
                           </div>
                         </section>
 
                         {/* Prepago Historical Records */}
                         <section className="bg-white p-5 rounded-2xl border border-[#4c018c]/15 space-y-3 shadow-lg text-[#4c018c]">
-                          <h4 className="text-xs font-bold text-[#4c018c] uppercase tracking-widest pl-1">
+                          <h4 className="text-sm font-black text-[#4c018c] uppercase tracking-wider pl-1">
                             Historial Prepago del Mes
                           </h4>
 
                           {prepagosHistory.length === 0 ? (
-                            <p className="text-center text-[10.5px] text-[#4c018c]/70 font-bold py-6 italic uppercase tracking-wider">
+                            <p className="text-center text-xs text-[#4c018c]/80 font-black py-6 italic uppercase tracking-wider">
                               No hay prepagos registrados en este mes.
                             </p>
                           ) : (
@@ -1494,10 +1495,10 @@ export default function App() {
                                   <div className="flex items-center space-x-2">
                                     <div className="w-1.5 h-1.5 rounded-full bg-[#4c018c]" />
                                     <div>
-                                      <p className="text-xs font-bold text-[#4c018c]">
+                                      <p className="text-[13px] font-black text-[#4c018c]">
                                         {item.type === 'activo' ? '📱 Prepago Activo (+1 Pt)' : '💰 Prepago Cargado (+3 Pts)'}
                                       </p>
-                                      <p className="text-[10px] font-mono text-[#4c018c]/70 font-semibold">
+                                      <p className="text-xs font-mono text-[#4c018c]/70 font-semibold">
                                         {new Date(item.timestamp).toLocaleString('es-CL', {
                                           hour: '2-digit',
                                           minute: '2-digit',
@@ -1573,7 +1574,7 @@ export default function App() {
               </main>
 
               {/* Bottom informational date label */}
-              <footer className="bg-white border-t border-[#4c018c]/15 px-4 py-3 flex items-center justify-between text-[#4c018c] font-bold text-[9px] uppercase tracking-wider shrink-0 select-none z-10">
+              <footer className="bg-white border-t border-[#4c018c]/15 px-4 py-3 flex items-center justify-between text-[#4c018c] font-black text-[11px] uppercase tracking-wider shrink-0 select-none z-10">
                 <div className="flex items-center space-x-1">
                   <Calendar className="w-3.5 h-3.5 text-[#4c018c]/70" />
                   <span>Día {currentDayNum} de {daysInMonth}</span>
