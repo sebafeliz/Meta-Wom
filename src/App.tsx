@@ -842,9 +842,9 @@ export default function App() {
               exit={{ opacity: 0, scale: 0.98 }}
               className="flex-1 flex flex-col justify-center items-center bg-[#4c018c] p-6 sm:p-12 relative overflow-hidden"
             >
-              {/* Decorative brand elements like wom.cl */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-wom-magenta/10 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-80 h-80 bg-wom-magenta/5 rounded-full blur-3xl pointer-events-none" />
+              {/* Decorative brand elements subtle and matching light tabs color system */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full blur-3xl pointer-events-none" />
               
               <div className="space-y-8 max-w-sm mx-auto w-full relative z-10 text-center">
                 {/* Brand Logo Banner */}
@@ -853,33 +853,33 @@ export default function App() {
                     <img 
                       src={metaWomLogo} 
                       alt="Logo WOM" 
-                      className="h-10 w-auto mx-auto object-contain px-4 py-2 bg-[#21002d]/40 rounded-xl border border-wom-magenta/15 shadow-xl shadow-wom-magenta/25 animate-bounce"
+                      className="h-10 w-auto mx-auto object-contain px-4 py-2 bg-white rounded-xl border border-[#4c018c]/15 shadow-xl animate-bounce"
                       style={{ animationDuration: '3s' }}
                       referrerPolicy="no-referrer"
                     />
-                    <span className="absolute -bottom-2 -right-1.5 bg-wom-yellow text-slate-950 font-black text-[8px] px-1.5 py-0.5 rounded-full uppercase tracking-widest shadow">
+                    <span className="absolute -bottom-2 -right-1.5 bg-[#4c018c] text-white border border-[#4c018c]/20 font-black text-[8px] px-1.5 py-0.5 rounded-full uppercase tracking-widest shadow">
                       PRO
                     </span>
                   </div>
                   <div>
                     <h1 className="text-4xl font-extrabold tracking-tighter text-white uppercase select-none">
-                      META<span className="text-wom-magenta font-black italic">WOM</span>
+                      META<span className="text-white/80 font-black italic">WOM</span>
                     </h1>
-                    <p className="text-[10px] text-zinc-450 font-bold uppercase tracking-widest text-[#e10098] mt-1">
+                    <p className="text-[10.5px] text-white/85 font-bold uppercase tracking-widest mt-1">
                       Asistente de Ventas y Comisiones
                     </p>
                   </div>
                 </div>
 
-                {/* Form layout */}
-                <div className="bg-zinc-950/80 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-zinc-900 shadow-2xl space-y-5 text-left">
-                  <h2 className="text-xs font-bold text-[#ffdd00] uppercase tracking-widest text-center border-b border-zinc-900 pb-3">
+                {/* Form layout containing the same clean white theme as the app tabs */}
+                <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#4c018c]/15 shadow-2xl space-y-5 text-left text-[#4c018c]">
+                  <h2 className="text-xs font-bold text-[#4c018c] uppercase tracking-widest text-center border-b border-[#4c018c]/10 pb-3">
                     Ingreso Autorizado
                   </h2>
                   <form onSubmit={handleLogin} className="space-y-4">
                     <div className="space-y-1.5">
-                      <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest block px-0.5">
-                        Tu Nombre o Apodo
+                      <label className="text-[10px] font-bold text-[#4c018c]/85 uppercase tracking-widest block px-0.5">
+                        Usuario
                       </label>
                       <input
                         id="loginUsername"
@@ -888,21 +888,21 @@ export default function App() {
                         placeholder="Ej: Ejecutivo WOM"
                         value={newUsernameInput}
                         onChange={(e) => setNewUsernameInput(e.target.value)}
-                        className="w-full bg-zinc-900/50 hover:bg-zinc-900 text-white placeholder-zinc-500 font-medium text-sm rounded-xl p-3 border border-zinc-800 focus:border-wom-magenta focus:ring-1 focus:ring-wom-magenta focus:outline-none transition-all"
+                        className="w-full bg-[#4c018c]/5 hover:bg-[#4c018c]/10 text-[#4c018c] placeholder-[#4c018c]/40 font-medium text-sm rounded-xl p-3 border border-[#4c018c]/15 focus:border-[#4c018c] focus:ring-1 focus:ring-[#4c018c] focus:outline-none transition-all"
                       />
                     </div>
 
                     <button
                       id="submitLogin"
                       type="submit"
-                      className="w-full bg-wom-magenta hover:bg-[#c0007e] text-white font-bold py-3.5 rounded-xl transition-all text-xs uppercase tracking-widest flex items-center justify-center space-x-2 cursor-pointer shadow-md active:scale-95 text-center mt-2"
+                      className="w-full bg-[#4c018c] hover:bg-[#4c018c]/90 text-white font-bold py-3.5 rounded-xl transition-all text-xs uppercase tracking-widest flex items-center justify-center space-x-2 cursor-pointer shadow-md active:scale-95 text-center mt-2"
                     >
                       <span>Ingresar al Sistema</span>
                     </button>
                   </form>
                 </div>
 
-                <div className="text-[9px] text-[#ffdd00]/70 font-semibold uppercase tracking-wider">
+                <div className="text-[9px] text-white/60 font-semibold uppercase tracking-wider">
                   Desarrollado según metas oficiales PROGESTIÓN CHILE
                 </div>
               </div>
