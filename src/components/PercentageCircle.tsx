@@ -29,18 +29,18 @@ export default function PercentageCircle({ percentage, points, meta }: Percentag
       {/* Percentage and Points Info */}
       <div className="flex justify-between items-end">
         <div>
-          <span className="text-3xl font-black text-[#4c018c] select-none tracking-tight">
+          <span className="text-4xl font-black text-[#4c018c] select-none tracking-tight">
             {percentage.toFixed(0)}%
           </span>
-          <span className="text-[12px] font-black text-[#4c018c]/90 block uppercase tracking-wider mt-0.5">
+          <span className="text-[14px] font-black text-[#4c018c]/90 block uppercase tracking-wider mt-0.5">
             Cumplimiento actual
           </span>
         </div>
         <div className="text-right">
-          <span className="text-base font-black text-[#4c018c] bg-[#4c018c]/10 px-2 py-0.5 rounded-md border border-[#4c018c]/20">
-            {points} <span className="text-[#4c018c]/80 font-bold text-xs font-mono">/ {meta} PTS</span>
+          <span className="text-lg font-black text-[#4c018c] bg-[#4c018c]/10 px-2.5 py-0.5 rounded-md border border-[#4c018c]/20">
+            {points} <span className="text-[#4c018c]/85 font-black text-xs font-mono">/ {meta} PTS</span>
           </span>
-          <span className="text-[12px] font-black text-[#4c018c]/90 block uppercase tracking-wider mt-0.5 pt-1">
+          <span className="text-[14px] font-black text-[#4c018c]/90 block uppercase tracking-wider mt-0.5 pt-1">
             Puntos acumulados
           </span>
         </div>
@@ -55,8 +55,8 @@ export default function PercentageCircle({ percentage, points, meta }: Percentag
       </div>
  
       {/* Row with Label Indicator and Details */}
-      <div className="flex flex-wrap gap-2 justify-between items-center text-xs">
-        <span className={`px-2.5 py-0.5 rounded-md font-black border ${bgClass} uppercase tracking-wider text-[11px]`}>
+      <div className="flex flex-wrap gap-2 justify-between items-center text-sm">
+        <span className={`px-2.5 py-0.5 rounded-md font-black border ${bgClass} uppercase tracking-wider text-xs`}>
           {label}
         </span>
         {percentage >= 100 ? (

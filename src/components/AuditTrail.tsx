@@ -23,16 +23,16 @@ export default function AuditTrail({ history, onDeleteRecord }: AuditTrailProps)
   return (
     <div className="bg-white rounded-2xl p-5 border border-[#4c018c]/15 text-[#4c018c] space-y-3 shadow-lg">
       <div className="flex justify-between items-center border-b border-[#4c018c]/15 pb-2">
-        <h3 className="text-xs font-bold text-[#4c018c] uppercase tracking-wider">
+        <h3 className="text-sm font-black text-[#4c018c] uppercase tracking-wider">
           Ventas Recientes ({history.length})
         </h3>
         {history.length > 0 && (
-          <span className="text-[10px] text-[#4c018c]/80 font-bold uppercase">Historial</span>
+          <span className="text-xs text-[#4c018c]/90 font-black uppercase tracking-wider">Historial</span>
         )}
       </div>
 
       {history.length === 0 ? (
-        <div className="text-center py-8 text-[#4c018c]/70 text-xs font-semibold">
+        <div className="text-center py-8 text-[#4c018c]/80 text-sm font-black">
           <Clock className="w-6 h-6 mx-auto stroke-1.0 opacity-40 mb-2 text-[#4c018c]" />
           No hay registros de ventas hoy
         </div>
@@ -41,17 +41,17 @@ export default function AuditTrail({ history, onDeleteRecord }: AuditTrailProps)
           {history.map((record) => (
             <div
               key={record.id}
-              className="flex items-center justify-between p-3 bg-[#4c018c]/5 rounded-xl border border-[#4c018c]/10 hover:border-[#4c018c]/30 transition-colors text-xs"
+              className="flex items-center justify-between p-3 bg-[#4c018c]/5 rounded-xl border border-[#4c018c]/10 hover:border-[#4c018c]/30 transition-colors text-sm"
             >
               <div className="space-y-1 flex-1">
                 {/* Time Badge */}
-                <div className="flex items-center text-[9.5px] text-[#4c018c]/80 font-bold">
+                <div className="flex items-center text-xs text-[#4c018c]/90 font-black">
                   <Clock className="w-3 h-3 mr-1 opacity-80 text-[#4c018c]" />
                   {formatTime(record.timestamp)}
                 </div>
 
                 {/* Subcounts Row */}
-                <div className="flex flex-wrap gap-1.5 text-[10.5px] pt-1">
+                <div className="flex flex-wrap gap-1.5 text-xs pt-1">
                   {record.postpagoCount > 0 && (
                     <span className="bg-[#4c018c]/10 text-[#4c018c] px-2 py-0.5 rounded flex items-center border border-[#4c018c]/10">
                       <Smartphone className="w-3 h-3 mr-1 text-[#4c018c]" />
@@ -94,10 +94,10 @@ export default function AuditTrail({ history, onDeleteRecord }: AuditTrailProps)
               {/* Total points generated & Trash */}
               <div className="flex items-center space-x-3 ml-2 shrink-0">
                 <div className="text-right">
-                  <p className="text-sm font-black text-[#4c018c]">
+                  <p className="text-base font-black text-[#4c018c]">
                     +{record.pointsEarned}
                   </p>
-                  <p className="text-[8px] text-[#4c018c]/80 uppercase tracking-widest font-black">
+                  <p className="text-xs text-[#4c018c]/90 uppercase tracking-wider font-extrabold">
                     PTS
                   </p>
                 </div>

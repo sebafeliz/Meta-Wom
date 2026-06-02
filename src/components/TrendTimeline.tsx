@@ -41,18 +41,18 @@ export default function TrendTimeline({ points, meta }: TrendTimelineProps) {
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <Calendar className="w-4 h-4 text-[#4c018c]" />
-          <h3 className="text-xs font-bold text-[#4c018c] uppercase tracking-widest">
+          <h3 className="text-sm font-black text-[#4c018c] uppercase tracking-wider">
             Progreso del Mes ({monthNames[month]})
           </h3>
         </div>
-        <span className="text-[9px] bg-[#4c018c]/10 text-[#4c018c] px-2 py-0.5 rounded border border-[#4c018c]/20 font-bold uppercase tracking-wider">
+        <span className="text-xs bg-[#4c018c]/10 text-[#4c018c] px-2 py-0.5 rounded border border-[#4c018c]/20 font-black uppercase tracking-wider">
           Día {currentDay} / {totalDays}
         </span>
       </div>
 
       {/* Progress Timeline Map */}
       <div className="space-y-2">
-        <div className="flex justify-between text-[9px] text-[#4c018c]/80 font-bold uppercase tracking-wider">
+        <div className="flex justify-between text-xs text-[#4c018c]/90 font-black uppercase tracking-wider">
           <span>Inicio</span>
           <span>Día Objetivo ({targetPercentage.toFixed(0)}%)</span>
           <span>Fin</span>
@@ -73,14 +73,14 @@ export default function TrendTimeline({ points, meta }: TrendTimelineProps) {
         </div>
 
         {/* Legend */}
-        <div className="flex items-center justify-between text-[11px] text-[#4c018c] pt-0.5 font-bold">
+        <div className="flex items-center justify-between text-xs text-[#4c018c] pt-0.5 font-black">
           <div className="flex items-center space-x-1.5">
-            <div className="w-2 h-2 rounded-full bg-[#4c018c]/25" />
-            <span className="text-[10px] text-[#4c018c]/80 font-bold">Meta Sugerida</span>
+            <div className="w-2,5 h-2,5 rounded-full bg-[#4c018c]/25" />
+            <span className="text-xs text-[#4c018c]/90 font-black">Meta Sugerida</span>
           </div>
           <div className="flex items-center space-x-1.5">
-            <div className="w-2 h-2 rounded-full bg-[#4c018c]" />
-            <span className="text-[10px] text-[#4c018c] font-black">Avance Actual</span>
+            <div className="w-2,5 h-2,5 rounded-full bg-[#4c018c]" />
+            <span className="text-xs text-[#4c018c] font-black">Avance Actual</span>
           </div>
         </div>
       </div>

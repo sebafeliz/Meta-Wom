@@ -392,45 +392,45 @@ export default function CommissionSimulator({
         <div className="grid grid-cols-3 gap-2.5 pl-0.5 pr-0.5 sm:pl-0 sm:pr-0">
           {/* Postpago card */}
           <div className="bg-[#4c018c]/5 border border-[#4c018c]/10 rounded-xl p-2.5 sm:p-4 hover:bg-[#4c018c]/10 transition-all flex flex-col items-center justify-center text-center w-full">
-            <span className="block text-[11px] sm:text-xs text-[#4c018c]/90 uppercase font-black tracking-wider mb-1 select-none">
+            <span className="block text-xs sm:text-sm text-[#4c018c]/90 uppercase font-black tracking-wider mb-1 select-none">
               Móvil Postpago
             </span>
-            <span className="block text-xs sm:text-lg font-black text-[#4c018c] tracking-tight my-0.5 text-center w-full whitespace-nowrap bg-[#4c018c]/10 rounded px-1 font-mono">
+            <span className="block text-sm sm:text-lg font-black text-[#4c018c] tracking-tight my-0.5 text-center w-full whitespace-nowrap bg-[#4c018c]/10 rounded px-1.5 font-mono">
               {formatCLP(realPostpagoComm)}
             </span>
-            <span className="block text-[10px] sm:text-xs text-[#4c018c]/90 font-black uppercase mt-0.5">
-              Metas: <strong className="text-[#4c018c] font-semibold">{currentPercentage.toFixed(1)}%</strong>
+            <span className="block text-xs sm:text-sm text-[#4c018c]/95 font-black uppercase mt-0.5">
+              Metas: <strong className="text-[#4c018c] font-black">{currentPercentage.toFixed(1)}%</strong>
             </span>
-            <span className="block text-[10px] sm:text-xs text-[#4c018c] font-black uppercase mt-1.5 bg-[#4c018c]/10 px-2 py-0.5 rounded-full select-none">
+            <span className="block text-[11px] sm:text-xs text-[#4c018c] font-black uppercase mt-1.5 bg-[#4c018c]/10 px-2 py-0.5 rounded-full select-none">
               {currentPercentage >= 70 ? '✔ Pago Activo' : 'Requiere 70%'}
             </span>
           </div>
 
           {/* Prepago card */}
           <div className="bg-[#4c018c]/5 border border-[#4c018c]/10 rounded-xl p-2.5 sm:p-4 hover:bg-[#4c018c]/10 transition-all flex flex-col items-center justify-center text-center w-full">
-            <span className="block text-[11px] sm:text-xs text-[#4c018c]/90 uppercase font-black tracking-wider mb-1 select-none">
+            <span className="block text-xs sm:text-sm text-[#4c018c]/90 uppercase font-black tracking-wider mb-1 select-none">
               Móvil Prepago
             </span>
-            <span className="block text-xs sm:text-lg font-black text-[#4c018c] tracking-tight my-0.5 text-center w-full whitespace-nowrap bg-[#4c018c]/10 rounded px-1 font-mono">
+            <span className="block text-sm sm:text-lg font-black text-[#4c018c] tracking-tight my-0.5 text-center w-full whitespace-nowrap bg-[#4c018c]/10 rounded px-1.5 font-mono">
               {formatCLP(realPrepagoComm)}
             </span>
-            <span className="block text-[10px] sm:text-xs text-[#4c018c]/90 font-black uppercase mt-0.5">
-              Metas: <strong className="text-[#4c018c] font-semibold">{prepagoPercentage.toFixed(1)}%</strong>
+            <span className="block text-xs sm:text-sm text-[#4c018c]/95 font-black uppercase mt-0.5">
+              Metas: <strong className="text-[#4c018c] font-black">{prepagoPercentage.toFixed(1)}%</strong>
             </span>
-            <span className="block text-[10px] sm:text-xs text-[#4c018c] font-black uppercase mt-1.5 bg-[#4c018c]/10 px-2 py-0.5 rounded-full select-none">
+            <span className="block text-[11px] sm:text-xs text-[#4c018c] font-black uppercase mt-1.5 bg-[#4c018c]/10 px-2 py-0.5 rounded-full select-none">
               {prepagoPercentage >= 70 ? '✔ Pago Activo' : 'Requiere 70%'}
             </span>
           </div>
 
           {/* Sumatoria Total card */}
           <div className="bg-[#4c018c]/10 border border-[#4c018c]/15 rounded-xl p-2.5 sm:p-4 hover:bg-[#4c018c]/20 transition-all flex flex-col items-center justify-center text-center w-full shadow-inner">
-            <span className="block text-[11px] sm:text-xs text-[#4c018c] uppercase font-black tracking-wider mb-1 select-none font-sans">
+            <span className="block text-xs sm:text-sm text-[#4c018c] uppercase font-black tracking-wider mb-1 select-none font-sans">
               Comisión Total
             </span>
-            <span className="block text-xs sm:text-lg font-black text-[#4c018c] tracking-tight my-0.5 text-center w-full whitespace-nowrap bg-[#4c018c]/15 rounded px-1 font-mono">
+            <span className="block text-sm sm:text-lg font-black text-[#4c018c] tracking-tight my-0.5 text-center w-full whitespace-nowrap bg-[#4c018c]/15 rounded px-1.5 font-mono">
               {formatCLP(realTotalComm)}
             </span>
-            <span className="block text-[10px] sm:text-xs text-[#4c018c] font-sans font-black uppercase mt-1.5 flex items-center justify-center space-x-0.5 bg-[#4c018c]/20 px-2 py-0.5 rounded-full select-none">
+            <span className="block text-[11px] sm:text-xs text-[#4c018c] font-sans font-black uppercase mt-1.5 flex items-center justify-center space-x-0.5 bg-[#4c018c]/20 px-2 py-0.5 rounded-full select-none">
               <Sparkles className="w-2.5 h-2.5 text-[#4c018c] animate-pulse shrink-0" />
               <span>Suma Real</span>
             </span>
@@ -479,20 +479,20 @@ export default function CommissionSimulator({
         {/* Simulator Outputs Group */}
         <div className="bg-[#4c018c]/5 border border-[#4c018c]/15 p-4 rounded-xl grid grid-cols-4 gap-2.5 text-center text-[#4c018c]">
           <div className="flex flex-col items-center justify-center border-r border-[#4c018c]/20 pr-1">
-            <span className="text-[11px] text-[#4c018c]/90 font-black uppercase tracking-wider block mb-0.5">Meta %</span>
-            <span className="text-sm font-black text-[#4c018c]">{simulatedPct}%</span>
+            <span className="text-xs text-[#4c018c]/95 font-black uppercase tracking-wider block mb-0.5">Meta %</span>
+            <span className="text-base font-black text-[#4c018c]">{simulatedPct}%</span>
           </div>
           <div className="flex flex-col items-center justify-center border-r border-[#4c018c]/20 px-1">
-            <span className="text-[11px] text-[#4c018c]/90 font-black uppercase tracking-wider block mb-0.5">Postpago</span>
-            <span className="text-xs font-black text-[#4c018c] font-mono">{formatCLP(simComm.postpago)}</span>
+            <span className="text-xs text-[#4c018c]/95 font-black uppercase tracking-wider block mb-0.5">Postpago</span>
+            <span className="text-xs sm:text-sm font-black text-[#4c018c] font-mono">{formatCLP(simComm.postpago)}</span>
           </div>
           <div className="flex flex-col items-[#4c018c] justify-center border-r border-[#4c018c]/20 px-1">
-            <span className="text-[11px] text-[#4c018c]/90 font-black uppercase tracking-wider block mb-0.5">Prepago</span>
-            <span className="text-xs font-black text-[#4c018c] font-mono">{formatCLP(simComm.prepago)}</span>
+            <span className="text-xs text-[#4c018c]/95 font-black uppercase tracking-wider block mb-0.5">Prepago</span>
+            <span className="text-xs sm:text-sm font-black text-[#4c018c] font-mono">{formatCLP(simComm.prepago)}</span>
           </div>
           <div className="flex flex-col items-[#4c018c] justify-center pl-1">
-            <span className="text-[11px] text-[#4c018c]/90 font-black uppercase tracking-wider block mb-0.5">Sim. Suma</span>
-            <span className="text-xs font-black text-[#4c018c] font-mono">{formatCLP(simComm.total)}</span>
+            <span className="text-xs text-[#4c018c]/95 font-black uppercase tracking-wider block mb-0.5">Sim. Suma</span>
+            <span className="text-xs sm:text-sm font-black text-[#4c018c] font-mono">{formatCLP(simComm.total)}</span>
           </div>
         </div>
 
@@ -508,7 +508,7 @@ export default function CommissionSimulator({
             onChange={(e) => setSimulatedPct(parseInt(e.target.value))}
             className="w-full h-2 bg-gray-100 rounded-lg appearance-none cursor-pointer accent-[#4c018c] focus:outline-none"
           />
-          <div className="flex justify-between text-[10px] text-[#4c018c]/90 font-black uppercase tracking-wider select-none px-0.5">
+          <div className="flex justify-between text-[11px] text-[#4c018c]/95 font-black uppercase tracking-wider select-none px-0.5">
             <span className="text-[#4c018c]">70% ({formatCLP(110000)})</span>
             <span>100%</span>
             <span>130%</span>

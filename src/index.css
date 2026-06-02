@@ -13,6 +13,10 @@
 }
 
 /* Custom smooth entries and scrollbar aesthetics conforming to Sleek Design HTML */
+html {
+  font-size: 118% !important; /* Globally make all rem-based typography 18% larger */
+}
+
 html, body {
   font-family: var(--font-sans);
   background-color: #4c018c; /* Deep requested purple background */
